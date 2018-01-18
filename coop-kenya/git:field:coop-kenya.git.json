@@ -1,0 +1,16 @@
+{
+    "description" : "Coop Kenya project",
+    "notifyEmailAddresses": ["vmngadi@tibco.com", "jcranfie@tibco.com"],
+    "employeePermissions" : {
+        "owners" : ["julian", "veli"],
+        "readWrite" : [],
+        "readOnly" : []
+    },
+    "contractorPermissions" : {
+        "readWrite" : [],
+        "readOnly" : []
+    },
+    "servicePermissions" : {
+        "readOnly" : []
+    }
+}

@@ -1,8 +1,8 @@
 {
     "description" : "Coop Kenya project",
-    "notifyEmailAddresses": ["vmngadi@tibco.com", "jcranfie@tibco.com"],
+    "notifyEmailAddresses": ["vmngadi@tibco.com", "jcranfie@tibco.com", "lhollyer@tibco.com"],
     "employeePermissions" : {
-        "owners" : ["julian", "veli"],
+        "owners" : ["jcranfie", "vmngadi", "lhollyer"],
         "readWrite" : [],
         "readOnly" : []
     },

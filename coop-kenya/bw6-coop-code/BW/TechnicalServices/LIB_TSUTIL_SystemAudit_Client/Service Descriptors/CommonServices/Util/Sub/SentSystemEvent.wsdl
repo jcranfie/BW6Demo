@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="urn://co-opbank.co.ke/CommonServices/TS/Util/SendSystemEvent"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="SentSystemEvent" targetNamespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendSystemEvent"
+	xmlns:xsd1="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent">
+
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import
+				namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent"
+				schemaLocation="../../../../Schemas/CommonServices/Message/TS/Util/Sub/SendAuditEvent.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="SendSystemEventRequest">
+		<wsdl:part element="xsd1:SendSystemEventRequest" name="parameters" />
+	</wsdl:message>
+	
+	<wsdl:portType name="SentSystemEvent">
+		<wsdl:operation name="SendSystemEvent">
+			<wsdl:input message="tns:SendSystemEventRequest" />
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

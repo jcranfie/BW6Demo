@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_6ZEpcLkTEeWBjLOu1iNVYg" targetNamespace="http://tns.tibco.com/bw/composite/LIB_BSServiceTemplate.module" name="LIB_BSServiceTemplate.module" compositeext:version="1.0.0" compositeext:description="Template LIB_BSServiceTemplate.module&#xD;&#xA;Version 1.0.0 - Initial release&#xA;" compositeext:formatVersion="2">
+  <sca:property xmi:id="_6bg5cLkTEeWBjLOu1iNVYg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_6blK4LkTEeWBjLOu1iNVYg" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_6bmZALkTEeWBjLOu1iNVYg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_6bnnILkTEeWBjLOu1iNVYg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_6bo1QLkTEeWBjLOu1iNVYg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_6bpcULkTEeWBjLOu1iNVYg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_6bqqcLkTEeWBjLOu1iNVYg" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_6br4kLkTEeWBjLOu1iNVYg" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_6btGsLkTEeWBjLOu1iNVYg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_iyn60MmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/log.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_lbOUwMmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/log.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ldEu4MmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/log.cache.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_le9lQMmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/exception.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_lgpnUMmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/exception.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_r4ghQMmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/exception.cache.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_IJUWYMmgEeWQeuDTVV42wg" name="/data/header/channel.esb.out" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ILT6cMmgEeWQeuDTVV42wg" name="/data/header/domain.esb.out" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+</sca:composite>

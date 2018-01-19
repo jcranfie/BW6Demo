@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common">
+
+	<!-- Imports -->
+	<xs:import schemaLocation="../../Common/1.0/Common.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Common"></xs:import>
+
+	<!-- Elements -->
+	<xs:element name="ApplicationVersion" type="xs:string" />
+	<xs:element name="AuthenticationHeader"	type="head:AuthenticationHeaderType" />
+	<xs:element name="Channel">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Address" type="xs:string" />
+	<xs:element name="Name" type="xs:string" />
+	<xs:element name="Domain" type="xs:string" />
+	<xs:element name="InstanceId" type="xs:string" />
+	<xs:element name="RequestDateTime" type="xs:dateTime" />
+	<xs:element name="RequestHeader" type="head:RequestHeaderType" />
+	<xs:element name="ResponseCode" type="xs:string" />
+	<xs:element name="ResponseHeader" type="head:ResponseHeaderType" />
+	<xs:element name="ResponseDateTime" type="xs:dateTime" />
+	<xs:element name="Source" type="head:SourceType" />
+	<xs:element name="Version" type="xs:string" />
+	<xs:element name="MIContext" type="xs:string" />
+	<xs:element name="User" type="xs:string" />
+
+	<!--  Complex Types-->
+	<xs:complexType name="RequestHeaderType">
+		<xs:sequence>
+			<xs:element minOccurs="1" ref="com:CorrelationId" />
+			<xs:element minOccurs="0" ref="com:SessionId" />
+			<xs:element minOccurs="0" ref="com:CustomerId"/>
+			<xs:element minOccurs="1" ref="head:RequestDateTime" />
+			<xs:element minOccurs="1" ref="com:OrganisationId"/>
+			<xs:element minOccurs="1" ref="com:SenderSystemId"/>
+			<xs:element minOccurs="1" ref="head:Source" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseHeaderType">
+		<xs:sequence>
+			<xs:element minOccurs="1" ref="com:CorrelationId" />
+			<xs:element minOccurs="0" ref="com:SessionId" />
+			<xs:element minOccurs="0" ref="com:CustomerId"/>
+			<xs:element minOccurs="1" ref="head:ResponseDateTime" />
+			<xs:element minOccurs="1" ref="com:OrganisationId"/>
+			<xs:element minOccurs="1" ref="com:SenderSystemId"/>
+			<xs:element minOccurs="1" ref="head:Source" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AuthenticationHeaderType">
+		<xs:sequence>
+			<xs:element minOccurs="1" name="Username" type="xs:string"/>
+			<xs:element minOccurs="1" name="Password" type="xs:string"/>
+			<xs:element minOccurs="0" name="PasswordType" type="head:PasswordTypeType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="PasswordTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Plain Text" />
+			<xs:enumeration value="Encrypted" />
+			<xs:enumeration value="X509 Certificate" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="SourceType">
+		<xs:sequence>
+			<xs:element minOccurs="0" ref="head:Domain"/>
+			<xs:element minOccurs="1" ref="head:Channel"/>
+			<xs:element minOccurs="0" ref="head:Name"/>
+			<xs:element minOccurs="0" ref="head:Address"/>
+			<xs:element minOccurs="0" ref="head:InstanceId"/>
+			<xs:element minOccurs="0" ref="head:ApplicationVersion"/>
+			<xs:element minOccurs="0" ref="head:User"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

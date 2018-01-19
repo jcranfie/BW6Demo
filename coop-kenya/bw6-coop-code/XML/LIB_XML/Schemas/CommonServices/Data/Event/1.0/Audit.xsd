@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit">
+
+	<!-- Elements -->
+	<xs:element name="AuditOptions" type="tns:AuditOptionsType" />
+	<xs:element name="AuditEnabled" type="xs:boolean" />
+	<xs:element name="AuditPayloadEnabled" type="xs:boolean" />
+	<xs:element name="AuditCacheEnabled" type="xs:boolean" default="true" />
+
+	<!-- Complex Types -->
+	<xs:complexType name="AuditOptionsType">
+		<xs:sequence>
+			<xs:element ref="tns:AuditEnabled" />
+			<xs:element ref="tns:AuditPayloadEnabled" />
+			<xs:element ref="tns:AuditCacheEnabled" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

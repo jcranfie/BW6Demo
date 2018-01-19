@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_HujncD7xEeecpodz1kmsOw" targetNamespace="http://tns.tibco.com/bw/composite/LIB_TSUTIL_SystemErrorHandler_Client" name="LIB_TSUTIL_SystemErrorHandler_Client" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_HxF-ED7xEeecpodz1kmsOw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxHzQD7xEeecpodz1kmsOw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxJocD7xEeecpodz1kmsOw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxK2kD7xEeecpodz1kmsOw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxMEsD7xEeecpodz1kmsOw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxN54D7xEeecpodz1kmsOw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxPvED7xEeecpodz1kmsOw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxQ9MD7xEeecpodz1kmsOw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxSyYD7xEeecpodz1kmsOw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UVSCgFytEee9nLBlJ1oYsQ" name="/data/services/area.short.names" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_-r8GEFytEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_PiaT8FyuEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_QXhXAFyuEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/maxtotalconnections" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_QdMhMFyuEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/maxtotalconnectionsperhost" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_QfWdUFyuEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/idleconnectiontimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_QhfyYFyuEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/sockettimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_9Rr5IFyuEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/connectiontimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_C_H9EFyvEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/retrycount" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_GYsg8FyvEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/jksurl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_x6H5EFywEee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/jkspassword" type="property:password" scaext:simpleValue="#!qGN4tY2wEEhrOFq71sNGsw==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HitUoFy9Eee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/authorization" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0DAv0Fy-Eee9nLBlJ1oYsQ" name="/resources/connections.HTTPS.Splunk/requesturi" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sdPjMFy8Eee9nLBlJ1oYsQ" name="/services.gen.util.systemerrorhandler/audittosplunk" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_9KlDMFy8Eee9nLBlJ1oYsQ" name="/services.gen.util.systemerrorhandler/auditpayloadtosplunk" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+</sca:composite>

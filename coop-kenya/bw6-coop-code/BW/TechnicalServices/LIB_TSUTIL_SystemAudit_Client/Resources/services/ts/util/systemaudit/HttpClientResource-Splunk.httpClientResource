@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:http="http://xsd.tns.tibco.com/bw/models/sharedresource/httpclient" xmlns:id="http://www.tibco.com/ws/2013/11/identity" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:sca_ext="http://www.tibco.com/ns/sca/201311" xmlns:sslclient="http://xsd.tns.tibco.com/bw/sharedresource/trinity/models/sslclient" xmi:id="_7nFkcFp9EeeeDOAJTv-D0w" name="services.ts.util.systemaudit.HttpClientResource-Splunk" type="http:HttpClientConfiguration">
+  <identitySet xmi:id="_EY9pwFp-EeeeDOAJTv-D0w" appliesTo="namedResource" name="HttpClientIdentitySet" provides="confidentiality">
+    <sca_ext:intentMap xmi:id="_EY9pwVp-EeeeDOAJTv-D0w" provides="sca_ext:confidentiality">
+      <sca_ext:qualifier xmi:id="_EY9pwlp-EeeeDOAJTv-D0w" name="transport">
+        <id:IdentityReference xmi:id="_EY-34Fp-EeeeDOAJTv-D0w" URI="services.ts.util.systemaudit.SSLClientResource-Splunk" type="sslclient:SSLClientConfiguration"/>
+      </sca_ext:qualifier>
+    </sca_ext:intentMap>
+  </identitySet>
+  <jndi:configuration xsi:type="http:HttpClientConfiguration" xmi:id="_7nFkcVp9EeeeDOAJTv-D0w" httpClientVersion="httpcomponents">
+    <substitutionBindings xmi:id="_-_oC0FzIEeeAHfucxoHRLA" template="maxTotalConnections" propName="/resources/connections.HTTPS.Splunk/maxtotalconnections"/>
+    <substitutionBindings xmi:id="_AWLmEFzJEeeAHfucxoHRLA" template="maxTotalConnectionsPerHost" propName="/resources/connections.HTTPS.Splunk/maxtotalconnectionsperhost"/>
+    <substitutionBindings xmi:id="_BZPlkFzJEeeAHfucxoHRLA" template="idleConnectionTimeout" propName="/resources/connections.HTTPS.Splunk/idleconnectiontimeout"/>
+    <substitutionBindings xmi:id="_GR5WkFzJEeeAHfucxoHRLA" template="retryCount" propName="/resources/connections.HTTPS.Splunk/retrycount"/>
+    <tcpDetails xmi:id="_7nFkclp9EeeeDOAJTv-D0w">
+      <substitutionBindings xmi:id="_8OkQcFzIEeeAHfucxoHRLA" template="host" propName="/resources/connections.HTTPS.Splunk/hostname"/>
+      <substitutionBindings xmi:id="_9Tq3UFzIEeeAHfucxoHRLA" template="port" propName="/resources/connections.HTTPS.Splunk/port"/>
+      <substitutionBindings xmi:id="_DJs2kFzJEeeAHfucxoHRLA" template="soTimeout" propName="/resources/connections.HTTPS.Splunk/sockettimeout"/>
+      <substitutionBindings xmi:id="_EZY80FzJEeeAHfucxoHRLA" template="connectionTimeout" propName="/resources/connections.HTTPS.Splunk/connectiontimeout"/>
+    </tcpDetails>
+  </jndi:configuration>
+</jndi:namedResource>

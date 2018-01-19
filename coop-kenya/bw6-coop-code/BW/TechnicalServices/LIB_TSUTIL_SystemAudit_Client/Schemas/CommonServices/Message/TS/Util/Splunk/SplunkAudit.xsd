@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkAudit"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkAudit">
+
+	<!-- Elements -->
+    <xsd:element name="time" type="xsd:string" />
+	<xsd:element name="host" type="xsd:string" />
+	<xsd:element name="source" type="xsd:string" />
+		
+	<xsd:element name="event" type="eventType" />
+	
+	<xsd:element name="correlationId" type="xsd:string" />
+	<xsd:element name="eventId" type="xsd:string" />
+	<xsd:element name="direction" type="xsd:string" />
+	<xsd:element name="eventType" type="xsd:string" />
+	<xsd:element name="exceptionCode" type="xsd:string" />
+	<xsd:element name="sessionId " type="xsd:string" />
+	<xsd:element name="customerId" type="xsd:string" />
+	<xsd:element name="tbId" type="xsd:string" />
+	<xsd:element name="srcEndpoint" type="xsd:string" />
+	<xsd:element name="destEndpoint" type="xsd:string" />
+	<xsd:element name="channel" type="xsd:string" />
+	<xsd:element name="organisationId" type="xsd:string" />
+	<xsd:element name="message" type="xsd:string" />
+	<xsd:element name="serviceName" type="xsd:string" />
+	<xsd:element name="senderSystemId" type="xsd:string" />
+	<xsd:element name="application" type="xsd:string" />
+	<xsd:element name="appNode" type="xsd:string" />
+	<xsd:element name="eventTimeStamp" type="xsd:dateTime" />
+	<xsd:element name="previousEventTimeStamp" type="xsd:dateTime" />
+
+	<xsd:element name="eventData" type="eventDataType" />
+	<xsd:element name="name" type="xsd:string" />
+	<xsd:element name="value" type="xsd:string" />
+	
+	<xsd:element name="payload" type="xsd:string" />
+	
+	<xsd:element name="SplunkAudit" type="SplunkAuditType" />	
+	
+	<!-- Complex types -->
+	<xsd:complexType name="SplunkAuditType">
+		<xsd:sequence>
+			<xsd:element minOccurs="1" maxOccurs="1" ref="time" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="host" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="source" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="event" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="eventType">
+		<xsd:sequence>		
+			<xsd:element minOccurs="1" maxOccurs="1" ref="eventId" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="eventType" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="direction" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="exceptionCode" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="sessionId" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="correlationId" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="customerId" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="organisationId" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="senderSystemId" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="tbId" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="srcEndpoint" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="destEndpoint" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="channel" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="message" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="serviceName" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="application" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="appNode" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="eventTimeStamp" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="previousEventTimeStamp" />
+			<xsd:element minOccurs="0" maxOccurs="unbounded" ref="eventData" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="payload" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="eventDataType">
+		<xsd:sequence>
+			<xsd:element minOccurs="1" maxOccurs="1" ref="name" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="value" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkEvent"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkEvent">
+
+	<!-- Elements -->
+    <xsd:element name="time" type="xsd:string" />
+	<xsd:element name="host" type="xsd:string" />
+	<xsd:element name="source" type="xsd:string" />
+		
+	<xsd:element name="event" type="eventType" />
+	
+	<xsd:element name="eventId" type="xsd:string" />
+	<xsd:element name="eventType" type="xsd:string" />
+	<xsd:element name="message" type="xsd:string" />
+	<xsd:element name="serviceName" type="xsd:string" />
+	<xsd:element name="application" type="xsd:string" />
+	<xsd:element name="applicationVersion" type="xsd:string" />
+	<xsd:element name="appNode" type="xsd:string" />
+	<xsd:element name="eventTimeStamp" type="xsd:dateTime" />
+	<xsd:element name="hostName" type="xsd:string" />
+	
+	<xsd:element name="SplunkEvent" type="SplunkEventType" />	
+	
+	<!-- Complex types -->
+	<xsd:complexType name="SplunkEventType">
+		<xsd:sequence>
+			<xsd:element minOccurs="1" maxOccurs="1" ref="time" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="host" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="source" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="event" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="eventType">
+		<xsd:sequence>		
+			<xsd:element minOccurs="1" maxOccurs="1" ref="eventId" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="eventType" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="message" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="serviceName" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="application" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="applicationVersion" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="appNode" />
+			<xsd:element minOccurs="0" maxOccurs="1" ref="hostName" />
+			<xsd:element minOccurs="1" maxOccurs="1" ref="eventTimeStamp" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+</xsd:schema>

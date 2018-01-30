@@ -19,7 +19,7 @@
 			</xs:restriction>
 		</xs:simpleType>
 	</xs:element>
-	<xs:element name="Address" type="xs:string" />
+	<xs:element name="Adds" type="xs:string" />
 	<xs:element name="Name" type="xs:string" />
 	<xs:element name="Domain" type="xs:string" />
 	<xs:element name="InstanceId" type="xs:string" />

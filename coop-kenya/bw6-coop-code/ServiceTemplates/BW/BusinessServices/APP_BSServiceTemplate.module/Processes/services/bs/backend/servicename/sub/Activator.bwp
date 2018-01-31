@@ -842,10 +842,10 @@
             sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
             sca-bpel:property="yes"
             tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.payload.enable" type="xsd:boolean"/>
-        <bpws:variable name="log.cache.enable"
+        <bpws:variable name="log.audit.remotefile.enable"
             sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
             sca-bpel:property="yes"
-            tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/log.cache.enable" type="xsd:boolean"/>
+            tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotefile.enable" type="xsd:boolean"/>
         <bpws:variable name="exception.audit.enable"
             sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
             sca-bpel:property="yes"
@@ -854,10 +854,6 @@
             sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
             sca-bpel:property="yes"
             tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.payload.enable" type="xsd:boolean"/>
-        <bpws:variable name="exception.cache.enable"
-            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
-            sca-bpel:property="yes"
-            tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.cache.enable" type="xsd:boolean"/>
         <bpws:variable name="jndi.url" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.url" type="xsd:string"/>
@@ -899,8 +895,6 @@
                                 tibex:constructor="onMessageEnd" tibex:xpdlId="eb71672c-d246-4d2a-97a5-1dbd2c7149cc"/>
                             <bpws:extensionActivity>
                                 <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;Log01-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;msgCode>&lt;xsl:value-of select=&quot;&amp;quot;ESB-CONFIG&amp;quot;&quot;/>&lt;/msgCode>&lt;message>&lt;xsl:value-of select=&quot;concat(bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;), &amp;quot;: log.audit.enable: &amp;quot;, xsd:string($log.audit.enable), &amp;quot;, log.payload.enable: &amp;quot;, xsd:string($log.payload.enable), &amp;quot;, log.cache.enable: &amp;quot;, xsd:string($log.cache.enable), &amp;quot;, exception.audit.enable: &amp;quot;, xsd:string($exception.audit.enable), &amp;quot;, exception.audit.payload.enable: &amp;quot;, xsd:string($exception.audit.payload.enable), &amp;quot;, exception.cache.enable: &amp;quot;, xsd:string($exception.cache.enable))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log01-input"
                                     name="Log01"
                                     tibex:xpdlId="418caf7f-39df-47d1-9334-99ea81d21fa2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
@@ -932,8 +926,6 @@
                             </bpws:extensionActivity>
                             <bpws:extensionActivity>
                                 <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;http.port&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;msgCode>&lt;xsl:value-of select=&quot;&amp;quot;ESB-CONFIG&amp;quot;&quot;/>&lt;/msgCode>&lt;message>&lt;xsl:value-of select=&quot;concat(bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;), &amp;quot;: HTTP Port: &amp;quot;, xsd:string($http.port))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log04-input"
                                     name="Log04"
                                     tibex:xpdlId="b88bda36-952f-4cdd-8485-fac08d8053aa" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">

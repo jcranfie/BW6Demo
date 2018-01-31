@@ -5,14 +5,12 @@
 	<xs:element name="AuditOptions" type="tns:AuditOptionsType" />
 	<xs:element name="AuditEnabled" type="xs:boolean" />
 	<xs:element name="AuditPayloadEnabled" type="xs:boolean" />
-	<xs:element name="AuditCacheEnabled" type="xs:boolean" default="true" />
 
 	<!-- Complex Types -->
 	<xs:complexType name="AuditOptionsType">
 		<xs:sequence>
 			<xs:element ref="tns:AuditEnabled" />
 			<xs:element ref="tns:AuditPayloadEnabled" />
-			<xs:element ref="tns:AuditCacheEnabled" />
 		</xs:sequence>
 	</xs:complexType>
 

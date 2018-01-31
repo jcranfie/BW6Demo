@@ -22,6 +22,7 @@
 	<xs:element name="Value" type="xs:string"/>
 	<xs:element name="EventTimeStamp" type="xs:dateTime"/>
 	<xs:element name="PreviousEventTimeStamp" type="xs:dateTime"/>
+	<xs:element name="AuditTimeStamp" type="xs:dateTime"/>
 
 	<!-- Complex Types -->
 	<xs:complexType name="AuditEventListType">
@@ -33,14 +34,10 @@
 	<xs:complexType name="AuditEventType">
 		<xs:sequence>
 			<xs:element minOccurs="1" ref="com:CorrelationId"/>
-			<xs:element minOccurs="0" ref="com:SessionId"/>
-			<xs:element minOccurs="0" ref="com:CustomerId"/>
-			<xs:element minOccurs="0" ref="com:SenderSystemId"/>
-			<xs:element minOccurs="0" ref="com:OrganisationId"/>
+			<xs:element minOccurs="0" ref="com:MessageID"/>
 			<xs:element minOccurs="1" ref="tns:EventId"/>
-			<xs:element minOccurs="1" ref="tns:EventTimestamp"/>
+			<xs:element minOccurs="1" ref="tns:AuditTimeStamp"/>
 			<xs:element minOccurs="1" ref="tns:EventType"/>
-			<xs:element minOccurs="0" ref="tns:ExceptionCode"/>
 			<xs:element maxOccurs="1" minOccurs="0" ref="tns:Message"/>
 			<xs:element maxOccurs="1" minOccurs="0" ref="tns:AuditElementList"/>
 			<xs:element minOccurs="0" ref="tns:Payload"/>

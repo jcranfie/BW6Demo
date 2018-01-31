@@ -10,19 +10,9 @@
 			</xs:restriction>
 		</xs:simpleType>
 	</xs:element>
-	<xs:element name="Domain" type="xs:string" />
-	<xs:element name="OrganisationId" type="xs:string"/>
-	<xs:element name="Payload" type="tns:PayloadType" />
-	<xs:element name="SessionId" type="xs:string"/>
-	<xs:element name="XmlString" type="xs:string" />
-	<xs:element name="SenderSystemId">
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:maxLength value="60"/>
-				<xs:minLength value="1"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
+	<xs:element name="CreationTimestamp" type="xs:string" />
+	<xs:element name="CorrelationID" type="xs:string"/>
+	<xs:element name="MessageID" type="xs:string" />
 	
 	<!-- Complex Types -->
 	<xs:complexType name="PayloadType">
@@ -31,10 +21,5 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="PayloadTextType">
-		<xs:sequence>
-			<xs:element ref="tns:XmlString" minOccurs="0" maxOccurs="1" />
-		</xs:sequence>
-	</xs:complexType>
 		
 </xs:schema>

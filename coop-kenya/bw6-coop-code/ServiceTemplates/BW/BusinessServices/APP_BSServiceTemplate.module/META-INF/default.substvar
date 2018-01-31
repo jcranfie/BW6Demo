@@ -90,8 +90,24 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.cache.enable</name>
-			<value>false</value>
+			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotefile.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotedb.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.local.enable</name>
+			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Boolean</type>
@@ -114,8 +130,24 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.cache.enable</name>
-			<value>false</value>
+			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotedb.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.local.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotefile.enable</name>
+			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Boolean</type>

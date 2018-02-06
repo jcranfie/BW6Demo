@@ -13,6 +13,8 @@
 	<xs:element name="CreationTimestamp" type="xs:string" />
 	<xs:element name="CorrelationID" type="xs:string"/>
 	<xs:element name="MessageID" type="xs:string" />
+	<xs:element name="Payload" type="tns:PayloadType" />
+	<xs:element name="Domain" type="xs:string" />
 	
 	<!-- Complex Types -->
 	<xs:complexType name="PayloadType">

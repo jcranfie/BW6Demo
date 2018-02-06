@@ -571,7 +571,6 @@
             <bendpoints points="[25, 1, -136, 0]$[137, 0, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
-    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkEvent"/>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendSystemEvent"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Util/HTTP/Headers"/>
     <bpws:partnerLinks>
@@ -678,8 +677,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendhttprequest/input+bffe04cc-b6e4-4164-a322-b4be6bc026c3+RequestActivityInput&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Util/HTTP/Headers&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;splunkAuth&quot;/>&lt;xsl:param name=&quot;splunkRequestURI&quot;/>&lt;xsl:param name=&quot;RenderJSON&quot;/>&lt;xsl:template name=&quot;SendHTTPRequest-input&quot; match=&quot;/&quot;>&lt;tns:RequestActivityInput>&lt;Method>&lt;xsl:value-of select=&quot;&amp;quot;POST&amp;quot;&quot;/>&lt;/Method>&lt;RequestURI>&lt;xsl:value-of select=&quot;$splunkRequestURI&quot;/>&lt;/RequestURI>&lt;PostData>&lt;xsl:value-of select=&quot;$RenderJSON/jsonString&quot;/>&lt;/PostData>&lt;Headers>&lt;tns1:Authorization>&lt;xsl:value-of select=&quot;$splunkAuth&quot;/>&lt;/tns1:Authorization>&lt;/Headers>&lt;/tns:RequestActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     governedObjectTypes="BWHttpReference"
                     inputVariable="SendHTTPRequest-input"
                     name="SendHTTPRequest"

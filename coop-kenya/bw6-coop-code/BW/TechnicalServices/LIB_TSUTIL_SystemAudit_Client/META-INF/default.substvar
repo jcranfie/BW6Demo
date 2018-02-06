@@ -74,6 +74,14 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
+			<name>EMSQueue</name>
+			<value></value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
 			<name>/services.gen.util.systemaudit/systemaudit/splunk/audittosplunk</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>

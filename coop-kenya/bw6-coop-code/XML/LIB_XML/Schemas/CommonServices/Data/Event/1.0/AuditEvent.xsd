@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xs:schema xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:rctx="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent">
+<xs:schema xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common" 
+		xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" 
+		xmlns:rctx="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" 
+		xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" 
+		xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent">
 
 	<!-- Imports -->
 	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Common" schemaLocation="../../Common/1.0/Common.xsd"/>

@@ -11,22 +11,22 @@
 
 	<!-- Imports -->
 	<xs:import
-		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Common.xsd"
+		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Common/1.0/Common.xsd"
 		namespace="urn://co-opbank.co.ke/CommonServices/Data/Common">
 	</xs:import>
 	<xs:import
-		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Internal/RuntimeContext.xsd"
+		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Internal/1.0/RuntimeContext.xsd"
 		namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext">
 	</xs:import>
 	<xs:import
-		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/Audit.xsd"
+		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Audit.xsd"
 		namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit">
 	</xs:import>
 	<xs:import
-		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/AuditEvent.xsd"
+		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/AuditEvent.xsd"
 		namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent">
 	</xs:import>
-	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Message/MessageHeader.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader"></xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Message/1.0/MessageHeader.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader"></xs:import>
 
 	<!-- Elements -->
 	<xs:element name="SendSystemEventRequest" type="tns:SendSystemEventRequestType" />
@@ -52,7 +52,6 @@
 	<xs:complexType name="SendAuditEventRequestType">
 		<xs:sequence>
 			<xs:element ref="audit:AuditOptions" />
-			<xs:element ref="head:Source" />
 			<xs:element ref="rtc:RuntimeContext" />
 			<xs:element maxOccurs="unbounded" minOccurs="0" ref="auditevt:AuditEvent" />
 		</xs:sequence>

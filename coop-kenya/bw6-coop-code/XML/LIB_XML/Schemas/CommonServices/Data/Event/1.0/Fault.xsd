@@ -6,7 +6,7 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified"
 	targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" 
-	xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common">
+	xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common" >
 
 	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" schemaLocation="../../Message/1.0/MessageHeader.xsd" />
 	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" schemaLocation="../../Internal/1.0/RuntimeContext.xsd" />

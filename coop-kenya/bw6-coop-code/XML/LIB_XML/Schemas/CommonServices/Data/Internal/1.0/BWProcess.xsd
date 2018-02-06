@@ -18,17 +18,11 @@
 	<xs:complexType name="BWProcessHeaders">
 		<xs:sequence>
 			<xs:element minOccurs="1" ref="com:CorrelationId"/>
-			<xs:element minOccurs="0" ref="com:SessionId"/>
-			<xs:element minOccurs="0" ref="com:CustomerId"/>
-			<xs:element minOccurs="0" ref="com:SenderSystemId" />
-			<xs:element minOccurs="0" ref="com:OrganisationId" />
-			<xs:element name="Source">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element ref="head:Source"/>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+			<xs:element minOccurs="0" ref="com:CreationTimestamp"/>
+			<xs:element minOccurs="0" ref="head:FaultTO"/>
+			<xs:element minOccurs="0" ref="head:MessageID" />
+			<xs:element minOccurs="0" ref="head:ReplyTO" />
+			<xs:element minOccurs="0" ref="head:Credentials" />
 		</xs:sequence>
 	</xs:complexType>
 	

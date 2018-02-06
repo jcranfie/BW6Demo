@@ -9,6 +9,7 @@
   <sca:property xmi:id="_siBckP4zEeSNU770OtM3HA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_siCqsP4zEeSNU770OtM3HA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_siD40P4zEeSNU770OtM3HA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_FygVYAduEeiOXYNXfVCKnA" name="EMSQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_4ZbswCGQEeWt3ppTNHKUKw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_72OjwCGQEeWt3ppTNHKUKw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_76CswCGQEeWt3ppTNHKUKw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>

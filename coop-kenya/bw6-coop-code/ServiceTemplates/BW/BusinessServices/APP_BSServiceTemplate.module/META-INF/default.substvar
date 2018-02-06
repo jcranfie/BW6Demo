@@ -74,6 +74,14 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
+			<name>EMSQueue</name>
+			<value>example</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
 			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:keystore="http://xsd.tns.tibco.com/bw/sharedresource/trinity/models/cred/keystore" xmlns:sslclient="http://xsd.tns.tibco.com/bw/sharedresource/trinity/models/sslclient" xmi:id="_KQIRcFp-EeeeDOAJTv-D0w" name="services.ts.util.systemaudit.SSLClientResource-Splunk" type="sslclient:SSLClientConfiguration">
-  <jndi:reference xmi:id="_KQIRcVp-EeeeDOAJTv-D0w" key="trustStoreServiceProvider" type="keystore:KeystoreConfiguration" value="services.ts.util.systemaudit.KeystoreProviderResource-Splunk"/>
-  <jndi:configuration xsi:type="sslclient:SSLClientConfiguration" xmi:id="_KQIRclp-EeeeDOAJTv-D0w" sslProtocol="TLSv1.2"/>
-</jndi:namedResource>

@@ -98,6 +98,30 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
+			<name>/services.bs.general.example/Example/log.audit.remotedb.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.general.example/Example/log.audit.remotefile.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.general.example/Example/log.audit.local.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
 			<name>/services.bs.general.example/Example/exception.audit.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
@@ -115,7 +139,31 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/services.bs.general.example/Example/exception.cache.enable</name>
-			<value>false</value>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.general.example/Example/exception.audit.remotedb.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.general.example/Example/exception.audit.remotefile.enable</name>
+			<value>true</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.bs.general.example/Example/exception.audit.local.enable</name>
+			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Boolean</type>

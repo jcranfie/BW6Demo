@@ -20,7 +20,6 @@
 	<xs:element name="Message" type="xs:string"/>
 	<xs:element name="EventType" type="xs:string"/>
 	<xs:element name="Payload" type="com:PayloadType"/>
-	<xs:element name="EventTimestamp" type="xs:dateTime"/>
 	<xs:element name="EventId" type="xs:string"/>
 	<xs:element name="Name" type="xs:string"/>
 	<xs:element name="Value" type="xs:string"/>
@@ -47,6 +46,7 @@
 			<xs:element minOccurs="0" ref="tns:Payload"/>
 			<xs:element minOccurs="1" ref="tns:EventTimeStamp"/>
 			<xs:element minOccurs="0" ref="tns:PreviousEventTimeStamp"/>
+			<xs:element minOccurs="0" ref="tns:ExceptionCode"/>
 		</xs:sequence>
 	</xs:complexType>
 

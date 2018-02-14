@@ -821,6 +821,14 @@
             <bendpoints points="[25, 1, -74, 0]$[75, 0, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xpath/bw-custom-functions" prefix="bw"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://tibco.com/bw/bw6/system/ModuleActivator"/>
     <bpws:partnerLinks>
         <bpws:partnerLink myRole="use" name="ModuleActivator"
@@ -867,6 +875,26 @@
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/port" type="xsd:int"/>
         <bpws:variable element="ns4:ActivityInput" name="Log04-input" sca-bpel:internal="true"/>
+        <bpws:variable name="log.audit.remotedb.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotedb.enable" type="xsd:boolean"/>
+        <bpws:variable name="log.audit.local.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.local.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.audit.remotedb.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotedb.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.audit.remotefile.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotefile.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.audit.local.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.local.enable" type="xsd:boolean"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -903,7 +931,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;Log01-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;msgCode>&lt;xsl:value-of select=&quot;&amp;quot;ESB-CONFIG&amp;quot;&quot;/>&lt;/msgCode>&lt;message>&lt;xsl:value-of select=&quot;concat(bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;), &amp;quot;: log.audit.enable: &amp;quot;, xsd:string($log.audit.enable), &amp;quot;, log.payload.enable: &amp;quot;, xsd:string($log.payload.enable), &amp;quot;, log.cache.enable: &amp;quot;, xsd:string($log.cache.enable), &amp;quot;, exception.audit.enable: &amp;quot;, xsd:string($exception.audit.enable), &amp;quot;, exception.audit.payload.enable: &amp;quot;, xsd:string($exception.audit.payload.enable), &amp;quot;, exception.cache.enable: &amp;quot;, xsd:string($exception.cache.enable))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;log.audit.enable&quot;/>&lt;xsl:param name=&quot;log.payload.enable&quot;/>&lt;xsl:param name=&quot;exception.audit.enable&quot;/>&lt;xsl:param name=&quot;exception.audit.payload.enable&quot;/>&lt;xsl:param name=&quot;log.audit.remotefile.enable&quot;/>&lt;xsl:param name=&quot;log.audit.remotedb.enable&quot;/>&lt;xsl:param name=&quot;log.audit.local.enable&quot;/>&lt;xsl:param name=&quot;exception.audit.remotedb.enable&quot;/>&lt;xsl:param name=&quot;exception.audit.remotefile.enable&quot;/>&lt;xsl:param name=&quot;exception.audit.local.enable&quot;/>&lt;xsl:template name=&quot;Log01-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;msgCode>&lt;xsl:value-of select=&quot;&amp;quot;ESB-CONFIG&amp;quot;&quot;/>&lt;/msgCode>&lt;message>&lt;xsl:value-of select=&quot;concat(bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;), &amp;quot;: log.audit.enable: &amp;quot;, xsd:string($log.audit.enable), &amp;quot;, log.payload.enable: &amp;quot;, xsd:string($log.payload.enable), &amp;quot;, log.remotedb.enable: &amp;quot;, xsd:string($log.audit.remotedb.enable), &amp;quot;, log.remotefile.enable: &amp;quot;, xsd:string($log.audit.remotefile.enable), &amp;quot;, log.local.enable: &amp;quot;, xsd:string($log.audit.local.enable), &amp;quot;, exception.audit.enable: &amp;quot;, xsd:string($exception.audit.enable), &amp;quot;, exception.audit.payload.enable: &amp;quot;, xsd:string($exception.audit.payload.enable), &amp;quot;, exception.remotedb.enable: &amp;quot;, xsd:string($exception.audit.remotedb.enable), &amp;quot;, exception.remotefile.enable: &amp;quot;, xsd:string($exception.audit.remotefile.enable), &amp;quot;, exception.local.enable: &amp;quot;, xsd:string($exception.audit.local.enable))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:config>
                                     <bwext:BWActivity

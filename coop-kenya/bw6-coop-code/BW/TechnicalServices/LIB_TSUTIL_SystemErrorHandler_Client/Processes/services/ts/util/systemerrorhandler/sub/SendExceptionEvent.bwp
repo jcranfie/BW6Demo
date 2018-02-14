@@ -167,187 +167,6 @@
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
         </schema>
-        <schema
-            targetNamespace="activity.jsonRender.output+0d9f12e9-75f4-4006-83f3-7c9334ed6c7a+ActivityOutputType"
-            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="activity.jsonRender.output+0d9f12e9-75f4-4006-83f3-7c9334ed6c7a+ActivityOutputType">
-            <complexType name="ActivityOutputClassType">
-                <sequence>
-                    <element maxOccurs="1" minOccurs="1"
-                        name="jsonString" type="string"/>
-                </sequence>
-            </complexType>
-            <element name="ActivityOutputClass" type="tns:ActivityOutputClassType"/>
-        </schema>
-        <schema elementFormDefault="unqualified"
-            targetNamespace="http://xmlns.tibco.com/encodings/mime"
-            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.tibco.com/encodings/mime">
-            <complexType name="mimePartType">
-                <sequence>
-                    <element maxOccurs="1" minOccurs="1"
-                        name="mimeHeaders" type="tns:mimeHeadersType"/>
-                    <choice>
-                        <element name="binaryContent" type="base64Binary"/>
-                        <element name="textContent" type="string"/>
-                        <element name="fileName" type="string"/>
-                    </choice>
-                </sequence>
-            </complexType>
-            <complexType name="mimeHeadersType">
-                <sequence>
-                    <element maxOccurs="1" minOccurs="0"
-                        name="content-disposition" type="string"/>
-                    <element maxOccurs="1" minOccurs="1"
-                        name="content-type" type="string"/>
-                    <element maxOccurs="1" minOccurs="0"
-                        name="content-transfer-encoding" type="string"/>
-                    <element maxOccurs="1" minOccurs="0"
-                        name="content-id" type="string"/>
-                    <any maxOccurs="unbounded" minOccurs="0"
-                        namespace="##any" processContents="lax"/>
-                </sequence>
-            </complexType>
-            <complexType name="mimeEnvelopeElementType">
-                <sequence>
-                    <element maxOccurs="unbounded" minOccurs="0"
-                        name="mimePart" type="tns:mimePartType"/>
-                </sequence>
-            </complexType>
-            <element name="mimeEnvelopeElement" type="tns:mimeEnvelopeElementType"/>
-        </schema>
-        <schema elementFormDefault="unqualified"
-            targetNamespace="http://tns.tibco.com/bw/activity/sendhttprequest/input+248309c1-b17f-4033-acd7-716f1f627529+RequestActivityInput"
-            xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:Q1="urn://co-opbank.co.ke/CommonServices/Util/HTTP/Headers"
-            xmlns:ns0="http://xmlns.tibco.com/encodings/mime" xmlns:tns="http://tns.tibco.com/bw/activity/sendhttprequest/input+248309c1-b17f-4033-acd7-716f1f627529+RequestActivityInput">
-            <import namespace="urn://co-opbank.co.ke/CommonServices/Util/HTTP/Headers"/>
-            <import namespace="http://xmlns.tibco.com/encodings/mime"/>
-            <complexType name="inputHeadersType">
-                <sequence>
-                    <element form="unqualified" minOccurs="0"
-                        name="Accept" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Accept-Charset" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Accept-Encoding" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Content-Type" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Cookie" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Pragma" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="DynamicHeaders">
-                <sequence>
-                    <element form="unqualified" maxOccurs="unbounded"
-                        minOccurs="0" name="Header" type="tns:Header"/>
-                </sequence>
-            </complexType>
-            <complexType name="Header">
-                <sequence>
-                    <element form="unqualified" name="Name" type="string"/>
-                    <element form="unqualified" name="Value" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="statusLineType">
-                <sequence>
-                    <element form="unqualified" minOccurs="0"
-                        name="httpVersion" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="statusCode" type="int"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="reasonPhrase" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="RequestActivityInput">
-                <sequence>
-                    <element form="unqualified" minOccurs="0"
-                        name="Host" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Port" type="int"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Method" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="RequestURI" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="PostData" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="QueryString" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Timeout" type="int"/>
-                    <element maxOccurs="1" minOccurs="0" name="Headers" type="Q1:HTTPHeader"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="DynamicHeaders" type="tns:DynamicHeaders"/>
-                    <element minOccurs="0" ref="ns0:mimeEnvelopeElement"/>
-                </sequence>
-            </complexType>
-            <element name="RequestActivityInput" type="tns:RequestActivityInput"/>
-        </schema>
-        <schema elementFormDefault="unqualified"
-            targetNamespace="http://tns.tibco.com/bw/activity/sendhttprequest/output+248309c1-b17f-4033-acd7-716f1f627529+RequestActivityOutput"
-            xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:ns0="http://xmlns.tibco.com/encodings/mime" xmlns:tns="http://tns.tibco.com/bw/activity/sendhttprequest/output+248309c1-b17f-4033-acd7-716f1f627529+RequestActivityOutput">
-            <import namespace="http://xmlns.tibco.com/encodings/mime"/>
-            <complexType name="outputHeadersType">
-                <sequence>
-                    <element form="unqualified" minOccurs="0"
-                        name="Allow" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Content-Type" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Content-Length" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Content-Encoding" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Date" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Location" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Set-Cookie" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="Pragma" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="DynamicHeaders">
-                <sequence>
-                    <element form="unqualified" maxOccurs="unbounded"
-                        minOccurs="0" name="Header" type="tns:Header"/>
-                </sequence>
-            </complexType>
-            <complexType name="Header">
-                <sequence>
-                    <element form="unqualified" name="Name" type="string"/>
-                    <element form="unqualified" name="Value" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="statusLineType">
-                <sequence>
-                    <element form="unqualified" minOccurs="0"
-                        name="httpVersion" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="statusCode" type="int"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="reasonPhrase" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="RequestActivityOutput">
-                <sequence>
-                    <element form="unqualified" minOccurs="0"
-                        name="Header" type="string"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="statusLine" type="tns:statusLineType"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="binaryContent" type="base64Binary"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="asciiContent" type="string"/>
-                    <element maxOccurs="1" minOccurs="0" name="Headers" type="tns:outputHeadersType"/>
-                    <element form="unqualified" minOccurs="0"
-                        name="DynamicHeaders" type="tns:DynamicHeaders"/>
-                    <element minOccurs="0" ref="ns0:mimeEnvelopeElement"/>
-                </sequence>
-            </complexType>
-            <element name="RequestActivityOutput" type="tns:RequestActivityOutput"/>
-        </schema>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
             targetNamespace="http://www.tibco.com/pe/WriteToLogActivitySchema"
@@ -365,89 +184,6 @@
             </xs:complexType>
             <xs:element name="ActivityInput" type="tns:LogParametersType"/>
         </xs:schema>
-        <schema attributeFormDefault="unqualified"
-            elementFormDefault="unqualified"
-            targetNamespace="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions"
-            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions">
-            <complexType name="StatusLineType">
-                <sequence>
-                    <element name="httpVersion" type="string"/>
-                    <element name="statusCode" type="integer"/>
-                    <element name="reasonPhrase" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="HeadersType">
-                <sequence>
-                    <any maxOccurs="unbounded" minOccurs="0" processContents="lax"/>
-                </sequence>
-            </complexType>
-            <complexType name="HttpMessageType">
-                <sequence>
-                    <element name="headers" type="tns:HeadersType"/>
-                    <element minOccurs="0" name="binaryContent" type="base64Binary"/>
-                    <element minOccurs="0" name="asciiContent" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="BaseExceptionType">
-                <sequence>
-                    <element form="unqualified" name="msg" type="string"/>
-                    <element form="unqualified" name="msgCode" type="string"/>
-                </sequence>
-            </complexType>
-            <complexType name="HttpExceptionType">
-                <complexContent>
-                    <extension base="tns:BaseExceptionType"/>
-                </complexContent>
-            </complexType>
-            <complexType name="HttpClientExceptionType">
-                <complexContent>
-                    <extension base="tns:HttpResponseExceptionType"/>
-                </complexContent>
-            </complexType>
-            <complexType name="HttpCommunicationExceptionType">
-                <complexContent>
-                    <extension base="tns:BaseExceptionType"/>
-                </complexContent>
-            </complexType>
-            <complexType name="HttpResponseExceptionType">
-                <complexContent>
-                    <extension base="tns:BaseExceptionType">
-                        <sequence>
-                            <element name="statusLine" type="tns:StatusLineType"/>
-                            <element minOccurs="0" name="httpMessage" type="tns:HttpMessageType"/>
-                        </sequence>
-                    </extension>
-                </complexContent>
-            </complexType>
-            <complexType name="HttpServerExceptionType">
-                <complexContent>
-                    <extension base="tns:HttpResponseExceptionType"/>
-                </complexContent>
-            </complexType>
-            <element name="HttpClientException" type="tns:HttpClientExceptionType"/>
-            <element name="HttpCommunicationException" type="tns:HttpCommunicationExceptionType"/>
-            <element name="HttpException" type="tns:HttpExceptionType"/>
-            <element name="HttpResponseException" type="tns:HttpResponseExceptionType"/>
-            <element name="HttpServerException" type="tns:HttpServerExceptionType"/>
-            <element name="ActivityTimedOutException" type="tns:BaseExceptionType"/>
-        </schema>
-        <schema elementFormDefault="unqualified"
-            targetNamespace="http://tns.tibco.com/bw/palette/internal/errorlinkhandler+248309c1-b17f-4033-acd7-716f1f627529"
-            xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:Q1="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions"
-            xmlns:Q2="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions" xmlns:tns="http://tns.tibco.com/bw/palette/internal/errorlinkhandler+248309c1-b17f-4033-acd7-716f1f627529">
-            <import namespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"/>
-            <import namespace="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions"/>
-            <element name="ErrorLinkHandlerFaultData" type="tns:ErrorLinkHandlerFaultDataType"/>
-            <complexType name="ErrorLinkHandlerFaultDataType">
-                <choice>
-                    <element maxOccurs="1" minOccurs="0" ref="Q1:HttpClientException"/>
-                    <element maxOccurs="1" minOccurs="0" ref="Q1:HttpServerException"/>
-                    <element maxOccurs="1" minOccurs="0" ref="Q1:HttpCommunicationException"/>
-                    <element maxOccurs="1" minOccurs="0" ref="Q2:ActivityTimedOutException"/>
-                </choice>
-            </complexType>
-        </schema>
         <wsdl:definitions
             targetNamespace="http://xmlns.example.com/20170523143834PLT"
             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
@@ -571,82 +307,6 @@
                                     <layoutConstraint x="-25"
                                     xsi:type="notation:Bounds" y="158"/>
                                     </children>
-                                    <children type="4002 bw.restjson.JsonRender">
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
-                                    <layoutConstraint
-                                    height="40" width="40"
-                                    x="259"
-                                    xsi:type="notation:Bounds" y="159"/>
-                                    </children>
-                                    <children type="4002 bw.http.sendHTTPRequest">
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
-                                    <layoutConstraint
-                                    height="40" width="40"
-                                    x="412"
-                                    xsi:type="notation:Bounds" y="159"/>
-                                    </children>
                                     <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Empty">
                                     <children type="4017">
                                     <styles
@@ -679,7 +339,7 @@
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
                                     <layoutConstraint
                                     height="40" width="40"
                                     x="84"
@@ -717,7 +377,7 @@
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
                                     <layoutConstraint
                                     height="40" width="40"
                                     x="255"
@@ -755,7 +415,7 @@
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
                                     <layoutConstraint
                                     height="40" width="40"
                                     x="478"
@@ -809,7 +469,7 @@
         <element href="//0"/>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
@@ -820,53 +480,43 @@
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002" visible="false">
+                <layoutConstraint x="-4" xsi:type="notation:Location" y="-13"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
             target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
-            <bendpoints points="[25, 1, -163, 0]$[164, 0, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
-            <children type="6002">
-                <layoutConstraint x="-4" xsi:type="notation:Location" y="-13"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.2"/>
-            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
             <bendpoints
                 points="[25, 17, -146, -105]$[147, 105, -24, -17]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="255" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@links/@children.4"/>
-            <bendpoints
-                points="[0, 25, -66, -97]$[0, 122, -66, 0]$[42, 122, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
-        </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent" prefix="tns3"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" prefix="tns2"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Common" prefix="tns1"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"/>
-    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkException"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Util/HTTP/Headers"/>
     <bpws:partnerLinks>
         <bpws:partnerLink myRole="use" name="SendExceptionEvent"
@@ -879,10 +529,6 @@
             name="SendExceptionEvent" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns1:SendExceptionEventRequest"
             name="SendExceptionEventIn" sca-bpel:internal="true"/>
-        <bpws:variable element="ns2:SplunkAudit"
-            name="CreateSplunkJSON-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns3:ActivityOutputClass"
-            name="CreateSplunkJSON" sca-bpel:internal="true"/>
         <bpws:variable name="httpClientResource-Splunk"
             sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
             sca-bpel:property="yes"
@@ -891,10 +537,6 @@
                 <bpws:literal>services.ts.util.systemerrorhandler.HttpClientResource-Splunk</bpws:literal>
             </bpws:from>
         </bpws:variable>
-        <bpws:variable element="ns4:RequestActivityInput"
-            name="SendToSplunk-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns5:RequestActivityOutput"
-            name="SendToSplunk" sca-bpel:internal="true"/>
         <bpws:variable name="splunkAuth" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/resources/connections.HTTPS.Splunk/authorization" type="xsd:string"/>
@@ -907,12 +549,6 @@
             sca-bpel:property="yes"
             tibex:propertySource="/resources/connections.HTTPS.Splunk/requesturi" type="xsd:string"/>
         <bpws:variable element="ns6:ActivityInput" name="LogError-input" sca-bpel:internal="true"/>
-        <bpws:variable name="FaultName" sca-bpel:internal="true" type="xsd:string"/>
-        <bpws:variable element="ns0:ErrorReport" name="_error" sca-bpel:internal="true"/>
-        <bpws:variable element="ns0:OptionalErrorReport"
-            name="_errorOptional" sca-bpel:internal="true"/>
-        <bpws:variable element="ns7:ErrorLinkHandlerFaultData"
-            name="_error_SendToSplunk" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -926,11 +562,9 @@
         <bpws:flow name="flow">
             <bpws:links>
                 <bpws:link name="SendExceptionEventInToCreateSplunkJSON" tibex:linkType="SUCCESS"/>
-                <bpws:link name="CreateSplunkJSONToSendToSplunk" tibex:linkType="SUCCESS"/>
-                <bpws:link name="EmptyToCreateSplunkJSON_AuditToSplunk"
+                <bpws:link name="EmptyToLogError"
                     tibex:label="AuditToSplunk" tibex:linkType="SUCCESSWITHCONDITION"/>
                 <bpws:link name="EmptyToLog" tibex:linkType="SUCCESSWITHCONDITION"/>
-                <bpws:link name="SendToSplunkToLog1" tibex:linkType="ERROR"/>
             </bpws:links>
             <bpws:receive createInstance="yes"
                 name="SendExceptionEventIn"
@@ -942,101 +576,17 @@
                     <bpws:source linkName="SendExceptionEventInToCreateSplunkJSON"/>
                 </bpws:sources>
             </bpws:receive>
-            <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkException&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns4=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendExceptionEventIn&quot;/>&lt;xsl:template name=&quot;CreateSplunkJSON-input&quot; match=&quot;/&quot;>&lt;ns:SplunkAudit>&lt;xsl:variable name=&quot;varRequest&quot; select=&quot;$SendExceptionEventIn/parameters/tns1:SendExceptionEventRequest&quot;/>&lt;ns:time>&lt;xsl:value-of select=&quot;(adjust-dateTime-to-timezone($varRequest/tns:Fault/tns:ExceptionTimestamp, xsd:dayTimeDuration('PT0H')) - adjust-dateTime-to-timezone(xsd:dateTime('1970-01-01T00:00:00'), xsd:dayTimeDuration('PT0H'))) div xsd:dayTimeDuration('PT1S')&quot;/>&lt;/ns:time>&lt;ns:host>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:Hostname&quot;/>&lt;/ns:host>&lt;ns:source>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:SenderSystemId&quot;/>&lt;/ns:source>&lt;ns:event>&lt;ns:correlationId>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:CorrelationId&quot;/>&lt;/ns:correlationId>&lt;ns:exceptionEventId>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionId&quot;/>&lt;/ns:exceptionEventId>&lt;ns:eventType>&lt;xsl:value-of select=&quot;&amp;quot;Exception&amp;quot;&quot;/>&lt;/ns:eventType>&lt;ns:exceptionCode>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionCode&quot;/>&lt;/ns:exceptionCode>&lt;ns:exceptionName>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionName&quot;/>&lt;/ns:exceptionName>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:SessionId&quot;>&lt;ns:sessionId>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:SessionId&quot;/>&lt;/ns:sessionId>&lt;/xsl:if>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:CustomerId&quot;>&lt;ns:customerId>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:CustomerId&quot;/>&lt;/ns:customerId>&lt;/xsl:if>&lt;ns:organisationId>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:OrganisationId&quot;/>&lt;/ns:organisationId>&lt;ns:exceptionDecription>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionDescription&quot;/>&lt;/ns:exceptionDecription>&lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditEnabled = true()&quot;>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:ExceptionDetails&quot;>&lt;ns:exceptionDetails>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionDetails&quot;/>&lt;/ns:exceptionDetails>&lt;/xsl:if>&lt;/xsl:if>&lt;ns:serviceName>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:ServiceName&quot;/>&lt;/ns:serviceName>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:Application&quot;>&lt;ns:application>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:Application&quot;/>&lt;/ns:application>&lt;/xsl:if>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:AppNode&quot;>&lt;ns:appNode>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:AppNode&quot;/>&lt;/ns:appNode>&lt;/xsl:if>&lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditEnabled = true()&quot;>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:ActivityName&quot;>&lt;ns:activityName>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:ActivityName&quot;/>&lt;/ns:activityName>&lt;/xsl:if>&lt;/xsl:if>&lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditEnabled = true()&quot;>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:Msg&quot;>&lt;ns:message>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:Msg&quot;/>&lt;/ns:message>&lt;/xsl:if>&lt;/xsl:if>&lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditEnabled = true()&quot;>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:MsgCode&quot;>&lt;ns:messageCode>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:MsgCode&quot;/>&lt;/ns:messageCode>&lt;/xsl:if>&lt;/xsl:if>&lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditPayloadEnabled = true()&quot;>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:ProcessStack&quot;>&lt;ns:processStack>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:ProcessStack&quot;/>&lt;/ns:processStack>&lt;/xsl:if>&lt;/xsl:if>&lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditPayloadEnabled = true()&quot;>&lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:StackTrace&quot;>&lt;ns:stackTrace>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:StackTrace&quot;/>&lt;/ns:stackTrace>&lt;/xsl:if>&lt;/xsl:if>&lt;ns:exceptionTimeStamp>&lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionTimestamp&quot;/>&lt;/ns:exceptionTimeStamp>&lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditPayloadEnabled = true() and exists($varRequest/tns:Fault/tns3:Payload)&quot;>&lt;ns:payload>&lt;xsl:value-of select=&quot;tib:render-xml($varRequest/tns:Fault/tns3:Payload/*, true(), false())&quot;/>&lt;/ns:payload>&lt;/xsl:if>&lt;/ns:event>&lt;/ns:SplunkAudit>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="CreateSplunkJSON-input"
-                    name="CreateSplunkJSON"
-                    outputVariable="CreateSplunkJSON"
-                    tibex:xpdlId="0d9f12e9-75f4-4006-83f3-7c9334ed6c7a" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
-                    <bpws:targets>
-                        <bpws:target linkName="EmptyToCreateSplunkJSON_AuditToSplunk"/>
-                    </bpws:targets>
-                    <bpws:sources>
-                        <bpws:source linkName="CreateSplunkJSONToSendToSplunk"/>
-                    </bpws:sources>
-                    <tibex:inputBindings>
-                        <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:ns=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkException&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns4=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SendExceptionEventIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;CreateSplunkJSON-input&quot; match=&quot;/&quot;>&#xa;        &lt;ns:SplunkAudit>&#xa;            &lt;xsl:variable name=&quot;varRequest&quot; select=&quot;$SendExceptionEventIn.parameters&quot;/>&#xa;            &lt;ns:time>&#xa;                &lt;xsl:value-of select=&quot;(adjust-dateTime-to-timezone($varRequest/tns:Fault/tns:ExceptionTimestamp, xsd:dayTimeDuration('PT0H')) - adjust-dateTime-to-timezone(xsd:dateTime('1970-01-01T00:00:00'), xsd:dayTimeDuration('PT0H'))) div xsd:dayTimeDuration('PT1S')&quot;/>&#xa;            &lt;/ns:time>&#xa;            &lt;ns:host>&#xa;                &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:Hostname&quot;/>&#xa;            &lt;/ns:host>&#xa;            &lt;ns:source>&#xa;                &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:SenderSystemId&quot;/>&#xa;            &lt;/ns:source>&#xa;            &lt;ns:event>&#xa;                &lt;ns:correlationId>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:CorrelationId&quot;/>&#xa;                &lt;/ns:correlationId>&#xa;                &lt;ns:exceptionEventId>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionId&quot;/>&#xa;                &lt;/ns:exceptionEventId>&#xa;                &lt;ns:eventType>&#xa;                    &lt;xsl:value-of select=&quot;&amp;quot;Exception&amp;quot;&quot;/>&#xa;                &lt;/ns:eventType>&#xa;                &lt;ns:exceptionCode>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionCode&quot;/>&#xa;                &lt;/ns:exceptionCode>&#xa;                &lt;ns:exceptionName>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionName&quot;/>&#xa;                &lt;/ns:exceptionName>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:SessionId&quot;>&#xa;                    &lt;ns:sessionId>&#xa;                        &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:SessionId&quot;/>&#xa;                    &lt;/ns:sessionId>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:CustomerId&quot;>&#xa;                    &lt;ns:customerId>&#xa;                        &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:CustomerId&quot;/>&#xa;                    &lt;/ns:customerId>&#xa;                &lt;/xsl:if>&#xa;                &lt;ns:organisationId>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultHeader/tns3:OrganisationId&quot;/>&#xa;                &lt;/ns:organisationId>&#xa;                &lt;ns:exceptionDecription>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionDescription&quot;/>&#xa;                &lt;/ns:exceptionDecription>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditEnabled = true()&quot;>&#xa;                    &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:ExceptionDetails&quot;>&#xa;                        &lt;ns:exceptionDetails>&#xa;                            &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionDetails&quot;/>&#xa;                        &lt;/ns:exceptionDetails>&#xa;                    &lt;/xsl:if>&#xa;                &lt;/xsl:if>&#xa;                &lt;ns:serviceName>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:ServiceName&quot;/>&#xa;                &lt;/ns:serviceName>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:Application&quot;>&#xa;                    &lt;ns:application>&#xa;                        &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:Application&quot;/>&#xa;                    &lt;/ns:application>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:AppNode&quot;>&#xa;                    &lt;ns:appNode>&#xa;                        &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns2:RuntimeContext/tns2:AppNode&quot;/>&#xa;                    &lt;/ns:appNode>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditEnabled = true()&quot;>&#xa;                    &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:ActivityName&quot;>&#xa;                        &lt;ns:activityName>&#xa;                            &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:ActivityName&quot;/>&#xa;                        &lt;/ns:activityName>&#xa;                    &lt;/xsl:if>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditEnabled = true()&quot;>&#xa;                    &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:Msg&quot;>&#xa;                        &lt;ns:message>&#xa;                            &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:Msg&quot;/>&#xa;                        &lt;/ns:message>&#xa;                    &lt;/xsl:if>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditEnabled = true()&quot;>&#xa;                    &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:MsgCode&quot;>&#xa;                        &lt;ns:messageCode>&#xa;                            &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:MsgCode&quot;/>&#xa;                        &lt;/ns:messageCode>&#xa;                    &lt;/xsl:if>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditPayloadEnabled = true()&quot;>&#xa;                    &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:ProcessStack&quot;>&#xa;                        &lt;ns:processStack>&#xa;                            &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:ProcessStack&quot;/>&#xa;                        &lt;/ns:processStack>&#xa;                    &lt;/xsl:if>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditPayloadEnabled = true()&quot;>&#xa;                    &lt;xsl:if test=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:StackTrace&quot;>&#xa;                        &lt;ns:stackTrace>&#xa;                            &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:FaultDetails/tns:StackTrace&quot;/>&#xa;                        &lt;/ns:stackTrace>&#xa;                    &lt;/xsl:if>&#xa;                &lt;/xsl:if>&#xa;                &lt;ns:exceptionTimeStamp>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/tns:Fault/tns:ExceptionTimestamp&quot;/>&#xa;                &lt;/ns:exceptionTimeStamp>&#xa;                &lt;xsl:if test=&quot;$varRequest/tns4:AuditOptions/tns4:AuditPayloadEnabled = true() and exists($varRequest/tns:Fault/tns3:Payload)&quot;>&#xa;                    &lt;ns:payload>&#xa;                        &lt;xsl:value-of select=&quot;tib:render-xml($varRequest/tns:Fault/tns3:Payload/*, true(), false())&quot;/>&#xa;                    &lt;/ns:payload>&#xa;                &lt;/xsl:if>&#xa;            &lt;/ns:event>&#xa;        &lt;/ns:SplunkAudit>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                    </tibex:inputBindings>
-                    <tibex:config>
-                        <bwext:BWActivity
-                            activityTypeID="bw.restjson.JsonRender"
-                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
-                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
-                            xmlns:restjson="http://ns.tibco.com/bw/palette/restjson" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                            <activityConfig>
-                                <properties name="config" xsi:type="activityconfig:EMFProperty">
-                                    <type href="http://ns.tibco.com/bw/palette/restjson#//JsonRender"/>
-                                    <value jsonOutputStyle="None"
-                                    schemaType="Xsd" xsi:type="restjson:JsonRender">
-                                    <inputEditorElement href="platform:/resource/LIB_TSUTIL_SystemErrorHandler_Client/Schemas/CommonServices/Message/TS/Util/Splunk/SplunkException.xsd#//SplunkAudit;XSDElementDeclaration=27"/>
-                                    </value>
-                                </properties>
-                            </activityConfig>
-                        </bwext:BWActivity>
-                    </tibex:config>
-                </tibex:activityExtension>
-            </bpws:extensionActivity>
-            <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendhttprequest/input+248309c1-b17f-4033-acd7-716f1f627529+RequestActivityInput&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Util/HTTP/Headers&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CreateSplunkJSON&quot;/>&lt;xsl:param name=&quot;splunkAuth&quot;/>&lt;xsl:param name=&quot;splunkRequestURI&quot;/>&lt;xsl:template name=&quot;SendToSplunk-input&quot; match=&quot;/&quot;>&lt;tns:RequestActivityInput>&lt;Method>&lt;xsl:value-of select=&quot;&amp;quot;POST&amp;quot;&quot;/>&lt;/Method>&lt;RequestURI>&lt;xsl:value-of select=&quot;$splunkRequestURI&quot;/>&lt;/RequestURI>&lt;PostData>&lt;xsl:value-of select=&quot;$CreateSplunkJSON/jsonString&quot;/>&lt;/PostData>&lt;Headers>&lt;tns1:Authorization>&lt;xsl:value-of select=&quot;$splunkAuth&quot;/>&lt;/tns1:Authorization>&lt;/Headers>&lt;/tns:RequestActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    governedObjectTypes="BWHttpReference"
-                    inputVariable="SendToSplunk-input"
-                    name="SendToSplunk" outputVariable="SendToSplunk"
-                    tibex:xpdlId="248309c1-b17f-4033-acd7-716f1f627529" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
-                    <bpws:targets>
-                        <bpws:target linkName="CreateSplunkJSONToSendToSplunk"/>
-                    </bpws:targets>
-                    <bpws:sources>
-                        <bpws:source linkName="SendToSplunkToLog1"
-                            tibex:faultDetailsVar="SendToSplunk" tibex:faultNameVar="FaultName">
-                            <tibex:DesignExpression>
-                                <tibex:expression expression="##error##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
-                            </tibex:DesignExpression>
-                            <bpws:transitionCondition><![CDATA[##error##]]></bpws:transitionCondition>
-                        </bpws:source>
-                    </bpws:sources>
-                    <tibex:inputBindings>
-                        <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendhttprequest/input+248309c1-b17f-4033-acd7-716f1f627529+RequestActivityInput&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Util/HTTP/Headers&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CreateSplunkJSON&quot;/>&lt;xsl:param name=&quot;splunkAuth&quot;/>&lt;xsl:param name=&quot;splunkRequestURI&quot;/>&lt;xsl:template name=&quot;SendToSplunk-input&quot; match=&quot;/&quot;>&lt;tns:RequestActivityInput>&lt;Method>&lt;xsl:value-of select=&quot;&amp;quot;POST&amp;quot;&quot;/>&lt;/Method>&lt;RequestURI>&lt;xsl:value-of select=&quot;$splunkRequestURI&quot;/>&lt;/RequestURI>&lt;PostData>&lt;xsl:value-of select=&quot;$CreateSplunkJSON/jsonString&quot;/>&lt;/PostData>&lt;Headers>&lt;tns1:Authorization>&lt;xsl:value-of select=&quot;$splunkAuth&quot;/>&lt;/tns1:Authorization>&lt;/Headers>&lt;/tns:RequestActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                    </tibex:inputBindings>
-                    <tibex:config>
-                        <bwext:BWActivity
-                            activityTypeID="bw.http.sendHTTPRequest"
-                            version="6.0.0.20132205"
-                            xmlns:Headers="urn://co-opbank.co.ke/CommonServices/Util/HTTP/Headers"
-                            xmlns:RequestActivityOutput="http://tns.tibco.com/bw/activity/sendhttprequest/output+248309c1-b17f-4033-acd7-716f1f627529+RequestActivityOutput"
-                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
-                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
-                            xmlns:http="http://ns.tibco.com/bw/palette/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                            <activityConfig>
-                                <properties name="config" xsi:type="activityconfig:EMFProperty">
-                                    <type href="http://ns.tibco.com/bw/palette/http#//SendHTTPRequest"/>
-                                    <value
-                                    httpClientResource="httpClientResource-Splunk"
-                                    inputHeadersQName="Headers:HTTPHeader"
-                                    outputHeadersQName="RequestActivityOutput:outputHeadersType"
-                                    postDataAs="String" xsi:type="http:SendHTTPRequest"/>
-                                </properties>
-                            </activityConfig>
-                        </bwext:BWActivity>
-                    </tibex:config>
-                </tibex:activityExtension>
-            </bpws:extensionActivity>
             <bpws:empty name="Empty" tibex:xpdlId="4a3eb393-7545-446b-851b-f8a0b41f93d6">
                 <bpws:targets>
                     <bpws:target linkName="SendExceptionEventInToCreateSplunkJSON"/>
                 </bpws:targets>
                 <bpws:sources>
-                    <bpws:source linkName="EmptyToCreateSplunkJSON_AuditToSplunk">
+                    <bpws:source linkName="EmptyToLogError">
                         <tibex:DesignExpression>
                             <tibex:expression
-                                expression="$SendExceptionEventIn/parameters/tns1:SendExceptionEventRequest/tns:AuditOptions/tns:AuditEnabled = true() and $auditToSplunk = true()" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                expression="$SendExceptionEventIn/parameters/tns1:SendExceptionEventRequest/tns:AuditOptions/tns:AuditEnabled = true()" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
                         </tibex:DesignExpression>
-                        <bpws:transitionCondition><![CDATA[$SendExceptionEventIn.parameters/tns:AuditOptions/tns:AuditEnabled = true() and $auditToSplunk = true()]]></bpws:transitionCondition>
+                        <bpws:transitionCondition><![CDATA[$SendExceptionEventIn.parameters/tns:AuditOptions/tns:AuditEnabled = true()]]></bpws:transitionCondition>
                     </bpws:source>
                     <bpws:source linkName="EmptyToLog">
                         <tibex:DesignExpression>
@@ -1049,7 +599,7 @@
             </bpws:empty>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendExceptionEventIn&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;xsl:variable name=&quot;varFault&quot; select=&quot;$SendExceptionEventIn/parameters/tns3:SendExceptionEventRequest/tns2:Fault&quot;/>&lt;message>&lt;xsl:value-of select=&quot;concat($varFault/tns2:FaultHeader/tns1:CorrelationId,&amp;quot; : &amp;quot;, xsd:string($varFault/tns2:ExceptionTimestamp), &amp;quot; : &amp;quot;,$varFault/tns2:ExceptionCode, &amp;quot; : &amp;quot;, tib:render-xml($varFault, true(), false()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendExceptionEventIn&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;xsl:variable name=&quot;varFault&quot; select=&quot;$SendExceptionEventIn/parameters/tns3:SendExceptionEventRequest/tns2:Fault&quot;/>&lt;message>&lt;xsl:value-of select=&quot;concat($varFault/tns2:FaultHeader/tns1:CorrelationID,&amp;quot; : &amp;quot;, xsd:string($varFault/tns2:ExceptionTimestamp), &amp;quot; : &amp;quot;,$varFault/tns2:ExceptionCode, &amp;quot; : &amp;quot;, tib:render-xml($varFault, true(), false()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="Log-input" name="Log"
                     tibex:xpdlId="a3e1886b-8182-4a94-86ea-8752e4d8e5a2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
@@ -1058,7 +608,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SendExceptionEventIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ActivityInput>&#xa;            &lt;xsl:variable name=&quot;varFault&quot; select=&quot;$SendExceptionEventIn.parameters/tns2:Fault&quot;/>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;concat($varFault/tns2:FaultHeader/tns1:CorrelationId,&amp;quot; : &amp;quot;, xsd:string($varFault/tns2:ExceptionTimestamp), &amp;quot; : &amp;quot;,$varFault/tns2:ExceptionCode, &amp;quot; : &amp;quot;, tib:render-xml($varFault, true(), false()))&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SendExceptionEventIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ActivityInput>&#xa;            &lt;xsl:variable name=&quot;varFault&quot; select=&quot;$SendExceptionEventIn.parameters/tns2:Fault&quot;/>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;concat($varFault/tns2:FaultHeader/tns1:CorrelationID,&amp;quot; : &amp;quot;, xsd:string($varFault/tns2:ExceptionTimestamp), &amp;quot; : &amp;quot;,$varFault/tns2:ExceptionCode, &amp;quot; : &amp;quot;, tib:render-xml($varFault, true(), false()))&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -1080,16 +630,16 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CreateSplunkJSON&quot;/>&lt;xsl:param name=&quot;_error_SendToSplunk&quot;/>&lt;xsl:template name=&quot;Log1-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to log to splunk : &amp;quot;, $CreateSplunkJSON/jsonString, &amp;quot; : &amp;quot;, tib:render-xml($_error_SendToSplunk, true(), false()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendExceptionEventIn&quot;/>&lt;xsl:template name=&quot;LogError-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to log to database : &amp;quot;, $SendExceptionEventIn/parameters/tns3:SendExceptionEventRequest/tns2:Fault/tns2:ExceptionName)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="LogError-input" name="LogError"
                     tibex:xpdlId="83f5d768-f464-4493-9076-3111196013c6" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
-                        <bpws:target linkName="SendToSplunkToLog1"/>
+                        <bpws:target linkName="EmptyToLogError"/>
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;CreateSplunkJSON&quot;/>&lt;xsl:param name=&quot;_error_SendToSplunk&quot;/>&lt;xsl:template name=&quot;Log1-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to log to splunk : &amp;quot;, $CreateSplunkJSON/jsonString, &amp;quot; : &amp;quot;, tib:render-xml($_error_SendToSplunk, true(), false()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SendExceptionEventIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;LogError-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ActivityInput>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to log to database : &amp;quot;, $SendExceptionEventIn.parameters/tns2:Fault/tns2:ExceptionName)&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

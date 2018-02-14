@@ -74,14 +74,6 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>EMSQueue</name>
-			<value></value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
 			<name>/services.gen.util.systemaudit/systemaudit/splunk/audittosplunk</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
@@ -98,99 +90,67 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/hostname</name>
-			<value>localhost</value>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.context.factory</name>
+			<value>com.tibco.tibjms.naming.TibjmsInitialContextFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/port</name>
-			<value>8088</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/maxtotalconnections</name>
-			<value>200</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/maxtotalconnectionsperhost</name>
-			<value>20</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/idleconnectiontimeout</name>
-			<value>200</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/sockettimeout</name>
-			<value>200</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/connectiontimeout</name>
-			<value>100</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/retrycount</name>
-			<value>1</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/jksurl</name>
-			<value>/opt/tibco/certs/splunk.jks</value>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.url</name>
+			<value>tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/jkspassword</name>
-			<value>#!APZEHDilUt2fxFqZGgRA7ZHrpK0AlEff</value>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.username</name>
+			<value>bw</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.password</name>
+			<value>#!m1AIsjYoKb7+8Y7I6OW6AA==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/authorization</name>
-			<value>Splunk 19B9D402-D429-4A15-AF74-91333C5C5F8A</value>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/queue.connection.factory</name>
+			<value>QueueConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/connections.HTTPS.Splunk/requesturi</name>
-			<value>/services/collector</value>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/topic.connection.factory</name>
+			<value>TopicConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/username</name>
+			<value>bw</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/password</name>
+			<value>#!TBI1GWOElUv6jDLPlRVNog==</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 	</globalVariables>

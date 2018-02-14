@@ -11,11 +11,11 @@
 	xmlns:bwp="urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess">
 
 	<!-- Imports -->
-	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/Audit.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit"></xs:import>
-	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Common.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Common"></xs:import>
-	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/Fault.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"></xs:import>
-	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Message/MessageHeader.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader"></xs:import>
-	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Internal/BWProcess.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess"></xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Audit.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit"></xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Common/1.0/Common.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Common"></xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Fault.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"></xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Message/1.0/MessageHeader.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader"></xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Internal/1.0/BWProcess.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess"></xs:import>
 
 	<!-- Elements -->	
 	<xs:element name="CreateExceptionEventRequest" type="tns:CreateExceptionEventRequestType" />
@@ -27,7 +27,6 @@
 			<xs:element ref="audit:AuditOptions" />
 			<xs:element minOccurs="0" ref="com:Domain" />
 			<xs:element ref="com:CorrelationId" />
-			<xs:element minOccurs="0" ref="com:SessionId" />
 			<xs:element ref="fault:ExceptionTimestamp" />
 			<xs:element ref="fault:ExceptionName" />
 			<xs:element ref="fault:FaultDetails" />

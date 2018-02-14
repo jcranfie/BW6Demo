@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_nu5J0AWWEeitJ9BlpQjevQ" name="services.ts.util.systemaudit.JMSClientResource" type="jms:JMSConnectionFactory">
-  <jndi:reference xmi:id="_nu80MAWWEeitJ9BlpQjevQ" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="services.ts.example.serviceexample.JNDIClient-ESB01"/>
-  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_nu80MQWWEeitJ9BlpQjevQ" factoryType="Queue/Topic" jndiName="QueueConnectionFactory" topicFactoryJNDIName="TopicConnectionFactory"/>
+  <jndi:reference xmi:id="_nu80MAWWEeitJ9BlpQjevQ" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="services.ts.util.systemaudit.JNDIClientResource-Audit"/>
+  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_nu80MQWWEeitJ9BlpQjevQ" factoryType="Queue/Topic">
+    <substitutionBindings xmi:id="_-xRY4As_Eei03IGadQTSDg" template="jndiName" propName="/resources/services.ts.util.system.audit/Client-AUDIT/queue.connection.factory"/>
+    <substitutionBindings xmi:id="_--ShMAs_Eei03IGadQTSDg" template="topicFactoryJNDIName" propName="/resources/services.ts.util.system.audit/Client-AUDIT/topic.connection.factory"/>
+  </jndi:configuration>
 </jndi:namedResource>

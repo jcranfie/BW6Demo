@@ -588,22 +588,11 @@
         <bpws:variable name="httpClientResource-Splunk"
             sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
             sca-bpel:property="yes"
-            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/httpclient}HttpClientConfiguration" type="xsd:string">
-            <bpws:from>
-                <bpws:literal>services.ts.util.systemaudit.HttpClientResource-Splunk</bpws:literal>
-            </bpws:from>
-        </bpws:variable>
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/httpclient}HttpClientConfiguration" type="xsd:string"/>
         <bpws:variable element="ns5:RequestActivityInput"
             name="SendHTTPRequest-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns6:RequestActivityOutput"
             name="SendHTTPRequest" sca-bpel:internal="true"/>
-        <bpws:variable name="splunkAuth" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes"
-            tibex:propertySource="/resources/connections.HTTPS.Splunk/authorization" type="xsd:string"/>
-        <bpws:variable name="splunkRequestURI"
-            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
-            sca-bpel:property="yes"
-            tibex:propertySource="/resources/connections.HTTPS.Splunk/requesturi" type="xsd:string"/>
         <bpws:variable name="auditToSplunk" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/services.gen.util.systemaudit/systemaudit/splunk/audittosplunk" type="xsd:boolean"/>

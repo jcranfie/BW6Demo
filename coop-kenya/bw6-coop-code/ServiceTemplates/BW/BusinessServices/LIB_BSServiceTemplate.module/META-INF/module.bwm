@@ -11,10 +11,14 @@
   <sca:property xmi:id="_6btGsLkTEeWBjLOu1iNVYg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_iyn60MmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/log.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_lbOUwMmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/log.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_ldEu4MmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/log.cache.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_le9lQMmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/exception.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_lgpnUMmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/exception.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_r4ghQMmhEeWQeuDTVV42wg" name="/services.ts.backend.servicename/TSService/exception.cache.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_36-1MBGPEei94siUyQKlTw" name="/services.ts.backend.servicename/TSService/log.audit.remotedb.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_3-Z8oBGPEei94siUyQKlTw" name="/services.ts.backend.servicename/TSService/log.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4BshMBGPEei94siUyQKlTw" name="/services.ts.backend.servicename/TSService/log.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4FFzcBGPEei94siUyQKlTw" name="/services.ts.backend.servicename/TSService/exception.audit.remotedb.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4IlzYBGPEei94siUyQKlTw" name="/services.ts.backend.servicename/TSService/exception.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4L2iwBGPEei94siUyQKlTw" name="/services.ts.backend.servicename/TSService/exception.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_IJUWYMmgEeWQeuDTVV42wg" name="/data/header/channel.esb.out" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_ILT6cMmgEeWQeuDTVV42wg" name="/data/header/domain.esb.out" type="XMLSchema:string" publicAccess="true" scalable="true"/>
 </sca:composite>

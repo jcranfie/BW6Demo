@@ -90,14 +90,6 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.general.serviceexample/TSExample/log.cache.enable</name>
-			<value>false</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Boolean</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
 			<name>/services.ts.general.serviceexample/TSExample/exception.audit.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
@@ -115,6 +107,54 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/services.ts.general.serviceexample/TSExample/exception.cache.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.serviceexample/TSExample/log.audit.remotedb.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.serviceexample/TSExample/log.audit.remotefile.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.serviceexample/TSExample/log.audit.local.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.serviceexample/TSExample/exception.audit.remotedb.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.serviceexample/TSExample/exception.audit.remotefile.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.serviceexample/TSExample/exception.audit.local.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>

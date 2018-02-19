@@ -380,6 +380,20 @@
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" prefix="tns1"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" prefix="tns4"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" prefix="head"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" prefix="tns3"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" prefix="tns2"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent"/>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"/>
     <bpws:partnerLinks>
@@ -455,10 +469,10 @@
                 partnerLink="SendAuditEvent"
                 portType="ns1:SendAuditEvent" tibex:xpdlId="482b8ce9-b24d-4b3a-9f89-0daeb8f67ad9">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns1="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" xmlns:tns2="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:tns3="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:tns4="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" version="2.0"&gt;&lt;xsl:param name="Start"/&gt;&lt;xsl:template name="Invoke-input" match="/"&gt;&lt;tns1:SendAuditEventRequest&gt;&lt;parameters&gt;&lt;tns2:SendAuditEventRequest&gt;&lt;xsl:copy-of select="$Start/tns:AuditOptions"/&gt;&lt;xsl:copy-of select="$Start/head:Source"/&gt;&lt;xsl:copy-of select="$Start/tns3:RuntimeContext"/&gt;&lt;xsl:copy-of select="$Start/tns4:AuditEvent"/&gt;&lt;/tns2:SendAuditEventRequest&gt;&lt;/parameters&gt;&lt;/tns1:SendAuditEventRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns1="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" xmlns:tns2="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:tns3="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:tns4="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" version="2.0"&gt;&lt;xsl:param name="Start"/&gt;&lt;xsl:template name="Invoke-input" match="/"&gt;&lt;tns1:SendAuditEventRequest&gt;&lt;parameters&gt;&lt;tns2:SendAuditEventRequest&gt;&lt;xsl:copy-of select="$Start/tns:AuditOptions"/&gt;&lt;xsl:copy-of select="$Start/tns3:RuntimeContext"/&gt;&lt;xsl:copy-of select="$Start/tns4:AuditEvent"/&gt;&lt;/tns2:SendAuditEventRequest&gt;&lt;/parameters&gt;&lt;/tns1:SendAuditEventRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
                     <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext&quot; xmlns:tns4=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Start&quot;/>&#xa;    &lt;xsl:template name=&quot;Invoke-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:SendAuditEventRequest>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns:AuditOptions&quot;/>&#xa;            &lt;xsl:copy-of select=&quot;$Start/head:Source&quot;/>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns3:RuntimeContext&quot;/>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns4:AuditEvent&quot;/>&#xa;        &lt;/tns2:SendAuditEventRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext&quot; xmlns:tns4=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Start&quot;/>&#xa;    &lt;xsl:template name=&quot;Invoke-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:SendAuditEventRequest>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns:AuditOptions&quot;/>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns3:RuntimeContext&quot;/>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns4:AuditEvent&quot;/>&#xa;        &lt;/tns2:SendAuditEventRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                 </tibex:inputBindings>
                 <bpws:targets>
                     <bpws:target linkName="StartToInvoke"/>

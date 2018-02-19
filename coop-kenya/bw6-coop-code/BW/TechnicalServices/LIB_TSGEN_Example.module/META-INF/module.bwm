@@ -15,6 +15,12 @@
   <sca:property xmi:id="_le9lQMmhEeWQeuDTVV42wg" name="/services.ts.general.example/TSExample/exception.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_lgpnUMmhEeWQeuDTVV42wg" name="/services.ts.general.example/TSExample/exception.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_r4ghQMmhEeWQeuDTVV42wg" name="/services.ts.general.example/TSExample/exception.cache.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_AnJEEBJAEei94siUyQKlTw" name="/services.ts.general.example/TSExample/log.audit.remotedb.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ByL64BJAEei94siUyQKlTw" name="/services.ts.general.example/TSExample/log.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CFTrMBJAEei94siUyQKlTw" name="/services.ts.general.example/TSExample/log.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CX_9sBJAEei94siUyQKlTw" name="/services.ts.general.example/TSExample/exception.audit.remotedb.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CrrusBJAEei94siUyQKlTw" name="/services.ts.general.example/TSExample/exception.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_DBIaQBJAEei94siUyQKlTw" name="/services.ts.general.example/TSExample/exception.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_vqzKQMppEeW_7rgVeQxGpA" name="/services.ts.general.example/TSExample/general/BACKEND/timeout" type="XMLSchema:int" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_Ixp1wMpxEeW_7rgVeQxGpA" name="/services.ts.general.example/TSExample/general/BACKEND/endpoint.uri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="__Qi1QMpXEeWr149IS24UBw" name="/resources/services.ts.general.example/Client-GEN-http/hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>

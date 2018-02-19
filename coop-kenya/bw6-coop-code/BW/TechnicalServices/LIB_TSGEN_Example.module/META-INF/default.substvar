@@ -122,6 +122,54 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
+			<name>/services.ts.general.example/TSExample/log.audit.remotedb.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.example/TSExample/log.audit.remotefile.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.example/TSExample/log.audit.local.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.example/TSExample/exception.audit.remotedb.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.example/TSExample/exception.audit.remotefile.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.general.example/TSExample/exception.audit.local.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
 			<name>/services.ts.general.example/TSExample/general/BACKEND/timeout</name>
 			<value>30</value>
 			<deploymentSettable>false</deploymentSettable>

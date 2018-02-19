@@ -122,6 +122,54 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
+			<name>/services.ts.backend.servicename/TSService/log.audit.remotedb.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.backend.servicename/TSService/log.audit.remotefile.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.backend.servicename/TSService/log.audit.local.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.backend.servicename/TSService/exception.audit.remotedb.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.backend.servicename/TSService/exception.audit.remotefile.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/services.ts.backend.servicename/TSService/exception.audit.local.enable</name>
+			<value>false</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Boolean</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
 			<name>/services.ts.backend.servicename/TSService/backend/BACKEND/timeout</name>
 			<value>30</value>
 			<deploymentSettable>false</deploymentSettable>

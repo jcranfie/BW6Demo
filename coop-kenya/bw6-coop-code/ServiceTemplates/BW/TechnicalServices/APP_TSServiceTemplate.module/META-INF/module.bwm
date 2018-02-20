@@ -16,6 +16,12 @@
   <sca:property xmi:id="_-FgtEMp5EeW_7rgVeQxGpA" name="/services.ts.backend.servicename/TSService/exception.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_-JUPAMp5EeW_7rgVeQxGpA" name="/services.ts.backend.servicename/TSService/exception.cache.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_5tm7oMscEeWh752vwu3HDA" name="/services.ts.backend.servicename/TSService/jms.queue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_XgcrIBWCEeie28s1fSTo7w" name="/services.ts.backend.servicename/TSService/log.audit.remotedb.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_X0BucBWCEeie28s1fSTo7w" name="/services.ts.backend.servicename/TSService/log.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_X4mFYBWCEeie28s1fSTo7w" name="/services.ts.backend.servicename/TSService/log.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_X8nCsBWCEeie28s1fSTo7w" name="/services.ts.backend.servicename/TSService/exception.audit.remotedb.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YAp1MBWCEeie28s1fSTo7w" name="/services.ts.backend.servicename/TSService/exception.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_YEhokBWCEeie28s1fSTo7w" name="/services.ts.backend.servicename/TSService/exception.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="__PRxgMp5EeW_7rgVeQxGpA" name="/services.ts.backend.servicename/TSService/backend/BACKEND/timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_AlaeAMp6EeW_7rgVeQxGpA" name="/services.ts.backend.servicename/TSService/backend/BACKEND/endpoint.uri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_nDAg4MsgEeWh752vwu3HDA" name="/services.ts.util.flushexceptionevents/FlushExceptionEvents/max.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>

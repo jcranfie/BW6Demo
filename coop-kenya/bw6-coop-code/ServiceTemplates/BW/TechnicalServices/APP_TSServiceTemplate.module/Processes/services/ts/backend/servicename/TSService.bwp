@@ -6,6 +6,7 @@
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:info="http://www.tibco.com/bw/process/info"
     xmlns:ns="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns0="http://www.example.org/wsdl/1519743994673"
     xmlns:ns1="http://xmlns.example.com/20160204091829PLT"
     xmlns:ns10="http://tns.tibco.com/bw/activity/sendhttprequest/input+60000f73-a666-4799-b4f7-b3946967f6fd+RequestActivityInput"
     xmlns:ns11="http://tns.tibco.com/bw/activity/sendhttprequest/output+60000f73-a666-4799-b4f7-b3946967f6fd+RequestActivityOutput"
@@ -303,6 +304,7 @@
             targetNamespace="http://xmlns.example.com/20160204091829PLT"
             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
             xmlns:ptyp="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent"
+            xmlns:ptyp2="http://www.example.org/wsdl/1519743994673"
             xmlns:ptyp5="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"
             xmlns:ptyp6="http://www.tibco.com/SendAuditEvent/"
             xmlns:ptyp7="http://tibco.com/bw/bw6/system/ModuleActivator"
@@ -319,10 +321,14 @@
             <plnk:partnerLinkType name="partnerLinkType1">
                 <plnk:role name="use" portType="ptyp5:SendExceptionEvent"/>
             </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType3">
+                <plnk:role name="use" portType="ptyp2:TSServiceName"/>
+            </plnk:partnerLinkType>
             <wsdl:import namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent"/>
             <wsdl:import namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"/>
             <wsdl:import namespace="http://tibco.com/bw/bw6/system/ModuleActivator"/>
             <wsdl:import namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"/>
+            <wsdl:import namespace="http://www.example.org/wsdl/1519743994673"/>
         </wsdl:definitions>
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="SUP-Ayelp"
@@ -1646,6 +1652,7 @@ Version 0.4.2 - 2016/02/09:&#xd;
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent"/>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"/>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://www.example.org/wsdl/1519743994673"/>
     <bpws:partnerLinks>
         <bpws:partnerLink name="CreateExceptionEvent"
             partnerLinkType="ns1:partnerLinkType" partnerRole="use"
@@ -1670,6 +1677,9 @@ Version 0.4.2 - 2016/02/09:&#xd;
                 processConfigurationName=""
                 processName="services.ts.util.systemaudit.sub.SendAuditEvent" serviceName="SendAuditEvent"/>
         </bpws:partnerLink>
+        <bpws:partnerLink myRole="use" name="TSServiceName"
+            partnerLinkType="ns1:partnerLinkType3"
+            sca-bpel:ignore="false" sca-bpel:service="TSServiceName"/>
     </bpws:partnerLinks>
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
@@ -1731,7 +1741,8 @@ Version 0.4.2 - 2016/02/09:&#xd;
             name="Reply_TechnicalFault-input" sca-bpel:internal="true"/>
         <bpws:variable messageType="BackEndFault"
             name="Reply_BusinessFault-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="Fault" name="Reply_Fault-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns0:operationResponse"
+            name="Reply_Fault-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns10:RequestActivityInput"
             name="SendHTTPRequest-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns11:RequestActivityOutput"
@@ -2065,9 +2076,10 @@ Version 0.4.2 - 2016/02/09:&#xd;
                                 <bpws:source linkName="Reply2ToInvoke"/>
                             </bpws:sources>
                         </bpws:reply>
-                        <bpws:reply faultName="Fault" name="Reply_Fault"
-                            operation="GetVehicleDetails"
-                            portType="GetVehicleDetails"
+                        <bpws:reply name="Reply_Fault"
+                            operation="operation"
+                            partnerLink="TSServiceName"
+                            portType="ns0:TSServiceName"
                             tibex:xpdlId="ec9c2446-a1b1-4c28-8cfe-01b1e488107d" variable="Reply_Fault-input">
                             <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"&gt;&lt;xsl:param name="CreateExceptionEvent"/&gt;&lt;xsl:template name="Reply_Fault-input" match="/"&gt;&lt;tns2:Fault&gt;&lt;parameters&gt;&lt;xsl:copy-of select="$CreateExceptionEvent/parameters/tns1:CreateExceptionEventResponse/tns1:Response/tns:Fault"/&gt;&lt;/parameters&gt;&lt;/tns2:Fault&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
@@ -2131,10 +2143,6 @@ Version 0.4.2 - 2016/02/09:&#xd;
                     <bpws:sources>
                         <bpws:source linkName="AssignToGetVehicleDetailsOut"/>
                     </bpws:sources>
-                    <tibex:inputBindings>
-                        <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:bwp=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&lt;xsl:template name=&quot;BWProcessHeaders&quot; match=&quot;/&quot;>&lt;bwp:BWProcessHeaders>&lt;tns:CorrelationId>&lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&lt;/tns:CorrelationId>&lt;xsl:if test=&quot;$BWProcessHeaders/tns:CreationTimestamp&quot;>&lt;tns:CreationTimestamp>&lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CreationTimestamp&quot;/>&lt;/tns:CreationTimestamp>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:FaultTO&quot;>&lt;head:FaultTO>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:FaultTO&quot;/>&lt;/head:FaultTO>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:MessageID&quot;>&lt;head:MessageID>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:MessageID&quot;/>&lt;/head:MessageID>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:ReplyTO&quot;>&lt;head:ReplyTO>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:ReplyTO&quot;/>&lt;/head:ReplyTO>&lt;/xsl:if>&lt;head:Credentials>&lt;xsl:if test=&quot;$BWProcessHeaders/head:Credentials/head:Username&quot;>&lt;head:Username>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:Credentials/head:Username&quot;/>&lt;/head:Username>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:Credentials/head:Password&quot;>&lt;head:Password>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:Credentials/head:Password&quot;/>&lt;/head:Password>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:Credentials/head:Realm&quot;>&lt;head:Realm>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:Credentials/head:Realm&quot;/>&lt;/head:Realm>&lt;/xsl:if>&lt;/head:Credentials>&lt;/bwp:BWProcessHeaders>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                    </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
                             activityTypeID="bw.generalactivities.bwassign"
@@ -2190,10 +2198,6 @@ Version 0.4.2 - 2016/02/09:&#xd;
                     <bpws:sources>
                         <bpws:source linkName="AssignStartTimeToScope"/>
                     </bpws:sources>
-                    <tibex:inputBindings>
-                        <tibex:inputBinding
-                            expression="dateTime(current-date(), current-time())" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
-                    </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
                             activityTypeID="bw.generalactivities.bwassign"
@@ -2220,10 +2224,6 @@ Version 0.4.2 - 2016/02/09:&#xd;
                     <bpws:sources>
                         <bpws:source linkName="Assign3ToGetVehicleDetailsOut"/>
                     </bpws:sources>
-                    <tibex:inputBindings>
-                        <tibex:inputBinding
-                            expression="dateTime(current-date(), current-time())" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
-                    </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
                             activityTypeID="bw.generalactivities.bwassign"
@@ -2346,10 +2346,6 @@ Version 0.4.2 - 2016/02/09:&#xd;
                             <bpws:sources>
                                 <bpws:source linkName="SendHTTPRequestToGroupEnd"/>
                             </bpws:sources>
-                            <tibex:inputBindings>
-                                <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendhttprequest/input+60000f73-a666-4799-b4f7-b3946967f6fd+RequestActivityInput&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;backend.timeout&quot;/>&lt;xsl:template name=&quot;SendHTTPRequest-input&quot; match=&quot;/&quot;>&lt;tns:RequestActivityInput>&lt;Timeout>&lt;xsl:value-of select=&quot;$backend.timeout&quot;/>&lt;/Timeout>&lt;/tns:RequestActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                            </tibex:inputBindings>
                             <tibex:config>
                                 <bwext:BWActivity
                                     activityTypeID="bw.http.sendHTTPRequest"

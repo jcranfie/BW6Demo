@@ -6,7 +6,7 @@
 
 		</xsd:schema>
 		<xsd:schema xmlns:svr1="urn://co-opbank.co.ke/CommonServices/TS/CI/Data/Message/AdapterPlan">
-			<xsd:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" schemaLocation="../../../../../../../../../SourceControl/XML/LIB_XML/Schemas/CommonServices/Data/Event/Fault.xsd">
+			<xsd:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" schemaLocation="../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Fault.xsd">
 			</xsd:import>
 			<xsd:import namespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName" schemaLocation="../../../../../Schemas/CommonServices/Message/BS/BackEnd/ServiceName/ServiceName.xsd">
 			</xsd:import>

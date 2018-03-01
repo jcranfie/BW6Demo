@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/schema/1519731689261" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://www.example.org/schema/1519731689261">
-  <element name="GetCustomerDetailRequest">
-    <complexType>
-      <sequence>
-        <element name="in" type="string"/>
-      </sequence>
-    </complexType>
-  </element>
-  <element name="GetCustomerDetailResponse">
-    <complexType>
-      <sequence>
-        <element name="out" type="string"/>
-      </sequence>
-    </complexType>
-  </element>
-</schema>
+<xsd:schema elementFormDefault="unqualified" targetNamespace="urn://co-opbank.co.ke/ts/gen/customerdetails" xmlns="urn://co-opbank.co.ke/ts/gen/customerdetails" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:header="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader">
+    <xsd:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" schemaLocation="../../../../XML/LIB_XML/Schemas/CommonServices/Data/Message/1.0/MessageHeader.xsd"></xsd:import>
+    <xsd:element name="GetCustomerDetailRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element name="RequestHeader" type="header:RequestHeaderType" />
+        <xsd:element name="in" type="xsd:string" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCustomerDetailResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element name="ResponseHeader" type="header:ResponseHeaderType" />
+        <xsd:element name="out" type="xsd:string" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

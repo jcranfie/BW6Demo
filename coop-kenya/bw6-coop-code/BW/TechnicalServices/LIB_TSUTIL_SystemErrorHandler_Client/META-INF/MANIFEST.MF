@@ -20,11 +20,7 @@ Provide-Capability: com.tibco.bw.module; name="LIB_TSUTIL_SystemErrorHandler_Cli
  com.tibco.bw.schemas; ns="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent",
  com.tibco.bw.wsdls; ns="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent",
  com.tibco.bw.wsdls; ns="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent",
- com.tibco.bw.processes; name="services.ts.util.systemerrorhandler.sub",
  com.tibco.bw.resources; name="services.ts.util.systemerrorhandler",
- com.tibco.bw.processes; name="services",
- com.tibco.bw.processes; name="services.ts",
- com.tibco.bw.processes; name="services.ts.util",
- com.tibco.bw.processes; name="services.ts.util.systemerrorhandler",
- com.tibco.bw.resources; name="services"
+ com.tibco.bw.resources; name="services",
+ com.tibco.bw.processes; name="services.ts.util.systemerrorhandler.sub"
 TIBCO-BW-Version: 6.3.5 V17 2017-02-02

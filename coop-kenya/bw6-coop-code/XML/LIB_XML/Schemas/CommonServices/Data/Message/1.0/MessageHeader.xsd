@@ -10,14 +10,6 @@
 
 	<!-- Elements -->
 	<xs:element name="ApplicationVersion" type="xs:string" />
-	<xs:element name="Channel">
-		<xs:simpleType>
-			<xs:restriction base="xs:string">
-				<xs:minLength value="1"/>
-				<xs:maxLength value="30"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:element>
 	<xs:element name="RequestHeader" type="head:RequestHeaderType" />
 	<xs:element name="ResponseHeader" type="head:ResponseHeaderType" />
 	

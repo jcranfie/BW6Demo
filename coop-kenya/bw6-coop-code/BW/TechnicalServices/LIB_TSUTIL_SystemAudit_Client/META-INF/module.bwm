@@ -9,8 +9,6 @@
   <sca:property xmi:id="__h9ZcD7wEeecpodz1kmsOw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="__h_OoD7wEeecpodz1kmsOw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="__iBD0D7wEeecpodz1kmsOw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
-  <sca:property xmi:id="_Qq1dQFs9Eeev1N12hcXzKg" name="/services.gen.util.systemaudit/systemaudit/splunk/audittosplunk" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_X1lMsFs9Eeev1N12hcXzKg" name="/services.gen.util.systemaudit/systemaudit/splunk/auditpayloadtosplunk" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_OUC_sAs_Eei03IGadQTSDg" name="/resources/services.ts.util.system.audit/Client-AUDIT/jndi.context.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_jh6EkAs_Eei03IGadQTSDg" name="/resources/services.ts.util.system.audit/Client-AUDIT/jndi.url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_jlQ6kAs_Eei03IGadQTSDg" name="/resources/services.ts.util.system.audit/Client-AUDIT/jndi.username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
@@ -19,4 +17,5 @@
   <sca:property xmi:id="_jpD1cAs_Eei03IGadQTSDg" name="/resources/services.ts.util.system.audit/Client-AUDIT/topic.connection.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_jqRWYAs_Eei03IGadQTSDg" name="/resources/services.ts.util.system.audit/Client-AUDIT/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_jrfeYAs_Eei03IGadQTSDg" name="/resources/services.ts.util.system.audit/Client-AUDIT/password" type="property:password" scaext:simpleValue="#!0PvfgF66ccu1foV1sVl57Q==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_JKXAsBxkEei_2rd-NyP-Xg" name="/resources/services.ts.util.system.audit/Client-AUDIT/logger.queue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
 </sca:composite>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wsdl:definitions xmlns:extns="http://www.example.org/schema/1519384718234" xmlns:fault="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:svr="urn://co-opbank.co.ke/CommonServices/TS/CI/Data/Message/AdapterPlan" xmlns:tns="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Servicename" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceName" targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Servicename">
+    <wsdl:import namespace="http://www.example.org/schema/1519384718234"/>
     <wsdl:types>
 		<xsd:schema targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Servicename/Types">
 
@@ -35,8 +36,8 @@
     <wsdl:part element="extns:GetCustomerDetailsRequest" name="parameters"/>
   </wsdl:message>
     <wsdl:message name="GetCustomerDetailsResponse">
-    <wsdl:part element="extns:GetCustomerDetailsResponse" name="parameters"/>
-  </wsdl:message>
+        <wsdl:part element="extns:GetCustomerDetailsResponse" name="parameters"/>
+    </wsdl:message>
     <wsdl:portType name="GetCustomerDetails">
 		<wsdl:operation name="ServiceName">
 			<wsdl:input message="tns:ServiceNameRequest"/>

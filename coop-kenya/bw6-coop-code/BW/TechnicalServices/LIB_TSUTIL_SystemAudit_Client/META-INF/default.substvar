@@ -74,22 +74,6 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.gen.util.systemaudit/systemaudit/splunk/audittosplunk</name>
-			<value>false</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Boolean</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.gen.util.systemaudit/systemaudit/splunk/auditpayloadtosplunk</name>
-			<value>false</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Boolean</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.context.factory</name>
 			<value>com.tibco.tibjms.naming.TibjmsInitialContextFactory</value>
 			<deploymentSettable>false</deploymentSettable>
@@ -99,7 +83,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.url</name>
-			<value>tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222</value>
+			<value>tibjmsnaming://35.178.36.140:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -151,6 +135,14 @@
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/resources/services.ts.util.system.audit/Client-AUDIT/logger.queue</name>
+			<value>bw.util.systemaudit.logger.q</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 	</globalVariables>

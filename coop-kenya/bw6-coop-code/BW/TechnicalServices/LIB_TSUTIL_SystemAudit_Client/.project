@@ -3,7 +3,6 @@
 	<name>LIB_TSUTIL_SystemAudit_Client</name>
 	<comment></comment>
 	<projects>
-		<project>LIB_BSGEN_ServiceExample.module</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

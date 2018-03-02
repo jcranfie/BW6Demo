@@ -1386,7 +1386,7 @@
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.2"/>
             <bendpoints
-                points="[25, 0, -129, 305]$[154, 0, 0, 305]$[154, -280, 0, 25]" xsi:type="notation:RelativeBendpoints"/>
+                points="[25, 0, -135, 237]$[84, 0, -76, 237]$[84, -224, -76, 13]$[136, -224, -24, 13]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1"
@@ -1486,7 +1486,7 @@
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.6"/>
             <bendpoints
-                points="[25, 0, -303, -158]$[140, 0, -188, -158]$[140, 164, -188, 6]$[304, 164, -24, 6]" xsi:type="notation:RelativeBendpoints"/>
+                points="[25, 0, -297, -231]$[140, 0, -182, -231]$[140, 213, -182, -18]$[298, 213, -24, -18]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.4"
@@ -1520,7 +1520,7 @@
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.9"/>
             <bendpoints
-                points="[25, 0, -303, -79]$[141, 0, -187, -79]$[141, 79, -187, 0]$[304, 79, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+                points="[25, 0, -303, -68]$[140, 0, -188, -68]$[140, 72, -188, 4]$[304, 72, -24, 4]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.10"
@@ -1532,7 +1532,7 @@
             <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.10"/>
             <bendpoints
-                points="[25, 0, -125, 70]$[154, 0, 4, 70]$[154, -60, 4, 10]" xsi:type="notation:RelativeBendpoints"/>
+                points="[25, 7, -125, 66]$[77, 7, -73, 66]$[77, -61, -73, -2]$[130, -61, -20, -2]" xsi:type="notation:RelativeBendpoints"/>
             <targetAnchor id="(0.42276422764227645,0.8)" xsi:type="notation:IdentityAnchor"/>
         </edges>
         <edges
@@ -1578,7 +1578,8 @@
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.14"/>
-            <bendpoints points="[25, -4, -215, 39]$[216, -39, -24, 4]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints
+                points="[25, 0, -303, -148]$[140, 0, -188, -148]$[140, 148, -188, 0]$[304, 148, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.13"
@@ -1589,7 +1590,8 @@
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.15"/>
-            <bendpoints points="[25, 4, -217, -33]$[218, 33, -24, -4]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints
+                points="[25, 0, -129, 154]$[78, 0, -76, 154]$[78, -141, -76, 13]$[130, -141, -24, 13]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
     <bpws:documentation>Template APP_BSServiceTemplate.module&#xd;

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<schema elementFormDefault="qualified" targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:tns="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName">
+<schema elementFormDefault="qualified" 
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" 
+	xmlns:tns="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName">
 	
 	<!-- Imports -->
-	<import namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" schemaLocation="../../../../../../../../../../SourceControl/XML/LIB_XML/Schemas/CommonServices/Data/Message/MessageHeader.xsd"/>
+	<import namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" schemaLocation="../../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Message/1.0/MessageHeader.xsd"/>
 
 	<!-- Simple Elements -->
 	<element name="ServiceNameRequest" type="tns:ServiceNameRequestType"/>

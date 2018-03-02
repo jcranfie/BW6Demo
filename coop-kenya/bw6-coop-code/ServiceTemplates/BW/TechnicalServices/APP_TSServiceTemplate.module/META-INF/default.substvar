@@ -123,7 +123,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/services.ts.backend.servicename/TSService/jms.queue</name>
-			<value>AA.UK.Q.RQ.TS.BackEnd.ServiceName.SOAP11.1</value>
+			<value>Coop.UK.Q.RQ.TS.BackEnd.ServiceName.SOAP11.1</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>

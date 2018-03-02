@@ -24,7 +24,7 @@
 		<wsdl:part element="fault:BusinessFault" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="TechnicalFault">
-		<wsdl:part element="fault:TechnicalFault" name="parameters"/>
+		<wsdl:part element="fault:TechnicalFault" name="parameters" />
 	</wsdl:message>
 	<wsdl:message name="ValidationFault">
 		<wsdl:part element="fault:ValidationFault" name="parameters"/>

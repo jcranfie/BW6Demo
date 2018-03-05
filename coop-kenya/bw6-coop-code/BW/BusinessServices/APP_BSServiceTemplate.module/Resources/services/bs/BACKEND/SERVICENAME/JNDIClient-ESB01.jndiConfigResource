@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_Gdeu8btjEeWeDqB4p17DwQ" name="services.bs.BACKEND.SERVICENAME.JNDIClient-ESB01" type="jms:JNDIConnection">
+  <jndi:configuration xsi:type="jms:JNDIConnectionConfiguration" xmi:id="_Gdeu8rtjEeWeDqB4p17DwQ">
+    <substitutionBindings xmi:id="_j96uALtjEeWeDqB4p17DwQ" template="providerUrl" propName="/resources/services.bs.bfub.getaccountbalance/Client-ESB01/jndi.url"/>
+    <substitutionBindings xmi:id="_meiQoLtjEeWeDqB4p17DwQ" template="initialContextFactory" propName="/resources/services.bs.bfub.getaccountbalance/Client-ESB01/jndi.context.factory"/>
+    <userCredentials xmi:id="_n9wAoLtjEeWeDqB4p17DwQ">
+      <substitutionBindings xmi:id="_oQ3J4LtjEeWeDqB4p17DwQ" template="username" propName="/resources/services.bs.bfub.getaccountbalance/Client-ESB01/jndi.username"/>
+      <substitutionBindings xmi:id="_pO-_ALtjEeWeDqB4p17DwQ" template="password" propName="/resources/services.bs.bfub.getaccountbalance/Client-ESB01/jndi.password"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

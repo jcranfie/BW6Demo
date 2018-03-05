@@ -176,7 +176,7 @@
         createdOn="Tue May 19 16:38:30 BST 2015" description=""
         extraErrorVars="false" modifiers="public"
         productVersion="6.2.1 V18 2015-03-13" scalable="true"
-        singleton="true" stateless="true" type="IT"/>
+        singleton="true" stateless="false" type="IT"/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -1809,7 +1809,7 @@ Version 0.4.3 - 2016/02/10:&#xd;
                             partnerLink="CreateExceptionEvent"
                             portType="ns13:CreateExceptionEvent" tibex:xpdlId="bc0aa6e0-4825-4132-a890-db4e9270621a">
                             <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns13="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" xmlns:tns15="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns12="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns14="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" version="2.0"&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns13="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" xmlns:tns15="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns14="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" version="2.0"&gt;
     &lt;xsl:param name="exception.audit.enable"/&gt;
     &lt;xsl:param name="FaultDetails"/&gt;
     &lt;xsl:param name="BWProcessHeaders"/&gt;
@@ -1858,9 +1858,9 @@ Version 0.4.3 - 2016/02/10:&#xd;
                             &lt;xsl:value-of select="$exception.audit.local.enable"/&gt;
                         &lt;/tns6:ExceptionAuditLocalEnabled&gt;
                     &lt;/tns6:AuditOptions&gt;
-                    &lt;tns12:CorrelationId&gt;
-                        &lt;xsl:value-of select="$BWProcessHeaders/tns12:CorrelationId"/&gt;
-                    &lt;/tns12:CorrelationId&gt;
+                    &lt;tns:CorrelationId&gt;
+                        &lt;xsl:value-of select="$BWProcessHeaders/tns:CorrelationId"/&gt;
+                    &lt;/tns:CorrelationId&gt;
                     &lt;tns14:ExceptionTimestamp&gt;
                         &lt;xsl:value-of select="current-dateTime()"/&gt;
                     &lt;/tns14:ExceptionTimestamp&gt;
@@ -1914,7 +1914,7 @@ Version 0.4.3 - 2016/02/10:&#xd;
                             partnerLink="CreateExceptionEvent"
                             portType="ns13:CreateExceptionEvent" tibex:xpdlId="e5be470a-b2a0-4630-87ae-d2d880c10fbf">
                             <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns13="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" xmlns:tns15="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:tns12="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns14="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" version="2.0"&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns13="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" xmlns:tns15="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns14="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" version="2.0"&gt;
     &lt;xsl:param name="FaultDetails"/&gt;
     &lt;xsl:param name="FaultName"/&gt;
     &lt;xsl:param name="BWProcessHeaders"/&gt;
@@ -1965,12 +1965,12 @@ Version 0.4.3 - 2016/02/10:&#xd;
                             &lt;xsl:value-of select="$exception.audit.local.enable"/&gt;
                         &lt;/tns6:ExceptionAuditLocalEnabled&gt;
                     &lt;/tns6:AuditOptions&gt;
-                    &lt;tns12:Domain&gt;
+                    &lt;tns:Domain&gt;
                         &lt;xsl:value-of select="$header.domain.esb.out"/&gt;
-                    &lt;/tns12:Domain&gt;
-                    &lt;tns12:CorrelationId&gt;
-                        &lt;xsl:value-of select="$BWProcessHeaders/tns12:CorrelationId"/&gt;
-                    &lt;/tns12:CorrelationId&gt;
+                    &lt;/tns:Domain&gt;
+                    &lt;tns:CorrelationId&gt;
+                        &lt;xsl:value-of select="$BWProcessHeaders/tns:CorrelationId"/&gt;
+                    &lt;/tns:CorrelationId&gt;
                     &lt;tns14:ExceptionTimestamp&gt;
                         &lt;xsl:value-of select="current-dateTime()"/&gt;
                     &lt;/tns14:ExceptionTimestamp&gt;
@@ -2324,7 +2324,7 @@ Version 0.4.3 - 2016/02/10:&#xd;
                 partnerLink="SendAuditEvent"
                 portType="ns15:SendAuditEvent" tibex:xpdlId="40569c27-557c-4ec3-aa66-0c04dd738f81">
                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns12="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns4="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns10="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" xmlns:tns16="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:tns="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" version="2.0"&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns4="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns10="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" xmlns:tns16="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:tns1="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" version="2.0"&gt;
     &lt;xsl:param name="log.audit.enable"/&gt;
     &lt;xsl:param name="log.audit.payload.enable"/&gt;
     &lt;xsl:param name="EndTime"/&gt;
@@ -2342,7 +2342,7 @@ Version 0.4.3 - 2016/02/10:&#xd;
     &lt;xsl:param name="exception.audit.remotefile.enable"/&gt;
     &lt;xsl:param name="varBackEnd"/&gt;
     &lt;xsl:template name="SendAuditEvent-input" match="/"&gt;
-        &lt;tns:SendAuditEventRequest&gt;
+        &lt;tns1:SendAuditEventRequest&gt;
             &lt;parameters&gt;
                 &lt;tns4:SendAuditEventRequest&gt;
                     &lt;xsl:variable name="varBackEnd" select="bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)"/&gt;
@@ -2396,9 +2396,9 @@ Version 0.4.3 - 2016/02/10:&#xd;
                         &lt;/tns16:Hostname&gt;
                     &lt;/tns16:RuntimeContext&gt;
                     &lt;tns10:AuditEvent&gt;
-                        &lt;tns12:CorrelationId&gt;
-                            &lt;xsl:value-of select="$BWProcessHeaders/tns12:CorrelationId"/&gt;
-                        &lt;/tns12:CorrelationId&gt;
+                        &lt;tns:CorrelationId&gt;
+                            &lt;xsl:value-of select="$BWProcessHeaders/tns:CorrelationId"/&gt;
+                        &lt;/tns:CorrelationId&gt;
                         &lt;tns10:EventId&gt;
                             &lt;xsl:value-of select="tib:uuid()"/&gt;
                         &lt;/tns10:EventId&gt;
@@ -2426,7 +2426,7 @@ Version 0.4.3 - 2016/02/10:&#xd;
                     &lt;xsl:copy-of select="$AuditStartEvent"/&gt;
                 &lt;/tns4:SendAuditEventRequest&gt;
             &lt;/parameters&gt;
-        &lt;/tns:SendAuditEventRequest&gt;
+        &lt;/tns1:SendAuditEventRequest&gt;
     &lt;/xsl:template&gt;
 &lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                 <tibex:inputBindings>
@@ -2450,7 +2450,7 @@ Version 0.4.3 - 2016/02/10:&#xd;
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:bwp=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&lt;xsl:template name=&quot;BWProcessHeaders&quot; match=&quot;/&quot;>&lt;bwp:BWProcessHeaders>&lt;xsl:variable name=&quot;varRequest&quot; select=&quot;$SERVICE+REQUEST+HEADER&quot;/>&lt;tns:CorrelationId>&lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&lt;/tns:CorrelationId>&lt;head:Credentials>&lt;xsl:if test=&quot;$varRequest/head:RequestHeader/com:CorrelationID&quot;>&lt;head:Username>&lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/com:CorrelationID&quot;/>&lt;/head:Username>&lt;/xsl:if>&lt;/head:Credentials>&lt;/bwp:BWProcessHeaders>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:bwp=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;BWProcessHeaders&quot; match=&quot;/&quot;>&#xa;        &lt;bwp:BWProcessHeaders>&#xa;            &lt;xsl:variable name=&quot;varRequest&quot; select=&quot;$SERVICE-REQUEST-HEADER&quot;/>&#xa;            &lt;tns1:CorrelationId>&#xa;                &lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/tns1:CorrelationID&quot;/>&#xa;            &lt;/tns1:CorrelationId>&#xa;            &lt;xsl:if test=&quot;$varRequest/head:RequestHeader/tns1:CreationTimestamp&quot;>&#xa;                &lt;tns1:CreationTimestamp>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/tns1:CreationTimestamp&quot;/>&#xa;                &lt;/tns1:CreationTimestamp>&#xa;            &lt;/xsl:if>&#xa;            &lt;xsl:if test=&quot;$varRequest/head:RequestHeader/head:FaultTO&quot;>&#xa;                &lt;head:FaultTO>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/head:FaultTO&quot;/>&#xa;                &lt;/head:FaultTO>&#xa;            &lt;/xsl:if>&#xa;            &lt;xsl:if test=&quot;$varRequest/head:RequestHeader/head:MessageID&quot;>&#xa;                &lt;head:MessageID>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/head:MessageID&quot;/>&#xa;                &lt;/head:MessageID>&#xa;            &lt;/xsl:if>&#xa;            &lt;xsl:if test=&quot;$varRequest/head:RequestHeader/head:ReplyTO&quot;>&#xa;                &lt;head:ReplyTO>&#xa;                    &lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/head:ReplyTO&quot;/>&#xa;                &lt;/head:ReplyTO>&#xa;            &lt;/xsl:if>&#xa;            &lt;head:Credentials>&#xa;                &lt;xsl:if test=&quot;$varRequest/head:RequestHeader/head:Credentials/head:Username&quot;>&#xa;                    &lt;head:Username>&#xa;                        &lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/head:Credentials/head:Username&quot;/>&#xa;                    &lt;/head:Username>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/head:RequestHeader/head:Credentials/head:Password&quot;>&#xa;                    &lt;head:Password>&#xa;                        &lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/head:Credentials/head:Password&quot;/>&#xa;                    &lt;/head:Password>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$varRequest/head:RequestHeader/head:Credentials/head:Realm&quot;>&#xa;                    &lt;head:Realm>&#xa;                        &lt;xsl:value-of select=&quot;$varRequest/head:RequestHeader/head:Credentials/head:Realm&quot;/>&#xa;                    &lt;/head:Realm>&#xa;                &lt;/xsl:if>&#xa;            &lt;/head:Credentials>&#xa;        &lt;/bwp:BWProcessHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

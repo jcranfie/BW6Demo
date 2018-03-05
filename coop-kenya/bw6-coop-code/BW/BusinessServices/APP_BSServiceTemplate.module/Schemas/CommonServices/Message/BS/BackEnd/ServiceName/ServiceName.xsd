@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema elementFormDefault="qualified" 
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" 
+	xmlns:tns="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName">
+	
+	<!-- Imports -->
+	<import namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" schemaLocation="../../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Message/1.0/MessageHeader.xsd"/>
+
+	<!-- Simple Elements -->
+	<element name="ServiceNameRequest" type="tns:ServiceNameRequestType"/>
+	<element name="ServiceNameResponse" type="tns:ServiceNameResponseType"/>
+	
+	<element name="ServiceNameReqData" type="string"/>
+	<element name="ServiceNameRespData" type="string"/>
+	
+	<!-- Complex Types -->
+	<complexType name="ServiceNameRequestType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" ref="head:RequestHeader"/>
+			<element maxOccurs="1" minOccurs="1" ref="tns:ServiceNameReqData"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="ServiceNameResponseType">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" ref="head:ResponseHeader"/>
+			<element maxOccurs="1" minOccurs="1" ref="tns:ServiceNameRespData"/>
+		</sequence>
+	</complexType>
+
+</schema>

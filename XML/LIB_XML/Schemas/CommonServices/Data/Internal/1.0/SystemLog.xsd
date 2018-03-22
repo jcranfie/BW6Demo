@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/SystemLog.xsd" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Internal/SystemLog.xsd" xmlns:rctx="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common">
+	
+	<!-- Imports -->
+	<xs:import schemaLocation="RuntimeContext.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext"></xs:import>
+	<xs:import schemaLocation="../../Common/1.0/Common.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Common"></xs:import>
+
+	<!-- Elements -->
+	<xs:element name="SystemLog" type="tns:SystemLogType" />
+	<xs:element name="SystemLogList" type="tns:SystemLogListType" />
+	<xs:element name="ResponseTime" type="xs:long" />
+	<xs:element name="AuditElement" type="tns:AuditElementType" />
+	<xs:element name="AuditElementList" type="tns:AuditElementListType" />
+	<xs:element name="Message" type="xs:string" />
+	<xs:element name="LogType" type="xs:string" />
+	<xs:element name="Payload" type="com:PayloadType" />
+	<xs:element name="LogTimestamp" type="xs:dateTime" />
+	<xs:element name="LogId" type="xs:string" />
+	<xs:element name="Name" type="xs:string" />
+	<xs:element name="Value" type="xs:string" />	
+
+	<!-- Complex types -->	
+	<xs:complexType name="SystemLogListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:SystemLog" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SystemLogType">
+		<xs:sequence>
+			<xs:element minOccurs="0" ref="com:Domain" />
+			<xs:element ref="com:CorrelationId" />
+			<xs:element ref="tns:LogId" />
+			<xs:element ref="tns:LogTimestamp" />
+			<xs:element ref="tns:LogType" />
+			<xs:element maxOccurs="1" minOccurs="0" ref="tns:Message" />
+			<xs:element ref="rctx:RuntimeContext" />
+			<xs:element ref="tns:AuditElementList" maxOccurs="1" minOccurs="0" />
+			<xs:element minOccurs="0" ref="tns:Payload" />
+			<xs:element ref="tns:ResponseTime" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AuditElementType">
+		<xs:sequence>
+			<xs:element ref="tns:Name" />
+			<xs:element ref="tns:Value" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AuditElementListType">
+		<xs:sequence>
+			<xs:element ref="tns:AuditElement" maxOccurs="unbounded" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+		
+</xs:schema>

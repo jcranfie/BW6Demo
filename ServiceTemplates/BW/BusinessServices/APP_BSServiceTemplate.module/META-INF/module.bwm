@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_seau8P4zEeSNU770OtM3HA" targetNamespace="http://tns.tibco.com/bw/composite/APP_BSServiceTemplate.module" name="APP_BSServiceTemplate.module" compositeext:version="1.0.0.0" compositeext:description="Template APP_BSServiceTemplate.module&#xD;&#xA;Version 1.0.0 - 2017/05/17:&#xD;&#xA;&#x9;Initial Release" compositeext:formatVersion="2">
+  <sca:property xmi:id="_sh6H0P4zEeSNU770OtM3HA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_sh8kEP4zEeSNU770OtM3HA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_sh9yMP4zEeSNU770OtM3HA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_sh-ZQP4zEeSNU770OtM3HA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_sh_nYP4zEeSNU770OtM3HA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_siA1gP4zEeSNU770OtM3HA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_siBckP4zEeSNU770OtM3HA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_siCqsP4zEeSNU770OtM3HA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_siD40P4zEeSNU770OtM3HA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_FygVYAduEeiOXYNXfVCKnA" name="EMSQueue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_4ZbswCGQEeWt3ppTNHKUKw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_72OjwCGQEeWt3ppTNHKUKw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_76CswCGQEeWt3ppTNHKUKw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_wGsC8AXdEeiS88lJJ2wfoQ" name="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotedb.enable" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_zxKwoAXdEeiS88lJJ2wfoQ" name="/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.local.enable" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_7734wCGQEeWt3ppTNHKUKw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_79ebQCGQEeWt3ppTNHKUKw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_-DJ90AXdEeiS88lJJ2wfoQ" name="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotedb.enable" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_E0yCoAXeEeiS88lJJ2wfoQ" name="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.local.enable" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_NvcQgAXeEeiS88lJJ2wfoQ" name="/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotefile.enable" type="XMLSchema:boolean" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_esA6AF-7EeaNqpGIr4TwSw" name="/services.bs.BACKEND.SERVICENAME/OPERATION/jms.queue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_88cJECOtEeWoLO6vi_NAVw" name="/service.ts.util.flushexceptionevents/FlushExceptionEvents/max.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_BkAKECOuEeWoLO6vi_NAVw" name="/service.ts.util.flushexceptionevents/FlushExceptionEvents/time.interval" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_yprqYCOuEeWoLO6vi_NAVw" name="/services.ts.util.flushlogevents/FlushLogEvents/max.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_182rUCOuEeWoLO6vi_NAVw" name="/services.ts.util.flushlogevents/FlushLogEvents/time.interval" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_OLLL0ASREeWAM4tV0jCFZQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/hostname" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Om3CQASREeWAM4tV0jCFZQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/port" type="XMLSchema:int" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_x1d2QEV7EeWec_sy8Wd2kw" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/accept.queue.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_0Q4IwEV7EeWec_sy8Wd2kw" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/acceptor.threads" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Cs5tcEV8EeWec_sy8Wd2kw" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/header.buffer.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CzfdoEV8EeWec_sy8Wd2kw" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/request.buffer.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_C3wSkEV8EeWec_sy8Wd2kw" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/response.buffer.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_XOlBwEV8EeWec_sy8Wd2kw" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.idle.time.ms" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__AaEMEWUEeWZhZLJ8bezlQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/low.resource.max.idle.time.ms" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__GLVAEWUEeWZhZLJ8bezlQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/linger.time.ms" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__NbMgEWUEeWZhZLJ8bezlQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.post.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__RiQcEWUEeWZhZLJ8bezlQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.save.post.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_qM_30ASREeWsBohWOy8_RA" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/min.qtp.threads" type="XMLSchema:int" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_cbT0IASSEeWuoMq9j9vttw" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/use.non.blocking.io.sockets" type="XMLSchema:boolean" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_VS9b8ASTEeWIUoAGtAuHyQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/use.direct.buffers" type="XMLSchema:boolean" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__VqigEWUEeWZhZLJ8bezlQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/uri.encoding" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__Yt2gEWUEeWZhZLJ8bezlQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/enable.dns.lookups" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_jMZMgASTEeWgKYKrUEnG7A" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/compression" type="XMLSchema:boolean" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_JnD7oASUEeWz6-F0OAR2qQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/compressible.mime.types" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__b1b8EWUEeWZhZLJ8bezlQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/reverse.proxy.host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="__fCg8EWUEeWZhZLJ8bezlQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/reverse.proxy.port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_KXL1cASUEeWz6-F0OAR2qQ" name="/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.qtp.threads" type="XMLSchema:int" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_MGYRILtjEeWeDqB4p17DwQ" name="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.context.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_NZxysLtjEeWeDqB4p17DwQ" name="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Ng2rELtjEeWeDqB4p17DwQ" name="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_NiiGELtjEeWeDqB4p17DwQ" name="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.password" type="property:password" scaext:simpleValue="#!UhnP3AWkw3mHqz/Hk5k1+Q==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_NkNhELtjEeWeDqB4p17DwQ" name="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/queue.connection.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Nl6KMLtjEeWeDqB4p17DwQ" name="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/topic.connection.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_Nnk-ILtjEeWeDqB4p17DwQ" name="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_NpVRoLtjEeWeDqB4p17DwQ" name="/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/password" type="property:password" scaext:simpleValue="#!tRq/w8E6MeDFbZABkap7Aw==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_CAiU4MmNEeWQeuDTVV42wg" name="/data/header/channel.esb.in" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_EtS2EMmNEeWQeuDTVV42wg" name="/data/header/channel.esb.out" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sqInkLqwEeWn7ZsKh5ZwRA" name="/data/header/domain.esb.out" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_WQDc8LRqEeWRdYv7QIpC5w" name="ComponentActivator" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_WQDc8bRqEeWRdYv7QIpC5w" processName="services.bs.backend.servicename.sub.Activator"/>
+  </sca:component>
+</sca:composite>

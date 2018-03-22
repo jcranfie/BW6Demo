@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" xmlns:ns1="urn://co-opbank.co.ke/Banking/Account/Service/AccountTransaction/PostMobileTransfer/1.1/DataIO" xmlns:ns4="urn://co-opbank.co.ke/Banking/Account/DataModel/AccountTransaction/PostMobileTransfer/1.1/AccountTransaction.postMobileTransfer" xmlns:ns3="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Terminal/1.0" xmlns:tns="http://co-opbank.co.ke/Banking/Account/Service/AccountTransaction/PostMobileTransfer/1.1/WSDL/updateImpl/BusinessDomains/_000__ACCOUNT/Services/AccountTransaction/_1.1/postMobileTransfer" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="urn://co-opbank.co.ke/SharedResources/Schemas/SOAMessages/SoapHeader" xmlns:jms="http://www.tibco.com/namespaces/ws/2004/soap/binding/JMS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns5="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Address/1.0" xmlns:ns6="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Transaction/1.0" xmlns:jndi="http://www.tibco.com/namespaces/ws/2004/soap/apis/jndi" name="Untitled" targetNamespace="http://co-opbank.co.ke/Banking/Account/Service/AccountTransaction/PostMobileTransfer/1.1/WSDL/updateImpl/BusinessDomains/_000__ACCOUNT/Services/AccountTransaction/_1.1/postMobileTransfer">
+    <wsdl:types>
+        <xs:schema xmlns="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="AccountType">
+                <xs:sequence>
+                    <xs:element name="AccountNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AccountName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AccountDescription" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Status" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AccountId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Type" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ProductId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ProductCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ProductName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ClearedBalance" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="BookedBalance" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="BlockedBalance" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="AvailableBalance" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="ArrearsAmount" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="BranchName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="BranchSortCode" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Account" type="ns2:AccountType"/>
+        </xs:schema>
+        <xs:schema xmlns="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Terminal/1.0" xmlns:ns0="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Address/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Terminal/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Address/1.0"/>
+            <xs:complexType name="TerminalType">
+                <xs:sequence>
+                    <xs:element name="TerminalId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TerminalType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TerminalLocation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TerminalAddress" type="ns0:AddressType" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Terminal" type="ns3:TerminalType"/>
+        </xs:schema>
+        <xs:schema xmlns:ns2="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Terminal/1.0" xmlns="urn://co-opbank.co.ke/Banking/Account/DataModel/AccountTransaction/PostMobileTransfer/1.1/AccountTransaction.postMobileTransfer" xmlns:ns1="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" xmlns:ns0="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Transaction/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn://co-opbank.co.ke/Banking/Account/DataModel/AccountTransaction/PostMobileTransfer/1.1/AccountTransaction.postMobileTransfer" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Transaction/1.0"/>
+            <xs:import namespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0"/>
+            <xs:import namespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Terminal/1.0"/>
+            <xs:complexType name="postMobileTransferInputType">
+                <xs:sequence>
+                    <xs:element name="OperationParameters" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="MobileOperator" nillable="true" type="xs:string" minOccurs="0"/>
+                                <xs:element name="VoucherCode" nillable="true" type="xs:string" minOccurs="0"/>
+                                <xs:element name="ProviderName" nillable="true" type="xs:string" minOccurs="0"/>
+                                <xs:element name="ProviderBIN" nillable="true" type="xs:string" minOccurs="0"/>
+                                <xs:element name="MerchantCategoryCode" nillable="true" type="xs:string" minOccurs="0"/>
+                                <xs:element name="TraceNumber" nillable="true" type="xs:string" minOccurs="0"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element ref="ns0:Transaction" minOccurs="0"/>
+                    <xs:element ref="ns1:Account" minOccurs="0"/>
+                    <xs:element ref="ns2:Terminal" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="postMobileTransferOutputType">
+                <xs:sequence>
+                    <xs:element name="OperationParameters" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="ExternalReference" nillable="true" type="xs:string" minOccurs="0"/>
+                                <xs:element name="InternalReference" nillable="true" type="xs:string" minOccurs="0"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="postMobileTransferInput" type="ns4:postMobileTransferInputType"/>
+            <xs:element name="postMobileTransferOutput" type="ns4:postMobileTransferOutputType"/>
+        </xs:schema>
+        <xsd:schema xmlns:tns="urn://co-opbank.co.ke/SharedResources/Schemas/SOAMessages/SoapHeader" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn://co-opbank.co.ke/SharedResources/Schemas/SOAMessages/SoapHeader" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xsd:complexType name="Credentials">
+                <xsd:sequence>
+                    <xsd:element name="SystemCode" type="xsd:string"/>
+                    <xsd:element name="Username" nillable="true" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="Password" nillable="true" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="Realm" nillable="true" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="StatusMessage">
+                <xsd:sequence>
+                    <xsd:element name="MessageType" nillable="true" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ApplicationID" nillable="true" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="MessageCode" nillable="true" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="MessageDescription" nillable="true" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="HeaderReply">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="MessageID" nillable="true" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="CorrelationID" nillable="true" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="ElapsedTime" nillable="true" type="xsd:long" minOccurs="0"/>
+                        <xsd:element name="StatusCode" nillable="true" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="StatusDescription" nillable="true" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="StatusDescriptionKey" nillable="true" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="StatusMessages">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="StatusMessage" nillable="true" type="tns:StatusMessage" minOccurs="0" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="HeaderRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="MessageID" type="xsd:string"/>
+                        <xsd:element name="CorrelationID" nillable="true" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="CreationTimestamp" nillable="true" type="xsd:dateTime" minOccurs="0"/>
+                        <xsd:element name="ReplyTO" nillable="true" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="FaultTO" nillable="true" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="Credentials" type="tns:Credentials"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+        <xs:schema xmlns="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Address/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Address/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="AddressType">
+                <xs:sequence>
+                    <xs:element name="Street" type="xs:string" minOccurs="0"/>
+                    <xs:element name="POBox" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Town" type="xs:string" minOccurs="0"/>
+                    <xs:element name="City" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Country" type="xs:string" minOccurs="0"/>
+                    <xs:element name="FullAddress" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Address1" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Address2" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Address3" type="xs:string" minOccurs="0"/>
+                    <xs:element name="HouseStatus" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Address" type="ns5:AddressType"/>
+        </xs:schema>
+        <xs:schema xmlns="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Transaction/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Transaction/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="TransactionType">
+                <xs:sequence>
+                    <xs:element name="TransactionId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Reference" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DebitCredit" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TransactionCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TransactionType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AcceptDeclineCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TransactionDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="PostingDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="TransactionAmount" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="TransactionCurrency" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ConvertedAmount" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="ConversionCurrency" type="xs:string" minOccurs="0"/>
+                    <xs:element name="FeeCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TransactionFee" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="TransactionDescription" type="xs:string" minOccurs="0"/>
+                    <xs:element name="MerchantName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="OriginCountry" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ConversionRate" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="CountryCode" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Transaction" type="ns6:TransactionType"/>
+        </xs:schema>
+        <xs:schema xmlns="urn://co-opbank.co.ke/Banking/Account/Service/AccountTransaction/PostMobileTransfer/1.1/DataIO" xmlns:ns0="urn://co-opbank.co.ke/Banking/Account/DataModel/AccountTransaction/PostMobileTransfer/1.1/AccountTransaction.postMobileTransfer" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn://co-opbank.co.ke/Banking/Account/Service/AccountTransaction/PostMobileTransfer/1.1/DataIO" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="urn://co-opbank.co.ke/Banking/Account/DataModel/AccountTransaction/PostMobileTransfer/1.1/AccountTransaction.postMobileTransfer"/>
+            <xs:element name="DataInput">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:postMobileTransferInput"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="DataOutput">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:postMobileTransferOutput" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="ServiceStarter">
+        <wsdl:port name="SOAP_sp_Event_sp_Source" binding="tns:SOAP_sp_Event_sp_SourceBinding">
+           <soap:address location="http://192.168.0.23:9222/BusinessDomains/000_ACCOUNT/Services/AccountTransaction/1.1/postMobileTransfer/ServiceStarter"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="postMobileTransfer">
+            <wsdl:input message="tns:postMobileTransferInput"/>
+            <wsdl:output message="tns:postMobileTransferOutput"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SOAP_sp_Event_sp_SourceBinding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="postMobileTransfer">
+            <soap:operation style="document" soapAction="/co-opbank.co.ke/Banking/Account/Service/AccountTransaction/PostMobileTransfer/1.1"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="input"/>
+                <soap:header use="literal" message="tns:HeaderRequest" part="HeaderRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="output"/>
+                <soap:header use="literal" message="tns:HeaderReply" part="HeaderReply"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="HeaderRequest">
+        <wsdl:part name="HeaderRequest" element="ns0:HeaderRequest"/>
+    </wsdl:message>
+    <wsdl:message name="HeaderReply">
+        <wsdl:part name="HeaderReply" element="ns0:HeaderReply"/>
+    </wsdl:message>
+    <wsdl:message name="postMobileTransferInput">
+        <wsdl:part name="input" element="ns1:DataInput"/>
+    </wsdl:message>
+    <wsdl:message name="postMobileTransferOutput">
+        <wsdl:part name="output" element="ns1:DataOutput"/>
+    </wsdl:message>
+</wsdl:definitions>

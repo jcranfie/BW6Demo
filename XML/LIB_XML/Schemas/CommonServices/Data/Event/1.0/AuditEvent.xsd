@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common" 
+		xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" 
+		xmlns:rctx="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" 
+		xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" 
+		xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent">
+
+	<!-- Imports -->
+	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Common" schemaLocation="../../Common/1.0/Common.xsd"/>
+	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" schemaLocation="../../Internal/1.0/RuntimeContext.xsd"/>
+		
+	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" schemaLocation="../../Message/1.0/MessageHeader.xsd"/>
+
+	<!-- Elements -->
+	<xs:element name="AuditEvent" type="tns:AuditEventType"/>
+	<xs:element name="AuditEventList" type="tns:AuditEventListType"/>
+	<xs:element name="AuditElement" type="tns:AuditElementType"/>
+	<xs:element name="AuditElementList" type="tns:AuditElementListType"/>
+	<xs:element name="ExceptionCode" type="xs:string"/>
+	<xs:element name="Message" type="xs:string"/>
+	<xs:element name="EventType" type="xs:string"/>
+	<xs:element name="Payload" type="com:PayloadType"/>
+	<xs:element name="EventId" type="xs:string"/>
+	<xs:element name="Name" type="xs:string"/>
+	<xs:element name="Value" type="xs:string"/>
+	<xs:element name="EventTimeStamp" type="xs:dateTime"/>
+	<xs:element name="PreviousEventTimeStamp" type="xs:dateTime"/>
+	<xs:element name="AuditTimeStamp" type="xs:dateTime"/>
+
+	<!-- Complex Types -->
+	<xs:complexType name="AuditEventListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:AuditEvent"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AuditEventType">
+		<xs:sequence>
+			<xs:element minOccurs="1" ref="com:CorrelationId"/>
+			<xs:element minOccurs="0" ref="com:MessageID"/>
+			<xs:element minOccurs="1" ref="tns:EventId"/>
+			<xs:element minOccurs="1" ref="tns:AuditTimeStamp"/>
+			<xs:element minOccurs="1" ref="tns:EventType"/>
+			<xs:element maxOccurs="1" minOccurs="0" ref="tns:Message"/>
+			<xs:element maxOccurs="1" minOccurs="0" ref="tns:AuditElementList"/>
+			<xs:element minOccurs="0" ref="tns:Payload"/>
+			<xs:element minOccurs="1" ref="tns:EventTimeStamp"/>
+			<xs:element minOccurs="0" ref="tns:PreviousEventTimeStamp"/>
+			<xs:element minOccurs="0" ref="tns:ExceptionCode"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AuditElementType">
+		<xs:sequence>
+			<xs:element minOccurs="1" ref="tns:Name"/>
+			<xs:element minOccurs="1" ref="tns:Value"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AuditElementListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:AuditElement"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

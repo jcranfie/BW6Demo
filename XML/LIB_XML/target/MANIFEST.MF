@@ -1,0 +1,35 @@
+Manifest-Version: 1.0.0.201803231023
+Bundle-SymbolicName: LIB_XML
+TIBCO-BW-SharedModule: META-INF/module.bwm
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: TIBCO Software Inc.
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
+Require-Capability: com.tibco.bw.model; filter:="(name=bwext)"
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-Version: 6.3.5 V17 2017-02-02
+Provide-Capability: com.tibco.bw.module; name="LIB_XML"; version:Versi
+ on="1.0.0",com.tibco.bw.schemas; ns="urn://co-opbank.co.ke/Banking/Ca
+ nonicalDataModel/Account/1.0",com.tibco.bw.schemas; ns="urn://co-opba
+ nk.co.ke/CommonServices/Data/Common",com.tibco.bw.schemas; ns="urn://
+ co-opbank.co.ke/CommonServices/Data/Event/Audit",com.tibco.bw.schemas
+ ; ns="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent",com
+ .tibco.bw.schemas; ns="urn://co-opbank.co.ke/CommonServices/Data/Even
+ t/Error",com.tibco.bw.schemas; ns="urn://co-opbank.co.ke/CommonServic
+ es/Data/Event/Fault",com.tibco.bw.schemas; ns="urn://co-opbank.co.ke/
+ CommonServices/Data/Internal",com.tibco.bw.schemas; ns="urn://co-opba
+ nk.co.ke/CommonServices/Data/Internal/BWProcess",com.tibco.bw.schemas
+ ; ns="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeConte
+ xt",com.tibco.bw.schemas; ns="urn://co-opbank.co.ke/CommonServices/Da
+ ta/Internal/System",com.tibco.bw.schemas; ns="urn://co-opbank.co.ke/C
+ ommonServices/Data/Internal/SystemLog.xsd",com.tibco.bw.schemas; ns="
+ urn://co-opbank.co.ke/CommonServices/Data/Internal/ValidationError",c
+ om.tibco.bw.schemas; ns="urn://co-opbank.co.ke/CommonServices/Data/Me
+ ssage/MessageHeader"
+Export-Package: com,com.coopbank,com.coopbank.common,com.coopbank.comm
+ on.xml,com.coopbank.common.xml.utils
+Bundle-Name: LIB_XML Module
+Bundle-Version: 1.0.0.201803231023
+Bundle-ClassPath: .
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+

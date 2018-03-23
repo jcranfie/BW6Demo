@@ -7,10 +7,10 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>../XML/LIB_XML</module>
-    <module>../BW/TechnicalServices/LIB_TSUTIL_SystemAudit_Client</module>
-    <module>../BW/TechnicalServices/LIB_TSUTIL_SystemErrorHandler_Client</module>
-    <module>../BW/TechnicalServices/APP_TSDemoGetData.module</module>
-    <module>../BW/TechnicalServices/APP_TSSDemoGetData.module.application</module>
+    <module>../../XML/LIB_XML</module>
+    <module>../TechnicalServices/LIB_TSUTIL_SystemAudit_Client</module>
+    <module>../TechnicalServices/LIB_TSUTIL_SystemErrorHandler_Client</module>
+    <module>../TechnicalServices/APP_TSDemoGetData.module</module>
+    <module>../TechnicalServices/APP_TSSDemoGetData.module.application</module>
   </modules>
 </project>

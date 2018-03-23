@@ -1,0 +1,24 @@
+Manifest-Version: 1.0.0.201803231023
+Bundle-SymbolicName: APP_TSSDemoGetData.module
+Require-Bundle: LIB_XML;bundle-version="1.0.0"
+Bundle-ManifestVersion: 2
+Bundle-Vendor: TIBCO Software Inc.
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
+Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",com.tib
+ co.bw.module; filter:="(&(name=LIB_XML)(version=1.0.0))",com.tibco.bw
+ .module; filter:="(&(name=LIB_TSUTIL_SystemAudit_Client)(version=1.0.
+ 0))",com.tibco.bw.module; filter:="(&(name=LIB_TSUTIL_SystemErrorHand
+ ler_Client)(version=1.0.0))",com.tibco.bw.palette; filter:="(name=bw.
+ generalactivities)",com.tibco.bw.sharedresource.model; filter:="(name
+ =bw.httpclient)",com.tibco.bw.sharedresource.model; filter:="(name=bw
+ .jdbc)",com.tibco.bw.sharedresource.model; filter:="(name=bw.jmsconne
+ ction)",com.tibco.bw.sharedresource.model; filter:="(name=bw.jndiconf
+ iguration)"
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-Version: 6.2.2 HF2 V26 2015-8-27
+Bundle-Name: APP_TSServiceTemplate Module
+Bundle-Version: 1.0.0.201803231023
+Bundle-ClassPath: .
+TIBCO-BW-ApplicationModule: META-INF/module.bwm
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+

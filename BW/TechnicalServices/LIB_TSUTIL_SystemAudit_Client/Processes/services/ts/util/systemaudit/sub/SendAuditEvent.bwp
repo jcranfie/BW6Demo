@@ -739,8 +739,8 @@
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="223"
-                                    xsi:type="notation:Bounds" y="228"/>
+                                    x="229"
+                                    xsi:type="notation:Bounds" y="230"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -1100,8 +1100,7 @@
                 <bpws:link name="SendAuditEventInToIterate" tibex:linkType="SUCCESS"/>
                 <bpws:link name="IterateToReply" tibex:linkType="SUCCESS"/>
             </bpws:links>
-            <bpws:scope name="Iterate" tibex:group="iterate"
-                tibex:indexToGlobal="false" tibex:xpdlId="c8f16454-f41a-4e60-8172-24b332bc91df">
+            <bpws:scope name="Iterate" tibex:group="iterate" tibex:xpdlId="c8f16454-f41a-4e60-8172-24b332bc91df">
                 <bpws:targets>
                     <bpws:target linkName="SendAuditEventInToIterate"/>
                 </bpws:targets>

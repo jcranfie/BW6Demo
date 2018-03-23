@@ -6,7 +6,7 @@
     <groupId>com.tibco.bw</groupId>
     <artifactId>APP_TSSDemoGetData.module.application.parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../../POM/APP_TSSDemoGetData.xml</relativePath>
+    <relativePath>../../POM/APP_TSDemoGetData.xml</relativePath>
   </parent>
   <artifactId>APP_TSSDemoGetData.module.application</artifactId>
   <packaging>bwear</packaging>

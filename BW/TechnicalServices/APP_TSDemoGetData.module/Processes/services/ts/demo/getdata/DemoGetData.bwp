@@ -1549,9 +1549,7 @@ Version 0.4.2 - 2016/02/09:&#xd;
                 <tibex:activityExtension
                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:bwp=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/demo/getdata&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;GetAccountDataIn&quot;/>&#xa;    &lt;xsl:param name=&quot;_processContext&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.cache.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.cache.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;header.channel.esb.out&quot;/>&#xa;    &lt;xsl:param name=&quot;header.domain.esb.out&quot;/>&#xa;    &lt;xsl:param name=&quot;backend.timeout&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.local.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.local.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&#xa;    &lt;xsl:param name=&quot;StartTime&quot;/>&#xa;    &lt;xsl:param name=&quot;EndTime&quot;/>&#xa;    &lt;xsl:param name=&quot;BackEndRequest&quot;/>&#xa;    &lt;xsl:param name=&quot;BackEndResponse&quot;/>&#xa;    &lt;xsl:param name=&quot;StartAuditEvent&quot;/>&#xa;    &lt;xsl:template name=&quot;BWProcessHeaders&quot; match=&quot;/&quot;>&#xa;        &lt;bwp:BWProcessHeaders>&#xa;            &lt;tns:CorrelationId>&#xa;                &lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CorrelationID&quot;/>&#xa;            &lt;/tns:CorrelationId>&#xa;            &lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CreationTimestamp&quot;>&#xa;                &lt;tns:CreationTimestamp>&#xa;                    &lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CreationTimestamp&quot;/>&#xa;                &lt;/tns:CreationTimestamp>&#xa;            &lt;/xsl:if>&#xa;            &lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:FaultTO&quot;>&#xa;                &lt;head:FaultTO>&#xa;                    &lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:FaultTO&quot;/>&#xa;                &lt;/head:FaultTO>&#xa;            &lt;/xsl:if>&#xa;            &lt;head:MessageID>&#xa;                &lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:MessageID&quot;/>&#xa;            &lt;/head:MessageID>&#xa;            &lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:ReplyTO&quot;>&#xa;                &lt;head:ReplyTO>&#xa;                    &lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:ReplyTO&quot;/>&#xa;                &lt;/head:ReplyTO>&#xa;            &lt;/xsl:if>&#xa;            &lt;head:Credentials>&#xa;                &lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Username&quot;>&#xa;                    &lt;head:Username>&#xa;                        &lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Username&quot;/>&#xa;                    &lt;/head:Username>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Password&quot;>&#xa;                    &lt;head:Password>&#xa;                        &lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Password&quot;/>&#xa;                    &lt;/head:Password>&#xa;                &lt;/xsl:if>&#xa;                &lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Realm&quot;>&#xa;                    &lt;head:Realm>&#xa;                        &lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Realm&quot;/>&#xa;                    &lt;/head:Realm>&#xa;                &lt;/xsl:if>&#xa;            &lt;/head:Credentials>&#xa;        &lt;/bwp:BWProcessHeaders>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="BWProcessHeaders" name="AssignRH"
-                    outputVariable="BWProcessHeaders"
-                    tibex:xpdlId="4aee5de4-ca78-4d96-9a0d-dec502cb519d" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    inputVariable="BWProcessHeaders" name="AssignRH" outputVariable="BWProcessHeaders">
                     <bpws:targets>
                         <bpws:target linkName="GetAccountDataInToAssignRH"/>
                     </bpws:targets>
@@ -1581,9 +1579,7 @@ Version 0.4.2 - 2016/02/09:&#xd;
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="StartAuditEvent"
-                    name="AssignStartEvent"
-                    outputVariable="StartAuditEvent"
-                    tibex:xpdlId="b42dd72b-7327-46f2-9290-b699f6f6da89" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    name="AssignStartEvent" outputVariable="StartAuditEvent">
                     <bpws:targets>
                         <bpws:target linkName="AssignToGetVehicleDetailsOut"/>
                     </bpws:targets>
@@ -1613,8 +1609,7 @@ Version 0.4.2 - 2016/02/09:&#xd;
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="StartTime"
-                    name="AssignStartTime" outputVariable="StartTime"
-                    tibex:xpdlId="6f0428ee-3e5b-448b-b1d6-c4e77a4ef108" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    name="AssignStartTime" outputVariable="StartTime">
                     <bpws:targets>
                         <bpws:target linkName="Assign1ToGetVehicleDetailsOut"/>
                     </bpws:targets>
@@ -1643,8 +1638,7 @@ Version 0.4.2 - 2016/02/09:&#xd;
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="EndTime"
-                    name="AssignEndTime" outputVariable="EndTime"
-                    tibex:xpdlId="02d16184-50c8-4e5b-bd5c-9d39d707dae7" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    name="AssignEndTime" outputVariable="EndTime">
                     <bpws:targets>
                         <bpws:target linkName="AssignStartTimeToAssignEndTime"/>
                     </bpws:targets>
@@ -1676,9 +1670,7 @@ Version 0.4.2 - 2016/02/09:&#xd;
                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/demo/getdata&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&lt;xsl:param name=&quot;GetAccountDataIn&quot;/>&lt;xsl:template name=&quot;BackEndResponse&quot; match=&quot;/&quot;>&lt;tns1:GetDataResponse>&lt;ResponseHeader>&lt;tns:CorrelationID>&lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&lt;/tns:CorrelationID>&lt;head:MessageID>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:MessageID&quot;/>&lt;/head:MessageID>&lt;/ResponseHeader>&lt;response>&lt;AccountNumber>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/request/AccountNumber/tns2:AccountNumber&quot;>&lt;tns2:AccountNumber>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/request/AccountNumber/tns2:AccountNumber&quot;/>&lt;/tns2:AccountNumber>&lt;/xsl:if>&lt;/AccountNumber>&lt;AccountType>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/request/AccountNumber/tns2:AccountNumber&quot;>&lt;tns2:AccountNumber>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/request/AccountNumber/tns2:AccountNumber&quot;/>&lt;/tns2:AccountNumber>&lt;/xsl:if>&lt;tns2:AccountName>&lt;xsl:value-of select=&quot;&amp;quot;John Doe&amp;quot;&quot;/>&lt;/tns2:AccountName>&lt;tns2:Currency>&lt;xsl:value-of select=&quot;&amp;quot;GBP&amp;quot;&quot;/>&lt;/tns2:Currency>&lt;/AccountType>&lt;/response>&lt;/tns1:GetDataResponse>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="BackEndResponse"
-                    name="AssignBackEndResponse"
-                    outputVariable="BackEndResponse"
-                    tibex:xpdlId="d5cb91d1-f95b-4a44-86dc-6e6f3e3dcab1" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    name="AssignBackEndResponse" outputVariable="BackEndResponse">
                     <bpws:targets>
                         <bpws:target linkName="Assign3ToGetVehicleDetailsOut"/>
                     </bpws:targets>

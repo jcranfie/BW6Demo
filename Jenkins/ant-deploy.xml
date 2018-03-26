@@ -25,9 +25,9 @@
 
 		<!-- Find EAR file -->
 		<first id="ear.path">
-			<fileset dir="../jobs/${application.name}/builds/${application.version}" includes="**\${application.name}.1.0.${application.version}.ear" />
+			<fileset dir="../../../jobs/${application.name}/builds/${application.version}" includes="**\${application.name}.1.0.${application.version}.ear" />
 		</first>
-		<echo message="${ECHO_PREFIX}EAR File: ${toString:ear.path}"/>
+		<echo message="EAR File: ${toString:ear.path}"/>
 
 		<!-- Deletes the BWAdmin script file if it exists -->
 		<delete file="${script.file}" failonerror="false"/>

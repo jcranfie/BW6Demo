@@ -26,9 +26,9 @@
 		<echo message=""/>
 
 		<!-- Find EAR file -->
-		<echo message="Searching : ../../../jobs/${application.name}/builds/${application.version} for **\${application.name}*_1.0.${application.version}.ear"/>
+		<echo message="Searching : ../../../jobs/${application.name}/builds/${application.version} for **/${application.name}*_1.0.${application.version}.ear"/>
 		<first id="ear.path">
-			<fileset dir="../../../jobs/${application.name}/builds/${application.version}" includes="**\${application.name}.1.0.${application.version}.ear" />
+			<fileset dir="../../../jobs/${application.name}/builds/${application.version}" includes="**/${application.name}*_1.0.${application.version}.ear" />
 		</first>
 		<echo message="EAR File: ${toString:ear.path}"/>
 

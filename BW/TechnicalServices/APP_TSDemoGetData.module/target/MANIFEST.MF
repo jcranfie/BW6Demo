@@ -1,5 +1,5 @@
 Manifest-Version: 1.0.0.201803231023
-Bundle-SymbolicName: APP_TSSDemoGetData.module
+Bundle-SymbolicName: APP_TSDemoGetData.module
 Require-Bundle: LIB_XML;bundle-version="1.0.0"
 Bundle-ManifestVersion: 2
 Bundle-Vendor: TIBCO Software Inc.

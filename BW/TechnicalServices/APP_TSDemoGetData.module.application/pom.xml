@@ -8,10 +8,10 @@
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../../POM/APP_TSDemoGetData.xml</relativePath>
   </parent>
-  <artifactId>APP_TSSDemoGetData.module.application</artifactId>
+  <artifactId>APP_TSDemoGetData.module.application</artifactId>
   <packaging>bwear</packaging>
   <properties>
-    <appSpace>APP_TSSDemoGetData-AppSpace-AppSpace</appSpace>
+    <appSpace>APP_TSDemoGetData-AppSpace-AppSpace</appSpace>
     <keystorePath></keystorePath>
     <profile>default.substvar</profile>
     <backup>false</backup>
@@ -22,7 +22,7 @@
     <agentAuth>BASIC</agentAuth>
     <agentHost>ec2-35-178-63-212.eu-west-2.compute.amazonaws.com</agentHost>
     <httpPort>19000</httpPort>
-    <appNode>APP_TSSDemoGetData-AppNode</appNode>
+    <appNode>APP_TSDemoGetData-AppNode</appNode>
     <osgiPort>18000</osgiPort>
     <appSpaceDesc></appSpaceDesc>
     <redeploy>false</redeploy>

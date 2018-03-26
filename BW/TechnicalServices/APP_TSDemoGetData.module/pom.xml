@@ -8,7 +8,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../../POM/APP_TSDemoGetData.xml</relativePath>
   </parent>
-  <artifactId>APP_TSSDemoGetData.module</artifactId>
+  <artifactId>APP_TSDemoGetData.module</artifactId>
   <packaging>bwmodule</packaging>
   <dependencies>
     <dependency>

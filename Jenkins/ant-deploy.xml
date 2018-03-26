@@ -17,7 +17,7 @@
 		<property name="domain" value="world"/>
 
 		<property name="script.file" value="${base.dir}/build/${application.name}/${application.version}/scripts/deploy.bwadmin"/>
-		<property name="profile.file" value="../jobs/${application.name}/builds/${application.version}/archive/Jenkins/ServiceProfiles/${application.name}-${env.name}"/>
+		<property name="profile.file" value="../../jobs/${application.name}/builds/${application.version}/archive/Jenkins/ServiceProfiles/${application.name}-${env.name}.xml"/>
 		<property name="ear.name" value="${application.name}.1.0.${application.version}.ear"/>
 		<property name="description" value="Pipeline#${pipeline.number} Revision#${revision.number}"/>
 		<property name="bw.agent" value="bwagent-${env.name}.ini"/>
@@ -27,7 +27,7 @@
 
 		<!-- Find EAR file -->
 		<first id="ear.path">
-			<fileset dir="../../../jobs/${application.name}/builds/${application.version}" includes="**\${application.name}.1.0.${application.version}.ear" />
+			<fileset dir="../../jobs/${application.name}/builds/${application.version}" includes="**\${application.name}.1.0.${application.version}.ear" />
 		</first>
 		<echo message="EAR File: ${toString:ear.path}"/>
 
@@ -36,7 +36,7 @@
 		
 		<!-- Writes the bwadmin script file -->
 	
-		<echo message="${ECHO_PREFIX}Profile: ${profile.file}"/>
+		<echo message="Profile: ${profile.file}"/>
 		<echo message=""/>
 		
 		<echo file="${script.file}" append="true">echo "Upload ${ear.name}"${line.separator}</echo>

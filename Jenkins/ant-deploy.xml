@@ -4,7 +4,7 @@
 	<!-- TIBCO applications properties -->
 	<property name="bw.home.path" value= "/Users/juliancranfield/TIBCO-BW642/bw/6.4" />
 	<property name="bw.admin" value= "${bw.home.path}/bin/bwadmin" />
-	<property name="bw.admin.config.dir" value="${base.dir}/config"/>
+	<property name="bw.admin.config.dir" value="${bw.home.path}/config"/>
 	<property name="bw.admin.tra" value= "${bw.admin.config.dir}/bwadmin.tra" />
 
 	<target name="deploy" description="Uploads, Deploys and Starts one application">
@@ -20,7 +20,7 @@
 		<property name="description" value="Pipeline#${pipeline.number} Revision#${revision.number}"/>
 		<property name="bw.agent" value="bwagent-${env.name}.ini"/>
 
-		<echo message="${ECHO_PREFIX}Uploads, Deploys and Starts one BW application..."/>
+		<echo message="Uploads, Deploys and Starts one BW application..."/>
 		<echo message=""/>
 
 		<!-- Find EAR file -->
@@ -44,7 +44,7 @@
 		<echo file="${script.file}" append="true">show -domain ${domain} -appspace ${bw.application.appspace} applications ${application.name}.application${line.separator}</echo>
 
 		<!-- Executes the bwadmin script file -->
-		<echo message="${ECHO_PREFIX}Executing ${bw.admin} --propFile ${bw.admin.tra} -config ${bw.admin.config.dir}/${bw.agent} -f ${script.file}..."/>
+		<echo message="Executing ${bw.admin} --propFile ${bw.admin.tra} -config ${bw.admin.config.dir}/${bw.agent} -f ${script.file}"/>
 		<echo message=""/>
 		<exec executable="${bw.admin}" resultproperty="bw.admin.export.state" failonerror="true">
 			<arg value='--propFile'/>
@@ -55,7 +55,7 @@
 			<arg path='${script.file}'/>
 		</exec>
 		<echo message=""/>
-		<echo message="${ECHO_PREFIX}Executing ${bw.admin} --propFile ${bw.admin.tra} -config ${bw.admin.config.dir}/${bw.agent} -f ${script.file}... Done."/>
+		<echo message="Executing ${bw.admin} --propFile ${bw.admin.tra} -config ${bw.admin.config.dir}/${bw.agent} -f ${script.file}... Done."/>
 	</target>
 
 

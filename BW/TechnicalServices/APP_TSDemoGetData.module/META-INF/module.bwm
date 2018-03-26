@@ -24,10 +24,6 @@
   <sca:property xmi:id="_YEhokBWCEeie28s1fSTo7w" name="/services.ts.demo.getdata/getdemodata/exception.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="__PRxgMp5EeW_7rgVeQxGpA" name="/services.ts.demo.getdata/getdemodata/backend/BACKEND/timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_AlaeAMp6EeW_7rgVeQxGpA" name="/services.ts.demo.getdata/getdemodata/backend/BACKEND/endpoint.uri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_nDAg4MsgEeWh752vwu3HDA" name="/services.ts.util.flushexceptionevents/FlushExceptionEvents/max.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_qg3u4MsgEeWh752vwu3HDA" name="/services.ts.util.flushexceptionevents/FlushExceptionEvents/time.interval" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_3Nw4QMsgEeWh752vwu3HDA" name="/services.ts.util.flushlogevents/FlushLogEvents/max.size" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_48xXwMsgEeWh752vwu3HDA" name="/services.ts.util.flushlogevents/FlushLogEvents/time.interval" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_3aHBgMp4EeW_7rgVeQxGpA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="__7dMsMsWEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_A4rp8MsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/client/disable.connection.pooling" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>

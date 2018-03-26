@@ -171,11 +171,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/logger.queue</name>
-			<value>bw.util.systemaudit.logger.q</value>
+			<value>{{LOGGER.JMS.AUDIT.QUEUE}}</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.username</name>
@@ -187,11 +187,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.url</name>
-			<value>tibjmsnaming://35.178.36.140:7222</value>
+			<value>{{LOGGER.JMS.URL}}</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.password</name>

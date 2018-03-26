@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<project name="preservice-build" >
+
+<target name="profile-create">
+
+		<property name="env.name" value="world"/>
+		<property name="service.name" value="world"/>
+
+		<!-- Find EAR file -->
+		<first id="profile.path">
+			<fileset dir="../BW" includes="**/${service.name}.module.application/META-INF/default.substvar" />
+		</first>
+		<first id="app.config.path">
+			<fileset dir="./ServiceProfiles" includes="**/${service.name}.xml" />
+		</first>
+		<echo message="Service Name: ${service.name}"/>
+		<echo message="App Config File: ${toString:app.config.path}"/>
+		<echo message="Profile File: ${toString:profile.path}"/>
+
+			<property name="default.profile" value="${toString:app.config.path}"/>
+			<property name="global.profile" value="ServiceProfiles/bw6-globalConfig.xml"/>
+
+	                <echo message="Source ${default.profile}..."/>
+	                <echo message="Using ${global.profile}..."/>
+	                <xslt in="${toString:profile.path}" out="./ServiceProfiles/${service.name}-${env.name}.xml" style="config.xsl" failonerror="true" force="true">
+	                        <outputproperty name="method" value="xml" />
+	                        <outputproperty name="standalone" value="yes" />
+	                        <outputproperty name="indent" value="yes" />
+	                        <param name="app-config" expression="${default.profile}" />
+							<param name="global-config" expression="${global.profile}" />
+							<param name="environmentName" expression="${env.name}" />
+							<param name="default-environmentName" expression="DEFAULT" />
+	                </xslt>
+</target>
+
+<target name="profile-build">
+
+	<property name="service.name" value="world"/>
+
+	<!-- Find EAR file -->
+	<first id="profile.path">
+		<fileset dir="../BW" includes="**/${service.name}.module.application/META-INF/default.substvar" />
+	</first>
+	<echo message="Service Name: **/${service.name}.module.application/META-INF/default.substvar"/>
+	<echo message="Service Name: ${service.name}"/>
+	<echo message="Profile File: ${toString:profile.path}"/>
+
+		<property name="default.profile" value="${toString:profile.path}"/>
+		<property name="global.profile" value="ServiceProfiles/${service.name}.xml"/>
+
+                <echo message="Source ${default.profile}..."/>
+                <echo message="Using ${global.profile}..."/>
+                <xslt in="${default.profile}" out="${global.profile}" style="createAppconfig.xsl" failonerror="true" force="true">
+                        <outputproperty name="method" value="xml" />
+                        <outputproperty name="standalone" value="yes" />
+                        <outputproperty name="indent" value="yes" />
+                        <param name="Globals" expression="${global.profile}" />
+                </xslt>
+</target>
+
+</project>

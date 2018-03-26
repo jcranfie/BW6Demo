@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration>
+<properties>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/password">
+<environment name="DEFAULT" value="#!TBI1GWOElUv6jDLPlRVNog=="/>
+<environment name="DEV" value="#!TBI1GWOElUv6jDLPlRVNog=="/>
+<environment name="SIT" value="#!TBI1GWOElUv6jDLPlRVNog=="/>
+<environment name="PROD" value="#!TBI1GWOElUv6jDLPlRVNog=="/>
+</property>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.context.factory">
+<environment name="DEFAULT" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="DEV" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="SIT" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="PROD" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+</property>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/queue.connection.factory">
+<environment name="DEFAULT" value="QueueConnectionFactory"/>
+<environment name="DEV" value="QueueConnectionFactory"/>
+<environment name="SIT" value="QueueConnectionFactory"/>
+<environment name="PROD" value="QueueConnectionFactory"/>
+</property>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/logger.queue">
+<environment name="DEFAULT" value="bw.util.systemaudit.logger.q"/>
+<environment name="DEV" value="bw.util.systemaudit.logger.q"/>
+<environment name="SIT" value="bw.util.systemaudit.logger.q"/>
+<environment name="PROD" value="bw.util.systemaudit.logger.q"/>
+</property>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.username">
+<environment name="DEFAULT" value="bw"/>
+<environment name="DEV" value="bw"/>
+<environment name="SIT" value="bw"/>
+<environment name="PROD" value="bw"/>
+</property>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.url">
+<environment name="DEFAULT" value="tibjmsnaming://35.178.36.140:7222"/>
+<environment name="DEV" value="tibjmsnaming://35.178.36.140:7222"/>
+<environment name="SIT" value="tibjmsnaming://35.178.36.140:7222"/>
+<environment name="PROD" value="tibjmsnaming://35.178.36.140:7222"/>
+</property>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.password">
+<environment name="DEFAULT" value="#!m1AIsjYoKb7+8Y7I6OW6AA=="/>
+<environment name="DEV" value="#!m1AIsjYoKb7+8Y7I6OW6AA=="/>
+<environment name="SIT" value="#!m1AIsjYoKb7+8Y7I6OW6AA=="/>
+<environment name="PROD" value="#!m1AIsjYoKb7+8Y7I6OW6AA=="/>
+</property>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/topic.connection.factory">
+<environment name="DEFAULT" value="TopicConnectionFactory"/>
+<environment name="DEV" value="TopicConnectionFactory"/>
+<environment name="SIT" value="TopicConnectionFactory"/>
+<environment name="PROD" value="TopicConnectionFactory"/>
+</property>
+<property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/username">
+<environment name="DEFAULT" value="bw"/>
+<environment name="DEV" value="bw"/>
+<environment name="SIT" value="bw"/>
+<environment name="PROD" value="bw"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/queue.connection.factory">
+<environment name="DEFAULT" value="QueueConnectionFactory"/>
+<environment name="DEV" value="QueueConnectionFactory"/>
+<environment name="SIT" value="QueueConnectionFactory"/>
+<environment name="PROD" value="QueueConnectionFactory"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.context.factory">
+<environment name="DEFAULT" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="DEV" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="SIT" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="PROD" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/password">
+<environment name="DEFAULT" value="bw"/>
+<environment name="DEV" value="bw"/>
+<environment name="SIT" value="bw"/>
+<environment name="PROD" value="bw"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/logger.queue">
+<environment name="DEFAULT" value="bw.util.systemerrorhandler.logger.q"/>
+<environment name="DEV" value="bw.util.systemerrorhandler.logger.q"/>
+<environment name="SIT" value="bw.util.systemerrorhandler.logger.q"/>
+<environment name="PROD" value="bw.util.systemerrorhandler.logger.q"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/topic.connection.factory">
+<environment name="DEFAULT" value="TopicConnectionFactory"/>
+<environment name="DEV" value="TopicConnectionFactory"/>
+<environment name="SIT" value="TopicConnectionFactory"/>
+<environment name="PROD" value="TopicConnectionFactory"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.url">
+<environment name="DEFAULT" value="tibjmsnaming://35.178.36.140:7222"/>
+<environment name="DEV" value="tibjmsnaming://35.178.36.140:7222"/>
+<environment name="SIT" value="tibjmsnaming://35.178.36.140:7222"/>
+<environment name="PROD" value="tibjmsnaming://35.178.36.140:7222"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.password">
+<environment name="DEFAULT" value="bw"/>
+<environment name="DEV" value="bw"/>
+<environment name="SIT" value="bw"/>
+<environment name="PROD" value="bw"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.username">
+<environment name="DEFAULT" value="bw"/>
+<environment name="DEV" value="bw"/>
+<environment name="SIT" value="bw"/>
+<environment name="PROD" value="bw"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/username">
+<environment name="DEFAULT" value="bw"/>
+<environment name="DEV" value="bw"/>
+<environment name="SIT" value="bw"/>
+<environment name="PROD" value="bw"/>
+</property>
+<property name="//LIB_TSUTIL_SystemErrorHandler_Client///data/services/area.short.names">
+<environment name="DEFAULT" value=",customer:CI,TSYS:TSYS,general:GEN,utility:UTIL"/>
+<environment name="DEV" value=",customer:CI,TSYS:TSYS,general:GEN,utility:UTIL"/>
+<environment name="SIT" value=",customer:CI,TSYS:TSYS,general:GEN,utility:UTIL"/>
+<environment name="PROD" value=",customer:CI,TSYS:TSYS,general:GEN,utility:UTIL"/>
+</property>
+<property name="//APP_TSDemoGetData.module///data/header/domain.esb.out">
+<environment name="DEFAULT" value="ESB"/>
+<environment name="DEV" value="ESB"/>
+<environment name="SIT" value="ESB"/>
+<environment name="PROD" value="ESB"/>
+</property>
+<property name="//APP_TSDemoGetData.module///data/header/channel.esb.out">
+<environment name="DEFAULT" value="ESB"/>
+<environment name="DEV" value="ESB"/>
+<environment name="SIT" value="ESB"/>
+<environment name="PROD" value="ESB"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/topic.connection.factory">
+<environment name="DEFAULT" value="TopicConnectionFactory"/>
+<environment name="DEV" value="TopicConnectionFactory"/>
+<environment name="SIT" value="TopicConnectionFactory"/>
+<environment name="PROD" value="TopicConnectionFactory"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/username">
+<environment name="DEFAULT" value="bw"/>
+<environment name="DEV" value="bw"/>
+<environment name="SIT" value="bw"/>
+<environment name="PROD" value="bw"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/jndi.url">
+<environment name="DEFAULT" value="tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222"/>
+<environment name="DEV" value="tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222"/>
+<environment name="SIT" value="tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222"/>
+<environment name="PROD" value="tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/queue.connection.factory">
+<environment name="DEFAULT" value="QueueConnectionFactory"/>
+<environment name="DEV" value="QueueConnectionFactory"/>
+<environment name="SIT" value="QueueConnectionFactory"/>
+<environment name="PROD" value="QueueConnectionFactory"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/jndi.username">
+<environment name="DEFAULT" value="bw"/>
+<environment name="DEV" value="bw"/>
+<environment name="SIT" value="bw"/>
+<environment name="PROD" value="bw"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/jndi.context.factory">
+<environment name="DEFAULT" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="DEV" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="SIT" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+<environment name="PROD" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/jndi.password">
+<environment name="DEFAULT" value="#!Ci5vmIGoPwaw4hGBQj8m/A=="/>
+<environment name="DEV" value="#!Ci5vmIGoPwaw4hGBQj8m/A=="/>
+<environment name="SIT" value="#!Ci5vmIGoPwaw4hGBQj8m/A=="/>
+<environment name="PROD" value="#!Ci5vmIGoPwaw4hGBQj8m/A=="/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/password">
+<environment name="DEFAULT" value="#!pqKJMNSgjBkitDQsAi4TEw=="/>
+<environment name="DEV" value="#!pqKJMNSgjBkitDQsAi4TEw=="/>
+<environment name="SIT" value="#!pqKJMNSgjBkitDQsAi4TEw=="/>
+<environment name="PROD" value="#!pqKJMNSgjBkitDQsAi4TEw=="/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/password">
+<environment name="DEFAULT" value="#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ="/>
+<environment name="DEV" value="#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ="/>
+<environment name="SIT" value="#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ="/>
+<environment name="PROD" value="#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ="/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/username">
+<environment name="DEFAULT" value="username"/>
+<environment name="DEV" value="username"/>
+<environment name="SIT" value="username"/>
+<environment name="PROD" value="username"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.driver">
+<environment name="DEFAULT" value="org.hsqldb.jdbc.JDBCDriver"/>
+<environment name="DEV" value="org.hsqldb.jdbc.JDBCDriver"/>
+<environment name="SIT" value="org.hsqldb.jdbc.JDBCDriver"/>
+<environment name="PROD" value="org.hsqldb.jdbc.JDBCDriver"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/max.connections">
+<environment name="DEFAULT" value="10"/>
+<environment name="DEV" value="10"/>
+<environment name="SIT" value="10"/>
+<environment name="PROD" value="10"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/login.timeout.ms">
+<environment name="DEFAULT" value="30000"/>
+<environment name="DEV" value="30000"/>
+<environment name="SIT" value="30000"/>
+<environment name="PROD" value="30000"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.url">
+<environment name="DEFAULT" value="jdbc:hsqldb:file:&lt;path&gt;"/>
+<environment name="DEV" value="jdbc:hsqldb:file:&lt;path&gt;"/>
+<environment name="SIT" value="jdbc:hsqldb:file:&lt;path&gt;"/>
+<environment name="PROD" value="jdbc:hsqldb:file:&lt;path&gt;"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/port">
+<environment name="DEFAULT" value="1234"/>
+<environment name="DEV" value="1234"/>
+<environment name="SIT" value="1234"/>
+<environment name="PROD" value="1234"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/hostname">
+<environment name="DEFAULT" value="backend.local"/>
+<environment name="DEV" value="backend.local"/>
+<environment name="SIT" value="backend.local"/>
+<environment name="PROD" value="backend.local"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/slate.check">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/idle.connection.timeout.ms">
+<environment name="DEFAULT" value="3000"/>
+<environment name="DEV" value="3000"/>
+<environment name="SIT" value="3000"/>
+<environment name="PROD" value="3000"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections">
+<environment name="DEFAULT" value="200"/>
+<environment name="DEV" value="200"/>
+<environment name="SIT" value="200"/>
+<environment name="PROD" value="200"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/disable.connection.pooling">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections.perhost">
+<environment name="DEFAULT" value="20"/>
+<environment name="DEV" value="20"/>
+<environment name="SIT" value="20"/>
+<environment name="PROD" value="20"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/connection.timeout.ms">
+<environment name="DEFAULT" value="0"/>
+<environment name="DEV" value="0"/>
+<environment name="SIT" value="0"/>
+<environment name="PROD" value="0"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/socket.timeout.ms">
+<environment name="DEFAULT" value="0"/>
+<environment name="DEV" value="0"/>
+<environment name="SIT" value="0"/>
+<environment name="PROD" value="0"/>
+</property>
+<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/retry.count">
+<environment name="DEFAULT" value="3"/>
+<environment name="DEV" value="3"/>
+<environment name="SIT" value="3"/>
+<environment name="PROD" value="3"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.audit.payload.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.audit.remotefile.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.audit.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.audit.remotedb.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.audit.local.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.audit.local.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.cache.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/jms.queue">
+<environment name="DEFAULT" value="Coop.UK.Q.RQ.TS.DEMO.GETDATA.SOAP11.1"/>
+<environment name="DEV" value="Coop.UK.Q.RQ.TS.DEMO.GETDATA.SOAP11.1"/>
+<environment name="SIT" value="Coop.UK.Q.RQ.TS.DEMO.GETDATA.SOAP11.1"/>
+<environment name="PROD" value="Coop.UK.Q.RQ.TS.DEMO.GETDATA.SOAP11.1"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.cache.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.audit.remotefile.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.audit.payload.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.audit.remotedb.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.audit.enable">
+<environment name="DEFAULT" value="false"/>
+<environment name="DEV" value="false"/>
+<environment name="SIT" value="false"/>
+<environment name="PROD" value="false"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/backend/BACKEND/timeout">
+<environment name="DEFAULT" value="30"/>
+<environment name="DEV" value="30"/>
+<environment name="SIT" value="30"/>
+<environment name="PROD" value="30"/>
+</property>
+<property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/backend/BACKEND/endpoint.uri">
+<environment name="DEFAULT" value="/backend/uri"/>
+<environment name="DEV" value="/backend/uri"/>
+<environment name="SIT" value="/backend/uri"/>
+<environment name="PROD" value="/backend/uri"/>
+</property>
+</properties>
+</configuration>

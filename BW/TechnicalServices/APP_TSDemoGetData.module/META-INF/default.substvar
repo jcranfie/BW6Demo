@@ -194,38 +194,6 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.util.flushexceptionevents/FlushExceptionEvents/max.size</name>
-			<value>120</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.ts.util.flushexceptionevents/FlushExceptionEvents/time.interval</name>
-			<value>36000</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.ts.util.flushlogevents/FlushLogEvents/max.size</name>
-			<value>120</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.ts.util.flushlogevents/FlushLogEvents/time.interval</name>
-			<value>36000</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
 			<name>/resources/services.ts.demo.getdata/Client-BACKEND-http/hostname</name>
 			<value>backend.local</value>
 			<deploymentSettable>false</deploymentSettable>

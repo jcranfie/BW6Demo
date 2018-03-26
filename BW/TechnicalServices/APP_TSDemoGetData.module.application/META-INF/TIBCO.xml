@@ -353,13 +353,6 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///services.ts.util.flushexceptionevents/FlushExceptionEvents/time.interval</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/slate.check</packaging:name>
       <packaging:type>xsd:boolean</packaging:type>
       <packaging:visibility>public</packaging:visibility>
@@ -409,13 +402,6 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///services.ts.util.flushlogevents/FlushLogEvents/time.interval</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/jndi.url</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>public</packaging:visibility>
@@ -425,13 +411,6 @@
     <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.audit.local.enable</packaging:name>
       <packaging:type>xsd:boolean</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///services.ts.util.flushexceptionevents/FlushExceptionEvents/max.size</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -685,13 +664,6 @@
       <packaging:name>//APP_TSDemoGetData.module//BW.MODULE.NAME</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///services.ts.util.flushlogevents/FlushLogEvents/max.size</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>

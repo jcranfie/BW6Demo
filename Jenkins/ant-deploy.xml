@@ -2,7 +2,7 @@
 <project name="preservice-build" >
 
 	<!-- TIBCO applications properties -->
-	<property name="bw.home.path" value= "/Users/JulianCranfield/TIBCO-BW642/bw/6.4" />
+	<property name="bw.home.path" value= "/Users/juliancranfield/TIBCO-BW642/bw/6.4" />
 	<property name="bw.admin" value= "${bw.home.path}/bin/bwadmin" />
 	<property name="bw.admin.config.dir" value="${base.dir}/config"/>
 	<property name="bw.admin.tra" value= "${bw.admin.config.dir}/bwadmin.tra" />

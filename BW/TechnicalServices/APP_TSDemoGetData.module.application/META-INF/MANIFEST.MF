@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: APP_TSSDemoGetData Module Application
+Bundle-Name: APP_TSDemoGetData Module Application
 Bundle-SymbolicName: APP_TSDemoGetData.module.application
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: TIBCO Software Inc.

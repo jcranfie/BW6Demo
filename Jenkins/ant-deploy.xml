@@ -13,6 +13,8 @@
 		<property name="env.name" value="world"/>
 		<property name="application.name" value="world"/>
 		<property name="application.version" value="world"/>
+		<property name="bw.application.appspace" value="world"/>
+		<property name="domain" value="world"/>
 
 		<property name="script.file" value="${base.dir}/build/${application.name}/${application.version}/scripts/deploy.bwadmin"/>
 		<property name="profile.file" value="../jobs/${application.name}/builds/${application.version}/archive/Jenkins/ServiceProfiles/${application.name}-${env.name}"/>

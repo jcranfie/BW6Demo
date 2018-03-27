@@ -203,11 +203,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//APP_BSDemoGetData.module///resources/services.bs.demo.getdata/Client-ESB01/jndi.url</name>
-			<value>tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222</value>
+			<value>tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222,tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>false</isOverride>
+			<isOverride>true</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//APP_BSDemoGetData.module///resources/services.bs.demo.getdata/Client-ESB01/username</name>

@@ -17,33 +17,36 @@
 		<property name="domain" value="world"/>
 
 		<property name="script.file" value="${base.dir}/build/${application.name}/${application.version}/scripts/deploy.bwadmin"/>
-		<property name="profile.file" value="../../../jobs/${application.name}/builds/${application.version}/archive/Jenkins/ServiceProfiles/${application.name}-${env.name}.xml"/>
 		<property name="ear.name" value="${application.name}.module.application_1.0.${application.version}.ear"/>
-		<property name="description" value="Pipeline#${pipeline.number} Revision#${revision.number}"/>
+		<property name="description" value="Jenkins Deployment - Pipeline#${application.version}"/>
 		<property name="bw.agent" value="bwagent-${env.name}.ini"/>
 
 		<echo message="Uploads, Deploys and Starts one BW application..."/>
 		<echo message=""/>
 
 		<!-- Find EAR file -->
-		<echo message="Searching : ../../../jobs/${application.name}/builds/${application.version} for **/${application.name}*_1.0.${application.version}.ear"/>
 		<first id="ear.path">
 			<fileset dir="../../../jobs/${application.name}/builds/${application.version}" includes="**/${application.name}*_1.0.${application.version}.ear" />
 		</first>
 		<echo message="EAR File: ${toString:ear.path}"/>
+		
+		<!-- Find Profile file -->
+		<first id="profile.path">
+			<fileset dir="../../../jobs/${application.name}/builds/${application.version}" includes="**/${application.name}-${env.name}.xml" />
+		</first>
+		<echo message="Profile File: ${toString:profile.path}"/>
 
 		<!-- Deletes the BWAdmin script file if it exists -->
 		<delete file="${script.file}" failonerror="false"/>
 		
 		<!-- Writes the bwadmin script file -->
-	
-		<echo message="Profile: ${profile.file}"/>
+		<echo message="Creating deployment script..."/>
 		<echo message=""/>
 		
 		<echo file="${script.file}" append="true">echo "Upload ${ear.name}"${line.separator}</echo>
 		<echo file="${script.file}" append="true">upload -path ${application.name} -replace -domain ${domain} "${toString:ear.path}"${line.separator}</echo>
 		<echo file="${script.file}" append="true">echo "Deploy and Start ${ear.name}"${line.separator}</echo>
-		<echo file="${script.file}" append="true">deploy -domain  ${domain} -appspace ${bw.application.appspace} -description "${description}" -profilefile "${profile.file}" -replace -startondeploy "${application.name}/${ear.name}"${line.separator}</echo>
+		<echo file="${script.file}" append="true">deploy -domain  ${domain} -appspace ${bw.application.appspace} -description "${description}" -profilefile "${toString:profile.path}" -replace -startondeploy "${application.name}/${ear.name}"${line.separator}</echo>
 		<echo file="${script.file}" append="true">show -domain ${domain} -appspace ${bw.application.appspace} applications ${application.name}.application${line.separator}</echo>
 
 		<!-- Executes the bwadmin script file -->
@@ -60,8 +63,6 @@
 		<echo message=""/>
 		<echo message="Executing ${bw.admin} --propFile ${bw.admin.tra} -config ${bw.admin.config.dir}/${bw.agent} -f ${script.file}... Done."/>
 	</target>
-
-
 
 <target name="profile-create">
 

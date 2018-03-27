@@ -8,7 +8,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>../../POM/APP_BSDemoGetData.xml</relativePath>
   </parent>
-  <artifactId>APP_TSDemoGetData.module.application</artifactId>
+  <artifactId>APP_BSDemoGetData.module.application</artifactId>
   <packaging>bwear</packaging>
   <properties>
     <appSpace>APP_BSDemoGetData-AppSpace-AppSpace</appSpace>

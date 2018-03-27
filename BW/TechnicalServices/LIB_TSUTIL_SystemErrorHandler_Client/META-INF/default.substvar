@@ -91,7 +91,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/jndi.url</name>
-			<value>tibjmsnaming://35.178.36.140:7222</value>
+			<value>tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -107,15 +107,15 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/jndi.password</name>
-			<value>bw</value>
+			<value>#!sjOW4Z3ldh/UBRIu3GKkNw==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
+			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/queue.connection.factory</name>
-			<value> QueueConnectionFactory</value>
+			<value>QueueConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -139,10 +139,10 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/password</name>
-			<value>bw</value>
+			<value>#!kxax7yQdFc0NGAXD57t0/A==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
+			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>

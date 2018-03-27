@@ -13,10 +13,10 @@
   <sca:property xmi:id="_ZwJlAB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.context.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_bbnoUB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_bdZJ8B1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_be17cB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.password" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_be17cB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.password" type="property:password" scaext:simpleValue="#!LSXODpQvxX1h3ujm2HpGFg==" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_bgYMgB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/queue.connection.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_bh1lEB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/topic.connection.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_bjOFIB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_bkq2oB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/password" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bkq2oB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/password" type="property:password" scaext:simpleValue="#!bgYfCo/TBLPhBNqNyjcAOg==" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_bmD9wB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/logger.queue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
 </sca:composite>

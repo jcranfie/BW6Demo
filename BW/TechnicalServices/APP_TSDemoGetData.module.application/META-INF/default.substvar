@@ -307,10 +307,10 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/password</name>
-			<value>bw</value>
+			<value>#!kxax7yQdFc0NGAXD57t0/A==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
+			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
@@ -331,7 +331,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.url</name>
-			<value>tibjmsnaming://35.178.36.140:7222</value>
+			<value>tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -339,10 +339,10 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.password</name>
-			<value>bw</value>
+			<value>#!sjOW4Z3ldh/UBRIu3GKkNw==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
+			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
@@ -475,7 +475,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/jndi.url</name>
-			<value>tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222</value>
+			<value>tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222,tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -519,134 +519,6 @@
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/password</name>
-			<value>#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ=</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Password</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/username</name>
-			<value>username</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.driver</name>
-			<value>org.hsqldb.jdbc.JDBCDriver</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/max.connections</name>
-			<value>10</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/login.timeout.ms</name>
-			<value>30000</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.url</name>
-			<value>jdbc:hsqldb:file:&lt;path&gt;</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/port</name>
-			<value>1234</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/hostname</name>
-			<value>backend.local</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/slate.check</name>
-			<value>false</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Boolean</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/idle.connection.timeout.ms</name>
-			<value>3000</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections</name>
-			<value>200</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/disable.connection.pooling</name>
-			<value>false</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Boolean</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections.perhost</name>
-			<value>20</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/connection.timeout.ms</name>
-			<value>0</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/socket.timeout.ms</name>
-			<value>0</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/retry.count</name>
-			<value>3</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>

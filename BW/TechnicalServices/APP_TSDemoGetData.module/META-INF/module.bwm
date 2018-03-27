@@ -61,22 +61,6 @@
   <sca:property xmi:id="_YEhokBWCEeie28s1fSTo7w" name="/services.ts.demo.getdata/getdemodata/exception.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="__PRxgMp5EeW_7rgVeQxGpA" name="/services.ts.demo.getdata/getdemodata/backend/BACKEND/timeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_AlaeAMp6EeW_7rgVeQxGpA" name="/services.ts.demo.getdata/getdemodata/backend/BACKEND/endpoint.uri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_3aHBgMp4EeW_7rgVeQxGpA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="__7dMsMsWEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_A4rp8MsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/client/disable.connection.pooling" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_E7FvcMsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_E8sR8MsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections.perhost" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_E-SNYMsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/client/idle.connection.timeout.ms" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_E_0ecMsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/client/slate.check" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_AuOtcMsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/socket.timeout.ms" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_EoBCcMsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/connection.timeout.ms" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_Epdz8MsXEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/retry.count" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_45o6kMp4EeW_7rgVeQxGpA" name="/resources/services.ts.demo.getdata/Client-BACKEND-jdbc/max.connections" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_9qpygMp4EeW_7rgVeQxGpA" name="/resources/services.ts.demo.getdata/Client-BACKEND-jdbc/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_9uiM8Mp4EeW_7rgVeQxGpA" name="/resources/services.ts.demo.getdata/Client-BACKEND-jdbc/password" type="property:password" scaext:simpleValue="#!4ZILZKhB6Egt4mQ7SgB1qA==" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_9y5IgMp4EeW_7rgVeQxGpA" name="/resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.driver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_93sI8Mp4EeW_7rgVeQxGpA" name="/resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_95hU8Mp4EeW_7rgVeQxGpA" name="/resources/services.ts.demo.getdata/Client-BACKEND-jdbc/login.timeout.ms" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_E22g8MsdEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-ESB01/jndi.context.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_1yX_sMsdEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-ESB01/jndi.url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_GKrgUMsdEeWh752vwu3HDA" name="/resources/services.ts.demo.getdata/Client-ESB01/jndi.username" type="XMLSchema:string" publicAccess="true" scalable="true"/>

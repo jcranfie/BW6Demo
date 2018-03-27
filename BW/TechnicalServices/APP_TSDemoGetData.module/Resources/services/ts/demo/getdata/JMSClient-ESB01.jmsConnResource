@@ -5,8 +5,8 @@
     <substitutionBindings xmi:id="__PryMMseEeWh752vwu3HDA" template="jndiName" propName="/resources/services.ts.demo.getdata/Client-ESB01/queue.connection.factory"/>
     <substitutionBindings xmi:id="_ANtgsMsfEeWh752vwu3HDA" template="topicFactoryJNDIName" propName="/resources/services.ts.demo.getdata/Client-ESB01/topic.connection.factory"/>
     <userCredentials xmi:id="_CzepEMsfEeWh752vwu3HDA">
-      <substitutionBindings xmi:id="_DENMsMsfEeWh752vwu3HDA" template="username" propName="/resources/services.ts.backend.servicename/Client-ESB01/username"/>
-      <substitutionBindings xmi:id="_D-V5sMsfEeWh752vwu3HDA" template="password" propName="/resources/services.ts.backend.servicename/Client-ESB01/password"/>
+      <substitutionBindings xmi:id="_DENMsMsfEeWh752vwu3HDA" template="username" propName="/resources/services.ts.demo.getdata/Client-ESB01/username"/>
+      <substitutionBindings xmi:id="_D-V5sMsfEeWh752vwu3HDA" template="password" propName="/resources/services.ts.demo.getdata/Client-ESB01/password"/>
     </userCredentials>
   </jndi:configuration>
 </jndi:namedResource>

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_nu5J0AWWEeitJ9BlpQjevQ" name="services.ts.util.systemerrorhandler.JMSClientResource" type="jms:JMSConnectionFactory">
-  <jndi:configuration xsi:type="jms:DirectConnectionFactory" xmi:id="_fsr2wBxnEei_2rd-NyP-Xg" factoryType="Queue/Topic" providerURL="tcp://35.178.36.140:7222"/>
+  <jndi:reference xmi:id="_6SQdsDGQEei2jODleSIzKQ" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="services.ts.util.systemerrorhandler.JNDIClientResource-Audit"/>
+  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_6Of_EDGQEei2jODleSIzKQ" factoryType="Queue/Topic">
+    <substitutionBindings xmi:id="_7hgfEDGQEei2jODleSIzKQ" template="jndiName" propName="/resources/services.ts.util.system.audit/client-ERROR/queue.connection.factory"/>
+    <substitutionBindings xmi:id="_85m6cDGQEei2jODleSIzKQ" template="topicFactoryJNDIName" propName="/resources/services.ts.util.system.audit/client-ERROR/topic.connection.factory"/>
+    <userCredentials xmi:id="__jK9sDGQEei2jODleSIzKQ">
+      <substitutionBindings xmi:id="__9rvcDGQEei2jODleSIzKQ" template="username" propName="/resources/services.ts.util.system.audit/client-ERROR/username"/>
+      <substitutionBindings xmi:id="_B2QaoDGREei2jODleSIzKQ" template="password" propName="/resources/services.ts.util.system.audit/client-ERROR/password"/>
+    </userCredentials>
+  </jndi:configuration>
 </jndi:namedResource>

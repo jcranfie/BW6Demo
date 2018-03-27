@@ -235,7 +235,7 @@
     </packaging:property>
     <packaging:property>
       <packaging:name>//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/password</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
+      <packaging:type>ns:password</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -298,7 +298,7 @@
     </packaging:property>
     <packaging:property>
       <packaging:name>//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.password</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
+      <packaging:type>ns:password</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -353,13 +353,6 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/slate.check</packaging:name>
-      <packaging:type>xsd:boolean</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/username</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>public</packaging:visibility>
@@ -376,20 +369,6 @@
     <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.audit.remotedb.enable</packaging:name>
       <packaging:type>xsd:boolean</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/connection.timeout.ms</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/socket.timeout.ms</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -418,13 +397,6 @@
     <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/queue.connection.factory</packaging:name>
       <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/password</packaging:name>
-      <packaging:type>ns:password</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -465,29 +437,8 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/port</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/jndi.username</packaging:name>
       <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/username</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/idle.connection.timeout.ms</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -496,20 +447,6 @@
       <packaging:name>//APP_TSDemoGetData.module//BW.DEPLOYMENTUNIT.TYPE</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/retry.count</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/hostname</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
@@ -528,13 +465,6 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.cache.enable</packaging:name>
       <packaging:type>xsd:boolean</packaging:type>
       <packaging:visibility>public</packaging:visibility>
@@ -542,22 +472,8 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.driver</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///data/header/channel.esb.out</packaging:name>
       <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/disable.connection.pooling</packaging:name>
-      <packaging:type>xsd:boolean</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -579,20 +495,6 @@
     <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.audit.remotefile.enable</packaging:name>
       <packaging:type>xsd:boolean</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/max.connections</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections.perhost</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
       <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
@@ -647,13 +549,6 @@
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>
     <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/login.timeout.ms</packaging:name>
-      <packaging:type>xsd:int</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
       <packaging:name>//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/exception.audit.enable</packaging:name>
       <packaging:type>xsd:boolean</packaging:type>
       <packaging:visibility>public</packaging:visibility>
@@ -664,13 +559,6 @@
       <packaging:name>//APP_TSDemoGetData.module//BW.MODULE.NAME</packaging:name>
       <packaging:type>xsd:string</packaging:type>
       <packaging:visibility>private</packaging:visibility>
-      <packaging:scalable>true</packaging:scalable>
-      <packaging:overrideValue>false</packaging:overrideValue>
-    </packaging:property>
-    <packaging:property>
-      <packaging:name>//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.url</packaging:name>
-      <packaging:type>xsd:string</packaging:type>
-      <packaging:visibility>public</packaging:visibility>
       <packaging:scalable>true</packaging:scalable>
       <packaging:overrideValue>false</packaging:overrideValue>
     </packaging:property>

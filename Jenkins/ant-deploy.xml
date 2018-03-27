@@ -18,7 +18,7 @@
 
 		<property name="script.file" value="${base.dir}/build/${application.name}/${application.version}/scripts/deploy.bwadmin"/>
 		<property name="profile.file" value="../../../jobs/${application.name}/builds/${application.version}/archive/Jenkins/ServiceProfiles/${application.name}-${env.name}.xml"/>
-		<property name="ear.name" value="${application.name}.1.0.${application.version}.ear"/>
+		<property name="ear.name" value="${application.name}.module.application.1.0.${application.version}.ear"/>
 		<property name="description" value="Pipeline#${pipeline.number} Revision#${revision.number}"/>
 		<property name="bw.agent" value="bwagent-${env.name}.ini"/>
 

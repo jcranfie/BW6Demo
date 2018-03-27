@@ -33,7 +33,7 @@
 </property>
 <property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.url">
 <environment name="DEFAULT" value="tibjmsnaming://35.178.36.140:7222"/>
-<environment name="DEV" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"
+<environment name="DEV" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
 <environment name="SIT" value="tibjmsnaming://35.178.36.140:7222"/>
 <environment name="PROD" value="tibjmsnaming://35.178.36.140:7222"/>
 </property>

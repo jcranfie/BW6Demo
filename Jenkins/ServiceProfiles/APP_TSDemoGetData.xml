@@ -33,7 +33,7 @@
 </property>
 <property name="//LIB_TSUTIL_SystemAudit_Client///resources/services.ts.util.system.audit/Client-AUDIT/jndi.url">
 <environment name="DEFAULT" value="tibjmsnaming://35.178.36.140:7222"/>
-<environment name="DEV" value="tibjmsnaming://35.178.36.140:7222"/>
+<environment name="DEV" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"
 <environment name="SIT" value="tibjmsnaming://35.178.36.140:7222"/>
 <environment name="PROD" value="tibjmsnaming://35.178.36.140:7222"/>
 </property>
@@ -68,10 +68,10 @@
 <environment name="PROD" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
 </property>
 <property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/password">
-<environment name="DEFAULT" value="bw"/>
-<environment name="DEV" value="bw"/>
-<environment name="SIT" value="bw"/>
-<environment name="PROD" value="bw"/>
+<environment name="DEFAULT" value="#!kxax7yQdFc0NGAXD57t0/A=="/>
+<environment name="DEV" value="#!kxax7yQdFc0NGAXD57t0/A=="/>
+<environment name="SIT" value="#!kxax7yQdFc0NGAXD57t0/A=="/>
+<environment name="PROD" value="#!kxax7yQdFc0NGAXD57t0/A=="/>
 </property>
 <property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/logger.queue">
 <environment name="DEFAULT" value="bw.util.systemerrorhandler.logger.q"/>
@@ -86,16 +86,16 @@
 <environment name="PROD" value="TopicConnectionFactory"/>
 </property>
 <property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.url">
-<environment name="DEFAULT" value="tibjmsnaming://35.178.36.140:7222"/>
-<environment name="DEV" value="tibjmsnaming://35.178.36.140:7222"/>
-<environment name="SIT" value="tibjmsnaming://35.178.36.140:7222"/>
-<environment name="PROD" value="tibjmsnaming://35.178.36.140:7222"/>
+<environment name="DEFAULT" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
+<environment name="DEV" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
+<environment name="SIT" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
+<environment name="PROD" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
 </property>
 <property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.password">
-<environment name="DEFAULT" value="bw"/>
-<environment name="DEV" value="bw"/>
-<environment name="SIT" value="bw"/>
-<environment name="PROD" value="bw"/>
+<environment name="DEFAULT" value="#!sjOW4Z3ldh/UBRIu3GKkNw=="/>
+<environment name="DEV" value="#!sjOW4Z3ldh/UBRIu3GKkNw=="/>
+<environment name="SIT" value="#!sjOW4Z3ldh/UBRIu3GKkNw=="/>
+<environment name="PROD" value="#!sjOW4Z3ldh/UBRIu3GKkNw=="/>
 </property>
 <property name="//LIB_TSUTIL_SystemErrorHandler_Client///resources/services.ts.util.system.audit/client-ERROR/jndi.username">
 <environment name="DEFAULT" value="bw"/>
@@ -140,10 +140,10 @@
 <environment name="PROD" value="bw"/>
 </property>
 <property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/jndi.url">
-<environment name="DEFAULT" value="tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222"/>
-<environment name="DEV" value="tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222"/>
-<environment name="SIT" value="tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222"/>
-<environment name="PROD" value="tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222"/>
+<environment name="DEFAULT" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222,tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
+<environment name="DEV" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222,tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
+<environment name="SIT" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222,tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
+<environment name="PROD" value="tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222,tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222"/>
 </property>
 <property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-ESB01/queue.connection.factory">
 <environment name="DEFAULT" value="QueueConnectionFactory"/>
@@ -174,102 +174,6 @@
 <environment name="DEV" value="#!pqKJMNSgjBkitDQsAi4TEw=="/>
 <environment name="SIT" value="#!pqKJMNSgjBkitDQsAi4TEw=="/>
 <environment name="PROD" value="#!pqKJMNSgjBkitDQsAi4TEw=="/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/password">
-<environment name="DEFAULT" value="#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ="/>
-<environment name="DEV" value="#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ="/>
-<environment name="SIT" value="#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ="/>
-<environment name="PROD" value="#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ="/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/username">
-<environment name="DEFAULT" value="username"/>
-<environment name="DEV" value="username"/>
-<environment name="SIT" value="username"/>
-<environment name="PROD" value="username"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.driver">
-<environment name="DEFAULT" value="org.hsqldb.jdbc.JDBCDriver"/>
-<environment name="DEV" value="org.hsqldb.jdbc.JDBCDriver"/>
-<environment name="SIT" value="org.hsqldb.jdbc.JDBCDriver"/>
-<environment name="PROD" value="org.hsqldb.jdbc.JDBCDriver"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/max.connections">
-<environment name="DEFAULT" value="10"/>
-<environment name="DEV" value="10"/>
-<environment name="SIT" value="10"/>
-<environment name="PROD" value="10"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/login.timeout.ms">
-<environment name="DEFAULT" value="30000"/>
-<environment name="DEV" value="30000"/>
-<environment name="SIT" value="30000"/>
-<environment name="PROD" value="30000"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-jdbc/database.url">
-<environment name="DEFAULT" value="jdbc:hsqldb:file:&lt;path&gt;"/>
-<environment name="DEV" value="jdbc:hsqldb:file:&lt;path&gt;"/>
-<environment name="SIT" value="jdbc:hsqldb:file:&lt;path&gt;"/>
-<environment name="PROD" value="jdbc:hsqldb:file:&lt;path&gt;"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/port">
-<environment name="DEFAULT" value="1234"/>
-<environment name="DEV" value="1234"/>
-<environment name="SIT" value="1234"/>
-<environment name="PROD" value="1234"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/hostname">
-<environment name="DEFAULT" value="backend.local"/>
-<environment name="DEV" value="backend.local"/>
-<environment name="SIT" value="backend.local"/>
-<environment name="PROD" value="backend.local"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/slate.check">
-<environment name="DEFAULT" value="false"/>
-<environment name="DEV" value="false"/>
-<environment name="SIT" value="false"/>
-<environment name="PROD" value="false"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/idle.connection.timeout.ms">
-<environment name="DEFAULT" value="3000"/>
-<environment name="DEV" value="3000"/>
-<environment name="SIT" value="3000"/>
-<environment name="PROD" value="3000"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections">
-<environment name="DEFAULT" value="200"/>
-<environment name="DEV" value="200"/>
-<environment name="SIT" value="200"/>
-<environment name="PROD" value="200"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/disable.connection.pooling">
-<environment name="DEFAULT" value="false"/>
-<environment name="DEV" value="false"/>
-<environment name="SIT" value="false"/>
-<environment name="PROD" value="false"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/client/max.total.connections.perhost">
-<environment name="DEFAULT" value="20"/>
-<environment name="DEV" value="20"/>
-<environment name="SIT" value="20"/>
-<environment name="PROD" value="20"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/connection.timeout.ms">
-<environment name="DEFAULT" value="0"/>
-<environment name="DEV" value="0"/>
-<environment name="SIT" value="0"/>
-<environment name="PROD" value="0"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/socket.timeout.ms">
-<environment name="DEFAULT" value="0"/>
-<environment name="DEV" value="0"/>
-<environment name="SIT" value="0"/>
-<environment name="PROD" value="0"/>
-</property>
-<property name="//APP_TSDemoGetData.module///resources/services.ts.demo.getdata/Client-BACKEND-http/advanced/retry.count">
-<environment name="DEFAULT" value="3"/>
-<environment name="DEV" value="3"/>
-<environment name="SIT" value="3"/>
-<environment name="PROD" value="3"/>
 </property>
 <property name="//APP_TSDemoGetData.module///services.ts.demo.getdata/getdemodata/log.audit.payload.enable">
 <environment name="DEFAULT" value="false"/>

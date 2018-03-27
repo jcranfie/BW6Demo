@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:fault="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" 
+xmlns:tns="urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+name="GetData" 
+targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData" xmlns:xsd1="urn://co-opbank.co.ke/demo/bs/getdata">
+	
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import
+				namespace="urn://co-opbank.co.ke/demo/bs/getdata"
+				schemaLocation="../../../../../Schemas/BSDemoGetData.xsd">
+			</xsd:import>
+			<xsd:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" schemaLocation="../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Fault.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="GetDataRequest">
+		<wsdl:part element="xsd1:GetDataRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GetDataResponse">
+		<wsdl:part element="xsd1:GetDataResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="BusinessFault">
+		<wsdl:part element="fault:BusinessFault" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="TechnicalFault">
+		<wsdl:part element="fault:TechnicalFault" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ValidationFault">
+		<wsdl:part element="fault:ValidationFault" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="Fault">
+		<wsdl:part element="fault:Fault" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="GetData">
+		<wsdl:operation name="GetData">
+			<wsdl:input message="tns:GetDataRequest"/>
+			<wsdl:output message="tns:GetDataResponse"/>
+			<wsdl:fault message="tns:BusinessFault" name="BusinessFault"/>
+			<wsdl:fault message="tns:TechnicalFault" name="TechnicalFault"/>
+			<wsdl:fault message="tns:ValidationFault" name="ValidationFault"/>
+			<wsdl:fault message="tns:Fault" name="Fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

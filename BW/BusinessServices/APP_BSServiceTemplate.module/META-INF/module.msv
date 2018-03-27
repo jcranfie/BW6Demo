@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<msv:DocumentRoot xmlns:msv="http://tns.tibco.com/bw/model/core/moduleSV">
-  <moduleSharedVariables>
-    <moduleSharedVariable name="moduleSharedVariable" type="{urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName}ServiceNameRequest" initialValueMode="none"/>
-  </moduleSharedVariables>
-  <import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName" location="../Schemas/CommonServices/Message/BS/BackEnd/ServiceName/ServiceName.xsd"/>
-</msv:DocumentRoot>

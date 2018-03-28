@@ -33,7 +33,7 @@
                             <goal>test</goal>
                         </goals>
                         <configuration>
-                            <projectFile>APP_BSDemoGetData-TEST.xml</projectFile>
+                            <projectFile>${servicename}-TEST.xml</projectFile>
                             <projectProperties>
                                 <value>Endpoint=${endpoint}</value>
                             </projectProperties>

@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="60743de2-4bb1-40cc-b5d0-eb86d08c20fb" activeEnvironment="Default" name="BS_DemoGetData" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4b19446d-2b72-4099-9194-74016ab2b805" wsaVersion="NONE" name="SOAPServiceBinding" type="wsdl" bindingName="{urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData-concrete}SOAPServiceBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/juliancranfield/Projects/coop/GitSource/Co-op/WSDL/APP_BSDemoGetData-concrete.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/juliancranfield/Projects/coop/GitSource/Co-op/WSDL/APP_BSDemoGetData-concrete.wsdl"><con:part><con:url>file:/Users/juliancranfield/Projects/coop/GitSource/Co-op/WSDL/APP_BSDemoGetData-concrete.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GetData" targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData-concrete" xmlns:ns="urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData-concrete" xmlns:ns0="urn://co-opbank.co.ke/demo/bs/getdata" xmlns:ns01="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:ns012="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:ns0123="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" xmlns:ns01234="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:ns012345="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<con:soapui-project id="60743de2-4bb1-40cc-b5d0-eb86d08c20fb" activeEnvironment="Default" name="BS_DemoGetData" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="&lt;all>"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="4b19446d-2b72-4099-9194-74016ab2b805" wsaVersion="NONE" name="SOAPServiceBinding" type="wsdl" bindingName="{urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData-concrete}SOAPServiceBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/juliancranfield/Projects/coop/GitSource/Co-op/WSDL/APP_BSDemoGetData-concrete.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/juliancranfield/Projects/coop/GitSource/Co-op/WSDL/APP_BSDemoGetData-concrete.wsdl"><con:part><con:url>file:/Users/juliancranfield/Projects/coop/GitSource/Co-op/WSDL/APP_BSDemoGetData-concrete.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GetData" targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData-concrete" xmlns:ns="urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData-concrete" xmlns:ns0="urn://co-opbank.co.ke/demo/bs/getdata" xmlns:ns01="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:ns012="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:ns0123="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" xmlns:ns01234="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:ns012345="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xsd:schema elementFormDefault="unqualified" targetNamespace="urn://co-opbank.co.ke/demo/bs/getdata" xmlns:Q1="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:Q2="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" xmlns:tns="urn://co-opbank.co.ke/demo/bs/getdata">
       <xsd:import namespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0"/>
@@ -308,4 +339,49 @@
          </request>
       </get:GetDataRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GetData"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GetData"/><con:wsrmConfig version="1.2"/></con:call><con:call id="7c14749e-8903-4c83-b46b-09abb169b39f" name="Fail"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:17001/Demo/getData/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="urn://co-opbank.co.ke/demo/bs/getdata" xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:mes="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:ns="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <get:GetDataRequest>
+         <RequestHeader>
+            <com:CorrelationID>${=java.util.UUID.randomUUID()}</com:CorrelationID>
+            <mes:MessageID>${=java.util.UUID.randomUUID()}</mes:MessageID>
+         </RequestHeader>
+         <request>
+            <AccountNumber>
+               <ns:AccountNumber>No Account</ns:AccountNumber>
+            </AccountNumber>
+         </request>
+      </get:GetDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GetData"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="1fe34fd6-989c-4a28-965f-a1ca79b09587" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="cd372848-86e8-47e9-941b-498a78b8f7e2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" id="676f5388-0689-455c-add9-15e2816678b0" name="GetData - Fail"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SOAPServiceBinding</con:interface><con:operation>GetData</con:operation><con:request name="GetData - Fail" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="1e3b6d88-5f05-4a7a-bf7b-4cfd2545acbf"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Endpoint}:17001/Demo/getData/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="urn://co-opbank.co.ke/demo/bs/getdata" xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:mes="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:ns="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <get:GetDataRequest>
+         <RequestHeader>
+            <com:CorrelationID>${=java.util.UUID.randomUUID()}</com:CorrelationID>
+            <mes:MessageID>${=java.util.UUID.randomUUID()}</mes:MessageID>
+         </RequestHeader>
+         <request>
+            <AccountNumber>
+               <ns:AccountNumber>No Account</ns:AccountNumber>
+            </AccountNumber>
+         </request>
+      </get:GetDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0d4f1232-4ecb-48aa-bdeb-4e3d40b0bfbf" name="SOAP Response"/><con:assertion type="Schema Compliance" id="dea310e4-3ea6-4592-aac9-06e8039d7818" name="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="97034d60-187f-47d1-b55e-fab99f1d4d00" name="Not SOAP Fault"/><con:assertion type="Simple Contains" id="8ac22bab-ce9e-47fd-bfe7-4dc7ccfc9af6" name="Contains"><con:configuration><token>&lt;tns2:Status>-1&lt;/tns2:Status></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GetData"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="fb074dfd-e707-461f-a6a6-b07c68da58c6" name="GetData - Success"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SOAPServiceBinding</con:interface><con:operation>GetData</con:operation><con:request name="GetData - Success" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f3ff4813-cc13-439c-b8c1-9614a211f2be"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Endpoint}:17001/Demo/getData/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="urn://co-opbank.co.ke/demo/bs/getdata" xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:mes="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:ns="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <get:GetDataRequest>
+         <RequestHeader>
+            <com:CorrelationID>${=java.util.UUID.randomUUID()}</com:CorrelationID>
+            <mes:MessageID>${=java.util.UUID.randomUUID()}</mes:MessageID>
+         </RequestHeader>
+         <request>
+            <AccountNumber>
+               <ns:AccountNumber>123456789</ns:AccountNumber>
+            </AccountNumber>
+         </request>
+      </get:GetDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="216f8a9d-dcaa-411f-87b4-66067929c6d7" name="SOAP Response"/><con:assertion type="Schema Compliance" id="090e9351-d0de-442d-9d67-ca0a4fb9da8f" name="Schema Compliance"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="882ac78d-9ee9-43ab-8975-8be27c1f3e79" name="Not SOAP Fault"/><con:assertion type="Simple Contains" id="baea63c0-de49-42c4-b1fe-c42eab10533e" name="Contains"><con:configuration><token>&lt;tns2:AccountName>John Doe&lt;/tns2:AccountName></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="GetData"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>Endpoint</con:name><con:value>localhost</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

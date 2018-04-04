@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <wsdl:definitions xmlns:jms="http://www.tibco.com/namespaces/ws/2004/soap/binding/JMS" xmlns:ns="http://www.co-op.co.ke/demo/getdata-concrete" xmlns:ns0="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" xmlns:ns01="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:ns012="urn://co-opbank.co.ke/demo/getdata" xmlns:ns0123="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:ns01234="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DemoGetData" targetNamespace="http://www.co-op.co.ke/demo/getdata-concrete">
   <wsdl:types>
+  
+  <xs:schema targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext">
+
+	<!-- Imports -->
+	
+	<!-- Elements -->
+	<xs:element name="RuntimeContext" type="tns:RuntimeContextType" />
+	<xs:element name="ServiceName" type="xs:string" />
+	<xs:element name="Application" type="xs:string" />
+	<xs:element name="ApplicationVersion" type="xs:string" />
+	<xs:element name="AppNode" type="xs:string" />
+	<xs:element name="Hostname" type="xs:string" />
+	
+	<!-- Complex Types -->
+	<xs:complexType name="RuntimeContextType">
+		<xs:sequence>
+			<xs:element ref="tns:ServiceName" />
+			<xs:element ref="tns:Application" />
+			<xs:element ref="tns:ApplicationVersion" />
+			<xs:element ref="tns:AppNode" />
+			<xs:element ref="tns:Hostname" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
+  
     <xsd:schema xmlns:tns="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0">
       <xsd:element name="Account" type="tns:AccountType"/>
       <xsd:element name="AccountNumber" type="xsd:string"/>

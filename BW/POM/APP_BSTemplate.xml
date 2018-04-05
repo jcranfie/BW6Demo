@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.tibco.bw</groupId>
+
+<!-- Change service name here -->
+  <artifactId>APP_BS<Service name>.module.application.parent</artifactId>
+
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>../../XML/LIB_XML</module>
+    <module>../TechnicalServices/LIB_TSUTIL_SystemAudit_Client</module>
+    <module>../TechnicalServices/LIB_TSUTIL_SystemErrorHandler_Client</module>
+
+<!-- Add dependant modules in here -->
+    <module>../BusinessServices/APP_BS<service name>.module</module>
+    <module>../BusinessServices/APP_BS<service name>.module.application</module>
+  </modules>
+</project>

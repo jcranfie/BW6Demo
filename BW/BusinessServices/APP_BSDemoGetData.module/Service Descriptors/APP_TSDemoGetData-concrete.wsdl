@@ -285,7 +285,7 @@
   </wsdl:binding>
   <wsdl:service name="DemoGetData">
     <wsdl:port binding="ns:SOAPServiceBinding" name="DemoGetDataSOAP">
-      <soap:address location=""/>
+      <soap:address location="dd"/>
       <jms:connectionFactory>QueueConnectionFactory</jms:connectionFactory>
       <jms:targetAddress destination="queue">DEMOGETDATA</jms:targetAddress>
     </wsdl:port>

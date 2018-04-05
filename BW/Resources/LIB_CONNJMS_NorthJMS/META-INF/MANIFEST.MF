@@ -1,18 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: LIB_TSUTIL_SystemAudit_Client Module
+Bundle-Name: LIB_CONNJMS_NorthJMS Module
 Bundle-SymbolicName: LIB_CONNJMS_NorthJMS
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: TIBCO Software Inc.
-Require-Bundle: LIB_XML;bundle-version="1.0.0"
-TIBCO-BW-ConfigProfile: META-INF/default.substvar
 TIBCO-BW-SharedModule: META-INF/module.bwm
-TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
 Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
- com.tibco.bw.module; filter:="(&(name=LIB_XML)(version=1.0.0))",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jmsconnection)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jndiconfiguration)"
-TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
 Provide-Capability: com.tibco.bw.module; name="LIB_CONNJMS_NorthJMS"; version:Version="1.0.0",
  com.tibco.bw.resources; name="services.conn.jms.northbound"
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
 TIBCO-BW-Version: 6.3.5 V17 2017-02-02

@@ -5,7 +5,7 @@
     <substitutionBindings xmi:id="_8phpQAs_Eei03IGadQTSDg" template="initialContextFactory" propName="/resources/services.ts.util.system.audit/client-ERROR/jndi.context.factory"/>
     <userCredentials xmi:id="_5Cj_EAs-Eei03IGadQTSDg">
       <substitutionBindings xmi:id="_5sKVsAs-Eei03IGadQTSDg" template="username" propName="/resources/services.ts.util.system.audit/client-ERROR/jndi.username"/>
-      <substitutionBindings xmi:id="_3sr70As_Eei03IGadQTSDg" template="password" propName="/resources/services.ts.util.system.audit/client-ERROR/password"/>
+      <substitutionBindings xmi:id="_3sr70As_Eei03IGadQTSDg" template="password" propName="/resources/services.ts.util.system.audit/client-ERROR/jndi.password"/>
     </userCredentials>
   </jndi:configuration>
 </jndi:namedResource>

@@ -91,7 +91,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/jndi.url</name>
-			<value>tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222</value>
+			<value>tibjmsnaming://172.16.4.44:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -99,7 +99,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/jndi.username</name>
-			<value>bw</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -107,7 +107,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/jndi.password</name>
-			<value>#!sjOW4Z3ldh/UBRIu3GKkNw==</value>
+			<value>#!uX28xh+iny2CvMnznfx87Q==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
@@ -131,7 +131,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/username</name>
-			<value>bw</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -139,7 +139,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/password</name>
-			<value>#!kxax7yQdFc0NGAXD57t0/A==</value>
+			<value>#!Zsjw86AM7M+orERDcIrNbA==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
@@ -148,6 +148,38 @@
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/client-ERROR/logger.queue</name>
 			<value>bw.util.systemerrorhandler.logger.q</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/resources/services.ts.util.canonicalerrorhandler/Client-JDBC/jdbc.url</name>
+			<value>jdbc:oracle:thin:@129.100.9.202:1521:TIBCODEV</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/resources/services.ts.util.canonicalerrorhandler/Client-JDBC/username</name>
+			<value>TIBDEV02</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/resources/services.ts.util.canonicalerrorhandler/Client-JDBC/password</name>
+			<value>#!AhXSGU9fZwGtncjavWTA1JNI6X+bR/arjkO3SDOCZkE=</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Password</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/resources/services.ts.util.canonicalerrorhandler/Client-JDBC/schema</name>
+			<value>TIBDEV02</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>

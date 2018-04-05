@@ -15,7 +15,6 @@ Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
  com.tibco.bw.palette; filter:="(name=bw.generalactivities)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.httpclient)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jdbc)",
- com.tibco.bw.sharedresource.model; filter:="(name=bw.jmsconnection)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jndiconfiguration)"
 TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
 TIBCO-BW-Version: 6.2.2 HF2 V26 2015-8-27

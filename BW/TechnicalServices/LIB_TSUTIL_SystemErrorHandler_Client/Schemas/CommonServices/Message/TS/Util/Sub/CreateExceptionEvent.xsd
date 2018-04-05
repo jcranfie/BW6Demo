@@ -27,6 +27,7 @@
 			<xs:element ref="audit:AuditOptions" />
 			<xs:element minOccurs="0" ref="com:Domain" />
 			<xs:element ref="com:CorrelationId" />
+			<xs:element ref="com:MessageID" />
 			<xs:element ref="fault:ExceptionTimestamp" />
 			<xs:element ref="fault:ExceptionName" />
 			<xs:element ref="fault:FaultDetails" />

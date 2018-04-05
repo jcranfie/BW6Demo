@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpws:process exitOnStandardFault="no"
-    name="services.ts.util.systemaudit.sub.SendAuditEventSub"
+    name="services.ts.util.canonicalerrorhandler.InitaliseErrorHandler"
     suppressJoinFailure="yes"
-    targetNamespace="http://xmlns.example.com/20170713141720"
+    targetNamespace="http://xmlns.example.com/20180313105447"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:info="http://www.tibco.com/bw/process/info"
     xmlns:ns="http://www.tibco.com/pe/EngineTypes"
-    xmlns:ns0="http://xmlns.example.com/20170713141720PLT"
-    xmlns:ns1="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"
-    xmlns:ns2="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent"
-    xmlns:ns3="http://www.tibco.com/pe/WriteToLogActivitySchema"
+    xmlns:ns0="http://www.tibco.com/namespaces/tnt/plugins/jdbc+d4ba983a-77b0-4aab-87ec-0825d74d9aed+input"
+    xmlns:ns1="http://www.tibco.com/namespaces/tnt/plugins/jdbc+d4ba983a-77b0-4aab-87ec-0825d74d9aed+output"
+    xmlns:ns2="urn://co-opbank.co.ke/CommonServices/Data/Error/CanonicalError"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -161,26 +160,58 @@
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
         </schema>
-        <wsdl:definitions
-            targetNamespace="http://xmlns.example.com/20170713141720PLT"
-            xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
-            xmlns:ptyp="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"
-            xmlns:tns="http://xmlns.example.com/20170713141720PLT"
-            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
-            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <plnk:partnerLinkType name="partnerLinkType">
-                <plnk:role name="use" portType="ptyp:SendAuditEvent"/>
-            </plnk:partnerLinkType>
-            <wsdl:import namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"/>
-        </wsdl:definitions>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+d4ba983a-77b0-4aab-87ec-0825d74d9aed+input"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+d4ba983a-77b0-4aab-87ec-0825d74d9aed+input">
+            <element name="jdbcQueryActivityInput">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="1" minOccurs="1"
+                            name="systemcode" nillable="true" type="string"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="ServerTimeZone" type="string"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="timeout" type="long"/>
+                        <element maxOccurs="1" minOccurs="0"
+                            name="maxRows" type="long"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+d4ba983a-77b0-4aab-87ec-0825d74d9aed+output"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/jdbc+d4ba983a-77b0-4aab-87ec-0825d74d9aed+output">
+            <element name="resultSet">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" minOccurs="0" name="Record">
+                            <complexType>
+                                <sequence>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="SYSTEM_CODE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="NATIVE_CODE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="CANONICAL_CODE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="CANONICAL_TYPE" type="string"/>
+                                    <element maxOccurs="1" minOccurs="1"
+                                    name="CANONICAL_DESCRIPTION" type="string"/>
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
     </tibex:Types>
-    <tibex:ProcessInfo callable="true" createdBy="juliancranfield"
-        createdOn="Thu Jul 13 14:17:20 BST 2017" description=""
+    <tibex:ProcessInfo callable="true" createdBy="eongodo"
+        createdOn="Tue Mar 13 10:54:47 EAT 2018" description=""
         extraErrorVars="false" modifiers="public"
-        productVersion="6.4.0 V29 2017-05-09" scalable="true"
+        productVersion="6.4.2 HF3 V51 2018-02-22" scalable="true"
         singleton="true" stateless="false" type="IT"/>
     <tibex:ProcessInterface context=""
-        input="{urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent}SendAuditEventRequest" output=""/>
+        input="{urn://co-opbank.co.ke/CommonServices/Data/Error/CanonicalError}SystemCode" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
         xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
@@ -205,102 +236,99 @@
                                     <children type="4002">
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
-                                    <styles
-                                    fontName=".SF NS Text"
+                                    <styles fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
-                                    <layoutConstraint x="2"
-                                    xsi:type="notation:Bounds" y="2"/>
+                                    <layoutConstraint x="-9"
+                                    xsi:type="notation:Bounds" y="119"/>
                                     </children>
                                     <children type="4002">
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
-                                    <styles
-                                    fontName=".SF NS Text"
+                                    <styles fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.1"/>
-                                    <layoutConstraint x="384"
-                                    xsi:type="notation:Bounds" y="2"/>
+                                    <layoutConstraint x="431"
+                                    xsi:type="notation:Bounds" y="119"/>
                                     </children>
-                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Invoke">
+                                    <children type="4002 bw.jdbc.JDBCQuery">
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
-                                    <styles
-                                    fontName=".SF NS Text"
+                                    <styles fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
@@ -309,51 +337,88 @@
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="183"
-                                    xsi:type="notation:Bounds" y="2"/>
+                                    x="141"
+                                    xsi:type="notation:Bounds" y="119"/>
+                                    </children>
+                                    <children type="4002 bw.internal.setSharedVariable">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="290"
+                                    xsi:type="notation:Bounds" y="119"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
                                     </children>
-                                    <styles fontName=".SF NS Text"
+                                    <styles fontName="Segoe UI"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="220"
-                                    width="594" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint height="384"
+                                    width="564" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
                             </children>
-                            <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="365" width="444"
-                                x="30" xsi:type="notation:Bounds" y="20"/>
+                            <layoutConstraint height="384" width="567" xsi:type="notation:Bounds"/>
                         </children>
                         <styles xsi:type="notation:SortingStyle"/>
                         <styles xsi:type="notation:FilteringStyle"/>
                         <element href="//0/@process/@activity"/>
                     </children>
-                    <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="409" width="519" xsi:type="notation:Bounds"/>
+                    <layoutConstraint height="408" width="567" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
                 <styles xsi:type="notation:FilteringStyle"/>
                 <element href="//0/@process"/>
             </children>
-            <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="296" width="939" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="460" width="909" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -364,56 +429,59 @@
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.0"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
         <edges
             source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
             target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
     <tibex:NamespaceRegistry enabled="true">
         <tibex:namespaceItem
-            namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" prefix="tns"/>
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Error/CanonicalError" prefix="error"/>
         <tibex:namespaceItem
-            namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" prefix="tns1"/>
-        <tibex:namespaceItem
-            namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" prefix="tns4"/>
-        <tibex:namespaceItem
-            namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" prefix="head"/>
-        <tibex:namespaceItem
-            namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" prefix="tns3"/>
-        <tibex:namespaceItem
-            namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" prefix="tns2"/>
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+d4ba983a-77b0-4aab-87ec-0825d74d9aed+input" prefix="tns"/>
     </tibex:NamespaceRegistry>
-    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent"/>
-    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"/>
-    <bpws:partnerLinks>
-        <bpws:partnerLink name="SendAuditEvent"
-            partnerLinkType="ns0:partnerLinkType" partnerRole="use"
-            sca-bpel:ignore="true" sca-bpel:reference="SendAuditEvent" sca-bpel:wiredByImpl="false">
-            <tibex:ReferenceWire dynamic="false" inline="true"
-                processConfigurationName=""
-                processName="services.ts.util.systemaudit.sub.SendAuditEvent" serviceName="SendAuditEvent"/>
-        </bpws:partnerLink>
-    </bpws:partnerLinks>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Data/Error/CanonicalError"/>
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
             name="_processContext" sca-bpel:internal="true"/>
-        <bpws:variable element="ns2:SendAuditEventRequest" name="Start"
+        <bpws:variable name="jdbcProperty" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc}JdbcDataSource" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>services.ts.util.canonicalerrorhandler.JDBCConnectionResource</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable element="ns0:jdbcQueryActivityInput"
+            name="GetData-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:resultSet" name="GetData" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:CanonicalErrorList"
+            name="SetSharedVariable-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:CanonicalErrorList"
+            name="SetSharedVariable" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:SystemCode" name="Start"
             sca-bpel:internal="true" tibex:parameter="in"/>
-        <bpws:variable messageType="ns1:SendAuditEventRequest"
-            name="Invoke-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns1:SendAuditEventResponse"
-            name="Invoke" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -426,14 +494,17 @@
     <bpws:scope name="scope">
         <bpws:flow name="flow">
             <bpws:links>
-                <bpws:link name="StartToInvoke" tibex:linkType="SUCCESS"/>
-                <bpws:link name="InvokeToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="StartToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="JDBCQueryToEnd" tibex:linkType="SUCCESS"/>
+                <bpws:link name="SetSharedVariableToEnd" tibex:linkType="SUCCESS"/>
             </bpws:links>
             <bpws:extensionActivity>
                 <tibex:receiveEvent createInstance="yes"
-                    eventTimeout="0" name="Start" variable="Start">
+                    eventTimeout="0" name="Start"
+                    tibex:xpdlId="c99f20f0-542d-4fda-8e1f-9fc42ffcdde1"
+                    variable="Start" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:sources>
-                        <bpws:source linkName="StartToInvoke"/>
+                        <bpws:source linkName="StartToEnd"/>
                     </bpws:sources>
                     <tibex:eventSource>
                         <tibex:StartEvent xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
@@ -441,9 +512,10 @@
                 </tibex:receiveEvent>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension name="End">
+                <tibex:activityExtension name="End"
+                    tibex:xpdlId="3626afe1-d645-44f4-b543-0c4cf20bbb76" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
-                        <bpws:target linkName="InvokeToEnd"/>
+                        <bpws:target linkName="SetSharedVariableToEnd"/>
                     </bpws:targets>
                     <tibex:config>
                         <bwext:BWActivity
@@ -461,23 +533,79 @@
                     </tibex:config>
                 </tibex:activityExtension>
             </bpws:extensionActivity>
-            <bpws:invoke inputVariable="Invoke-input" name="Invoke"
-                operation="SendAuditEvent" outputVariable="Invoke"
-                partnerLink="SendAuditEvent"
-                portType="ns1:SendAuditEvent" tibex:xpdlId="482b8ce9-b24d-4b3a-9f89-0daeb8f67ad9">
-                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns1="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" xmlns:tns2="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:tns3="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:tns4="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" version="2.0"&gt;&lt;xsl:param name="Start"/&gt;&lt;xsl:template name="Invoke-input" match="/"&gt;&lt;tns1:SendAuditEventRequest&gt;&lt;parameters&gt;&lt;tns2:SendAuditEventRequest&gt;&lt;xsl:copy-of select="$Start/tns:AuditOptions"/&gt;&lt;xsl:copy-of select="$Start/tns3:RuntimeContext"/&gt;&lt;xsl:copy-of select="$Start/tns4:AuditEvent"/&gt;&lt;/tns2:SendAuditEventRequest&gt;&lt;/parameters&gt;&lt;/tns1:SendAuditEventRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
-                <tibex:inputBindings>
-                    <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext&quot; xmlns:tns4=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Start&quot;/>&#xa;    &lt;xsl:template name=&quot;Invoke-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:SendAuditEventRequest>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns:AuditOptions&quot;/>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns3:RuntimeContext&quot;/>&#xa;            &lt;xsl:copy-of select=&quot;$Start/tns4:AuditEvent&quot;/>&#xa;        &lt;/tns2:SendAuditEventRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                </tibex:inputBindings>
-                <bpws:targets>
-                    <bpws:target linkName="StartToInvoke"/>
-                </bpws:targets>
-                <bpws:sources>
-                    <bpws:source linkName="InvokeToEnd"/>
-                </bpws:sources>
-            </bpws:invoke>
+            <bpws:extensionActivity>
+                <tibex:activityExtension inputVariable="GetData-input"
+                    name="GetData" outputVariable="GetData"
+                    tibex:xpdlId="d4ba983a-77b0-4aab-87ec-0825d74d9aed" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="StartToEnd"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="JDBCQueryToEnd"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+d4ba983a-77b0-4aab-87ec-0825d74d9aed+input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;GetData-input&quot; match=&quot;/&quot;>&lt;tns:jdbcQueryActivityInput>&lt;systemcode>&lt;xsl:value-of select=&quot;$Start&quot;/>&lt;/systemcode>&lt;/tns:jdbcQueryActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.jdbc.JDBCQuery"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:jdbcPalette="http://ns.tibco.com/bw/palette/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
+                                    <value maxRows="100"
+                                    sharedResourceProperty="jdbcProperty"
+                                    sqlStatement="&#x9;&#x9;SELECT   N.SYSTEM_CODE,  N.NATIVE_CODE, C.CANONICAL_CODE, C.CANONICAL_TYPE, C.CANONICAL_DESCRIPTION&#xa;&#x9;&#x9;FROM    ERR_CANONICAL_CODE C&#xa;&#x9;&#x9;INNER JOIN ERR_NATIVE_CODE N&#xa;&#x9;&#x9;&#x9;&#x9;ON N.CANONICAL_CODE = C.CANONICAL_CODE&#xa;&#x9;    WHERE N.SYSTEM_CODE = ?&#xa;&#x9;    &#xa;&#x9;&#x9;&#xa;"
+                                    timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
+                                    <PreparedParameters
+                                    DataType="12"
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="systemcode"/>
+                                    <columnMetadata
+                                    columnName="SYSTEM_CODE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="NATIVE_CODE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="CANONICAL_CODE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="CANONICAL_TYPE"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    <columnMetadata
+                                    columnName="CANONICAL_DESCRIPTION"
+                                    dataType="12" typeName="VARCHAR2"/>
+                                    </value>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:extActivity
+                    inputVariable="SetSharedVariable-input"
+                    name="SetSharedVariable"
+                    outputVariable="SetSharedVariable"
+                    tibex:xpdlId="3e63b8e5-37a4-4e21-958f-c32461103813"
+                    type="bw.internal.setSharedVariable" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="JDBCQueryToEnd"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="SetSharedVariableToEnd"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:error=&quot;urn://co-opbank.co.ke/CommonServices/Data/Error/CanonicalError&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;GetData&quot;/>&lt;xsl:template name=&quot;SetSharedVariable-input&quot; match=&quot;/&quot;>&lt;error:CanonicalErrorList>&lt;xsl:for-each select=&quot;$GetData/Record&quot;>&lt;error:CanonicalErrorResponse>&lt;error:SystemCode>&lt;xsl:value-of select=&quot;SYSTEM_CODE&quot;/>&lt;/error:SystemCode>&lt;error:NativeCode>&lt;xsl:value-of select=&quot;NATIVE_CODE&quot;/>&lt;/error:NativeCode>&lt;error:CanonicalCode>&lt;xsl:value-of select=&quot;CANONICAL_CODE&quot;/>&lt;/error:CanonicalCode>&lt;error:CanonicalType>&lt;xsl:value-of select=&quot;CANONICAL_TYPE&quot;/>&lt;/error:CanonicalType>&lt;error:CanonicalDescription>&lt;xsl:value-of select=&quot;CANONICAL_DESCRIPTION&quot;/>&lt;/error:CanonicalDescription>&lt;/error:CanonicalErrorResponse>&lt;/xsl:for-each>&lt;/error:CanonicalErrorList>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:SetSharedVariable
+                        variableName="CanonicalErrorList" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"/>
+                </tibex:extActivity>
+            </bpws:extensionActivity>
         </bpws:flow>
     </bpws:scope>
 </bpws:process>

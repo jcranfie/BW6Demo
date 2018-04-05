@@ -83,7 +83,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.url</name>
-			<value>tibjmsnaming://ec2-35-178-63-212.eu-west-2.compute.amazonaws.com:7222</value>
+			<value>tibjmsnaming://172.16.4.44:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -91,7 +91,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.username</name>
-			<value>bw</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -99,7 +99,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/Client-AUDIT/jndi.password</name>
-			<value>#!m1AIsjYoKb7+8Y7I6OW6AA==</value>
+			<value>#!1mWAv2gDTtplrSYEVxaNQQ==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
@@ -123,7 +123,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/Client-AUDIT/username</name>
-			<value>bw</value>
+			<value>admin</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -131,7 +131,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/resources/services.ts.util.system.audit/Client-AUDIT/password</name>
-			<value>#!TBI1GWOElUv6jDLPlRVNog==</value>
+			<value>#!gVjCpwB2Za19vwgHfbGE/w==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>

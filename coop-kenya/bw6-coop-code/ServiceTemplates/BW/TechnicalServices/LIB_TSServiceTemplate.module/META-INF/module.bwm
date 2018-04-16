@@ -23,6 +23,7 @@
   <sca:property xmi:id="_62HkwBL8EeiZ-MeQ-o-3DQ" name="/services.ts.backend.servicename/TSService/exception.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_vqzKQMppEeW_7rgVeQxGpA" name="/services.ts.backend.servicename/TSService/backend/BACKEND/timeout" type="XMLSchema:int" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_Ixp1wMpxEeW_7rgVeQxGpA" name="/services.ts.backend.servicename/TSService/backend/BACKEND/endpoint.uri" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_SW5K4CEIEeihIIshVro0jA" name="/services.ts.backend.servicename/TSService/backend/BACKEND/jms.queue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="__Qi1QMpXEeWr149IS24UBw" name="/resources/services.ts.backend.servicename/Client-BACKEND-http/hostname" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_fH1-AMpYEeWr149IS24UBw" name="/resources/services.ts.backend.servicename/Client-BACKEND-http/port" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_bJ9MIMpYEeWr149IS24UBw" name="/resources/services.ts.backend.servicename/Client-BACKEND-http/client/disable.connection.pooling" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" 
+		elementFormDefault="qualified" 
+		xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit">
+
+	<!-- Elements -->
+	<xs:element name="AuditOptions" type="tns:AuditOptionsType" />
+	
+	<xs:element name="AuditEnabled" type="xs:boolean" />
+	<xs:element name="AuditPayloadEnabled" type="xs:boolean" />
+	<xs:element name="AuditRemoteDBEnabled" type="xs:boolean" />
+	<xs:element name="AuditRemoteFileEnabled" type="xs:boolean" />
+	<xs:element name="AuditLocalEnabled" type="xs:boolean" />
+	
+	<xs:element name="ExceptionAuditEnabled" type="xs:boolean" />
+	<xs:element name="ExceptionAuditPayloadEnabled" type="xs:boolean" />
+	<xs:element name="ExceptionAuditRemoteDBEnabled" type="xs:boolean" />
+	<xs:element name="ExceptionAuditRemoteFileEnabled" type="xs:boolean" />
+	<xs:element name="ExceptionAuditLocalEnabled" type="xs:boolean" />
+	
+
+	<!-- Complex Types -->
+	<xs:complexType name="AuditOptionsType">
+		<xs:sequence>
+			<xs:element ref="tns:AuditEnabled" />
+			<xs:element ref="tns:AuditPayloadEnabled" />
+			<xs:element ref="tns:AuditRemoteDBEnabled" />
+			<xs:element ref="tns:AuditRemoteFileEnabled" />
+			<xs:element ref="tns:AuditLocalEnabled" />
+			
+			<xs:element ref="tns:ExceptionAuditEnabled" />
+			<xs:element ref="tns:ExceptionAuditPayloadEnabled" />
+			<xs:element ref="tns:ExceptionAuditRemoteDBEnabled" />
+			<xs:element ref="tns:ExceptionAuditRemoteFileEnabled" />
+			<xs:element ref="tns:ExceptionAuditLocalEnabled" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Error" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/Error">
+
+  <!-- Elements -->
+  <xs:element name="ErrorList" type="tns:ErrorListType"/>
+  <xs:element name="System" type="tns:SystemType"/>
+  <xs:element name="Error" type="tns:ErrorType"/>
+  
+  <!-- Complex types -->
+  <xs:complexType name="ErrorListType">
+    <xs:sequence>
+      <xs:element name="Error" type="tns:ErrorType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>    
+  </xs:complexType>
+    <xs:complexType name="ErrorType">
+      <xs:sequence>
+      <xs:element type="tns:SystemType" name="SystemDetail"/>
+      <xs:element type="tns:ErrorDetailType" name="ErrorDetail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErrorDetailType">
+    <xs:sequence>
+      <xs:element type="tns:ErrorLevelType" name="ErrorLevel"/>
+      <xs:element type="xs:string" name="StackTrace"/>
+	  <xs:element type="xs:string" name="Msg"/>
+	  <xs:element type="xs:string" name="FullClass"/>
+	  <xs:element type="xs:string" name="Class"/>
+	  <xs:element type="xs:string" name="ProcessStack"/>
+	  <xs:element type="xs:string" name="MsgCode"/>
+	  <xs:element type="xs:anySimpleType" name="Data"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SystemType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Date"/>
+      <xs:element type="xs:string" name="Environment"/>
+      <xs:element type="xs:string" name="ClusterId"/>
+      <xs:element type="xs:string" name="Server"/>
+      <xs:element type="xs:string" name="Application"/>
+      <xs:element type="xs:string" name="EngineVersion"/>
+      <xs:element type="xs:string" name="Process"/>
+      <xs:element type="xs:string" name="MessageId"/>
+      <xs:element type="xs:string" name="Version"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ErrorLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Information"/>
+      <xs:enumeration value="Warning"/>
+      <xs:enumeration value="Error"/>
+      <xs:enumeration value="Critical"/>
+      <xs:enumeration value="Debug"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

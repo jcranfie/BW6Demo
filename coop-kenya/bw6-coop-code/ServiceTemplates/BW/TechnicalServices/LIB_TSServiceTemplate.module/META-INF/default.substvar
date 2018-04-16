@@ -186,6 +186,14 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
+			<name>/services.ts.backend.servicename/TSService/backend/BACKEND/jms.queue</name>
+			<value></value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
 			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/hostname</name>
 			<value>backend.local</value>
 			<deploymentSettable>false</deploymentSettable>

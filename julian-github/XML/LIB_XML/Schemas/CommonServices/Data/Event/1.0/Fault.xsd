@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema
+	xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader"
+	xmlns:rctx="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext"
+	xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" 
+	xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common" >
+
+	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" schemaLocation="../../Message/1.0/MessageHeader.xsd" />
+	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" schemaLocation="../../Internal/1.0/RuntimeContext.xsd" />
+	<xs:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Common" schemaLocation="../../Common/1.0/Common.xsd"/>
+
+	<!-- Elements -->
+	<xs:element name="Application" type="xs:string" />
+	<xs:element name="ExceptionDescription" type="xs:string" />
+	<xs:element name="ExceptionDetails" type="xs:string" />
+	<xs:element name="FaultDetails" type="tns:FaultDetailsType" />
+	<xs:element name="ExceptionId" type="xs:string" />
+	<xs:element name="ExceptionCode" type="xs:string" />
+	<xs:element name="ExceptionName" type="xs:string" />
+	<xs:element name="ExceptionTimestamp" type="xs:dateTime" />
+	<xs:element name="Fault" type="tns:FaultType" />
+	<xs:element name="FaultContext" type="tns:FaultContextType" />
+	<xs:element name="FaultHeader" type="head:ResponseHeaderType" />
+	<xs:element name="Hostname" type="xs:string" />
+	<xs:element name="Instance" type="xs:string" />
+	<xs:element name="Severity" type="xs:string" />
+
+	<xs:element name="ValidationFault" type="tns:FaultType" />
+	<xs:element name="TechnicalFault" type="tns:FaultType" />
+	<xs:element name="BusinessFault" type="tns:FaultType" />
+
+	<xs:element name="ActivityName" type="xs:string" />
+	<xs:element name="Msg" type="xs:string" />
+	<xs:element name="MsgCode" type="xs:string" />
+	<xs:element name="ProcessStack" type="xs:string" />
+	<xs:element name="StackTrace" type="xs:string" />
+
+	<!-- Complex Types -->
+	<xs:complexType name="FaultType">
+		<xs:sequence>
+			<xs:element minOccurs="1" ref="tns:FaultHeader" />
+			<xs:element minOccurs="0" ref="tns:Severity" />
+			<xs:element minOccurs="1" ref="tns:ExceptionId" />
+			<xs:element minOccurs="1" ref="tns:ExceptionTimestamp" />
+			<xs:element minOccurs="1" ref="tns:ExceptionCode" />
+			<xs:element minOccurs="0" ref="tns:ExceptionName" />
+			<xs:element minOccurs="0" ref="tns:ExceptionDescription" />
+			<xs:element minOccurs="0" ref="tns:ExceptionDetails" />
+			<xs:element minOccurs="0" ref="tns:FaultDetails" />
+			<xs:element minOccurs="0" ref="rctx:RuntimeContext" />
+			<xs:element ref="com:Payload" maxOccurs="1" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FaultContextType">
+		<xs:sequence>
+			<xs:element minOccurs="0" ref="tns:Hostname" />
+			<xs:element minOccurs="0" ref="tns:Application" />
+			<xs:element minOccurs="0" ref="tns:Instance" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FaultDetailsType">
+		<xs:sequence>
+			<xs:element ref="tns:ActivityName" />
+			<xs:element maxOccurs="1" minOccurs="0" name="Data">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:any maxOccurs="1" minOccurs="0"
+							processContents="skip" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="tns:Msg" />
+			<xs:element ref="tns:MsgCode" />
+			<xs:element ref="tns:ProcessStack" />
+			<xs:element ref="tns:StackTrace" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FaultListType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				ref="tns:Fault" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

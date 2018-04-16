@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_nu5J0AWWEeitJ9BlpQjevQ" name="services.ts.util.systemerrorhandler.JMSClientResource" type="jms:JMSConnectionFactory">
+  <jndi:reference xmi:id="_0eO3ECEdEeisz6Qw2oZy8Q" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="services.ts.util.systemerrorhandler.JNDIClientResource-Audit"/>
+  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_0OntwCEdEeisz6Qw2oZy8Q" factoryType="Queue/Topic" jndiName="QueueConnectionFactory" topicFactoryJNDIName="TopicConnectionFactory">
+    <userCredentials xmi:id="_4TobUCEdEeisz6Qw2oZy8Q">
+      <substitutionBindings xmi:id="_5Ft_kCEdEeisz6Qw2oZy8Q" template="username" propName="/resources/services.ts.util.system.audit/client-ERROR/username"/>
+      <substitutionBindings xmi:id="_6J6AcCEdEeisz6Qw2oZy8Q" template="password" propName="/resources/services.ts.util.system.audit/client-ERROR/password"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

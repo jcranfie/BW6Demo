@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Common" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Common">
+
+	<!-- Elements -->
+	<xs:element name="CorrelationId" type="xs:string"/>
+	<xs:element name="CustomerId">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="9"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="CreationTimestamp" type="xs:dateTime" />
+	<xs:element name="CorrelationID" type="xs:string"/>
+	<xs:element name="MessageID" type="xs:string" />
+	<xs:element name="Payload" type="tns:PayloadType" />
+	<xs:element name="Domain" type="xs:string" />
+	
+	<!-- Complex Types -->
+	<xs:complexType name="PayloadType">
+		<xs:sequence>
+			<xs:any namespace="##any" minOccurs="0" processContents="skip" />
+		</xs:sequence>
+	</xs:complexType>
+
+		
+</xs:schema>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent"
+	xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common"
+	xmlns:rtc="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext"
+	xmlns:audit="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit"
+	xmlns:auditevt="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader">
+
+	<!-- Imports -->
+	<xs:import
+		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Common/1.0/Common.xsd"
+		namespace="urn://co-opbank.co.ke/CommonServices/Data/Common">
+	</xs:import>
+	<xs:import
+		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Internal/1.0/RuntimeContext.xsd"
+		namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext">
+	</xs:import>
+	<xs:import
+		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Audit.xsd"
+		namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit">
+	</xs:import>
+	<xs:import
+		schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/AuditEvent.xsd"
+		namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent">
+	</xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Message/1.0/MessageHeader.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader"></xs:import>
+
+	<!-- Elements -->
+	<xs:element name="SendSystemEventRequest" type="tns:SendSystemEventRequestType" />
+	<xs:element name="SendAuditEventResponse" type="tns:SendAuditEventResponseType" />
+	<xs:element name="SendAuditEventRequest" type="tns:SendAuditEventRequestType" />
+	
+	<xs:element name="ResponseMessage" type="xs:string" />
+	
+	<xs:element name="EventType" type="xs:string" />
+	<xs:element name="Message" type="xs:string" />
+
+	<!-- Complex Types -->
+
+	<xs:complexType name="SendSystemEventRequestType">
+		<xs:sequence>
+			<xs:element ref="audit:AuditOptions" />
+			<xs:element ref="rtc:RuntimeContext" />
+			<xs:element ref="tns:EventType" />
+			<xs:element ref="tns:Message" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SendAuditEventRequestType">
+		<xs:sequence>
+			<xs:element ref="audit:AuditOptions" />
+			<xs:element ref="rtc:RuntimeContext" />
+			<xs:element maxOccurs="unbounded" minOccurs="0" ref="auditevt:AuditEvent" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SendAuditEventResponseType">
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="0"
+				ref="tns:ResponseMessage" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

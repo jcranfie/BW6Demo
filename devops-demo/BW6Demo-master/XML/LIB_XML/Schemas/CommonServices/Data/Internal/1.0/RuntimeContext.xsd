@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext">
+
+	<!-- Imports -->
+	
+	<!-- Elements -->
+	<xs:element name="RuntimeContext" type="tns:RuntimeContextType" />
+	<xs:element name="ServiceName" type="xs:string" />
+	<xs:element name="Application" type="xs:string" />
+	<xs:element name="ApplicationVersion" type="xs:string" />
+	<xs:element name="AppNode" type="xs:string" />
+	<xs:element name="Hostname" type="xs:string" />
+	
+	<!-- Complex Types -->
+	<xs:complexType name="RuntimeContextType">
+		<xs:sequence>
+			<xs:element ref="tns:ServiceName" />
+			<xs:element ref="tns:Application" />
+			<xs:element ref="tns:ApplicationVersion" />
+			<xs:element ref="tns:AppNode" />
+			<xs:element ref="tns:Hostname" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

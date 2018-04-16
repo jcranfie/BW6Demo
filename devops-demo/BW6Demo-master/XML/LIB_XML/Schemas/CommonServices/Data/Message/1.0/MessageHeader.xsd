@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" xmlns:com="urn://co-opbank.co.ke/CommonServices/Data/Common">
+
+	<!-- Imports -->
+	<xs:import schemaLocation="../../Common/1.0/Common.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Common"></xs:import>
+
+	<!-- Elements -->
+	<xs:element name="ApplicationVersion" type="xs:string" />
+	<xs:element name="RequestHeader" type="head:RequestHeaderType" />
+	<xs:element name="ResponseHeader" type="head:ResponseHeaderType" />
+	
+	<xs:element name="FaultTO" type="xs:string" />
+	<xs:element name="MessageID" type="xs:string" />
+	<xs:element name="ReplyTO" type="xs:string" />
+	<xs:element name="Credentials" type="head:CredentialsType"/>
+	
+	<xs:element name="ElapsedTime" type="xs:long" />
+	<xs:element name="StatusCode" type="xs:string" />
+	<xs:element name="StatusDescription" type="xs:string" />
+	<xs:element name="StatusDescriptionKey" type="xs:string" />
+	<xs:element name="StatusMessages" type="head:StatusMessagesType" />
+
+	<!--  Complex Types-->
+	<xs:complexType name="RequestHeaderType">
+		<xs:sequence>
+			<xs:element minOccurs="0" ref="com:CreationTimestamp"/>
+			<xs:element minOccurs="0" ref="com:CorrelationID" />
+			<xs:element minOccurs="0" ref="head:FaultTO" />
+			<xs:element minOccurs="1" ref="head:MessageID"/>
+			<xs:element minOccurs="0" ref="head:ReplyTO"/>
+			<xs:element minOccurs="0" ref="head:Credentials" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseHeaderType">
+		<xs:sequence>
+			<xs:element minOccurs="0" ref="com:CorrelationID"/>
+			<xs:element minOccurs="0" ref="head:ElapsedTime" />
+			<xs:element minOccurs="1" ref="head:MessageID"/>
+			<xs:element minOccurs="0" ref="head:StatusCode"/>
+			<xs:element minOccurs="0" ref="head:StatusDescription"/>
+			<xs:element minOccurs="0" ref="head:StatusDescriptionKey"/>
+			<xs:element minOccurs="0" ref="head:StatusMessages"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+	<xs:complexType name="CredentialsType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="SystemCode" type="xs:string" nillable="true"/>
+			<xs:element minOccurs="0" name="Username" type="xs:string" nillable="true"/>
+			<xs:element minOccurs="0" name="Password" type="xs:string" nillable="true"/>
+			<xs:element minOccurs="0" name="Realm" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="StatusMessagesType">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="ApplicationID" type="xs:string"/>
+			<xs:element minOccurs="0" name="MessageCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="MessageDescription" type="xs:string"/>
+			<xs:element minOccurs="0" name="MessageType" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

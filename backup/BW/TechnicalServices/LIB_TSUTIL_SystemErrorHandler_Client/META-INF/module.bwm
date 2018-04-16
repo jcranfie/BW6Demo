@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_HujncD7xEeecpodz1kmsOw" targetNamespace="http://tns.tibco.com/bw/composite/LIB_TSUTIL_SystemErrorHandler_Client" name="LIB_TSUTIL_SystemErrorHandler_Client" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_HxF-ED7xEeecpodz1kmsOw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxHzQD7xEeecpodz1kmsOw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxJocD7xEeecpodz1kmsOw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxK2kD7xEeecpodz1kmsOw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxMEsD7xEeecpodz1kmsOw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxN54D7xEeecpodz1kmsOw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxPvED7xEeecpodz1kmsOw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxQ9MD7xEeecpodz1kmsOw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_HxSyYD7xEeecpodz1kmsOw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_UVSCgFytEee9nLBlJ1oYsQ" name="/data/services/area.short.names" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_ZwJlAB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.context.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bbnoUB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bdZJ8B1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_be17cB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/jndi.password" type="property:password" scaext:simpleValue="#!uX28xh+iny2CvMnznfx87Q==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bgYMgB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/queue.connection.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bh1lEB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/topic.connection.factory" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bjOFIB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bkq2oB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/password" type="property:password" scaext:simpleValue="#!Zsjw86AM7M+orERDcIrNbA==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_bmD9wB1mEei-P-OBMm218A" name="/resources/services.ts.util.system.audit/client-ERROR/logger.queue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_j3w_YCaUEeiIUL5fVjY92Q" name="/resources/services.ts.util.canonicalerrorhandler/Client-JDBC/jdbc.url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sZ0gACaUEeiIUL5fVjY92Q" name="/resources/services.ts.util.canonicalerrorhandler/Client-JDBC/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_vTCv4CaUEeiIUL5fVjY92Q" name="/resources/services.ts.util.canonicalerrorhandler/Client-JDBC/password" type="property:password" scaext:simpleValue="#!povKvA163PnDwmQQWXCdnw==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5tPd4CaUEeiIUL5fVjY92Q" name="/resources/services.ts.util.canonicalerrorhandler/Client-JDBC/schema" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+</sca:composite>

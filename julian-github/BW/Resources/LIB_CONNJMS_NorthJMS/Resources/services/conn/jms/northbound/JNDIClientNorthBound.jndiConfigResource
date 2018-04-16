@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_z7taAQs-Eei03IGadQTSDg" name="services.conn.jms.northbound.JNDIClientNorthBound" type="jms:JNDIConnection">
+  <jndi:configuration xsi:type="jms:JNDIConnectionConfiguration" xmi:id="_z7uBEAs-Eei03IGadQTSDg">
+    <substitutionBindings xmi:id="_6yM7QAs_Eei03IGadQTSDg" template="providerUrl" propName="/resources/services.conn.jms.northbound/client.northbound/jndi.url"/>
+    <substitutionBindings xmi:id="_8phpQAs_Eei03IGadQTSDg" template="initialContextFactory" propName="/resources/services.conn.jms.northbound/client.northbound/jndi.context.factory"/>
+    <userCredentials xmi:id="_5Cj_EAs-Eei03IGadQTSDg">
+      <substitutionBindings xmi:id="_5sKVsAs-Eei03IGadQTSDg" template="username" propName="/resources/services.conn.jms.northbound/client.northbound/jndi.username"/>
+      <substitutionBindings xmi:id="_3sr70As_Eei03IGadQTSDg" template="password" propName="/resources/services.conn.jms.northbound/client.northbound/jndi.password"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Internal/System" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/System">
+
+  <!-- Elements -->
+  <xs:element name="System" type="tns:SystemType"/>
+
+  <!-- Complex Types -->
+  <xs:complexType name="SystemType">
+    <xs:sequence>
+      <xs:element name="Date" type="xs:string"/>
+      <xs:element name="Environment" type="xs:string"/>
+      <xs:element name="ClusterId" type="xs:string"/>
+      <xs:element name="Server" type="xs:string"/>
+      <xs:element name="Application" type="xs:string"/>
+      <xs:element name="EngineVersion" type="xs:string"/>
+      <xs:element name="Process" type="xs:string"/>
+      <xs:element name="MessageId" type="xs:string"/>
+      <xs:element name="Version" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Simple Types -->
+
+</xs:schema>

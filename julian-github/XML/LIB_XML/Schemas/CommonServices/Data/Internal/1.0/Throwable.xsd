@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	targetNamespace="urn://co-opbank.co.ke/CommonServices/Data/Internal"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Internal" 
+	xmlns:fault="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault">
+	
+	<!-- Imports -->
+	<xs:import schemaLocation="../../Event/1.0/Fault.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"></xs:import>
+	
+	<!--  Elements -->
+	<xs:element name="ThrowableFault" type="tns:ThrowableType" />
+	<xs:element name="ThrowableValidationFault" type="tns:ThrowableType" />
+	<xs:element name="ThrowableBusinessFault" type="tns:ThrowableType" />
+	<xs:element name="ThrowableTechnicalFault" type="tns:ThrowableType" />
+	
+	<!-- Complex Types -->
+	<xs:complexType name="ThrowableType">
+		<xs:sequence>
+			<xs:element ref="fault:ExceptionCode" minOccurs="0" />
+			<xs:element ref="fault:ExceptionName" minOccurs="0" />
+			<xs:element ref="fault:ExceptionTimestamp" />
+			<xs:element ref="fault:ExceptionDescription" minOccurs="0" />
+			<xs:element ref="fault:ExceptionDetails" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

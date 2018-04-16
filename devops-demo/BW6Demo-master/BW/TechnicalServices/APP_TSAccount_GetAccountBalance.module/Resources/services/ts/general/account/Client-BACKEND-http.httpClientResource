@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:http="http://xsd.tns.tibco.com/bw/models/sharedresource/httpclient" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_cJXz8csXEeWh752vwu3HDA" name="services.ts.general.account.Client-BACKEND-http" type="http:HttpClientConfiguration">
+  <jndi:configuration xsi:type="http:HttpClientConfiguration" xmi:id="_cJXz8ssXEeWh752vwu3HDA" httpClientVersion="commons">
+    <substitutionBindings xmi:id="_dP9BgMsXEeWh752vwu3HDA" template="useSingleThreadConnectionManager" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/client/disable.connection.pooling"/>
+    <substitutionBindings xmi:id="_fp1C8MsXEeWh752vwu3HDA" template="maxTotalConnections" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/client/max.total.connections"/>
+    <substitutionBindings xmi:id="_gakjYMsXEeWh752vwu3HDA" template="maxTotalConnectionsPerHost" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/client/max.total.connections.perhost"/>
+    <substitutionBindings xmi:id="_iI008MsXEeWh752vwu3HDA" template="idleConnectionTimeout" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/client/idle.connection.timeout.ms"/>
+    <substitutionBindings xmi:id="_mXWq4MsXEeWh752vwu3HDA" template="retryCount" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/advanced/retry.count"/>
+    <tcpDetails xmi:id="_cJXz88sXEeWh752vwu3HDA">
+      <substitutionBindings xmi:id="_eySW8MsXEeWh752vwu3HDA" template="staleCheck" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/client/slate.check"/>
+      <substitutionBindings xmi:id="_hDKNYMsXEeWh752vwu3HDA" template="host" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/hostname"/>
+      <substitutionBindings xmi:id="_jPT74MsXEeWh752vwu3HDA" template="port" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/port"/>
+      <substitutionBindings xmi:id="_kWzIYMsXEeWh752vwu3HDA" template="soTimeout" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/advanced/socket.timeout.ms"/>
+      <substitutionBindings xmi:id="_lW9k4MsXEeWh752vwu3HDA" template="connectionTimeout" propName="/resources/services.ts.bfub.getaccountbalance/Client-BACKEND-http/advanced/connection.timeout.ms"/>
+    </tcpDetails>
+  </jndi:configuration>
+</jndi:namedResource>

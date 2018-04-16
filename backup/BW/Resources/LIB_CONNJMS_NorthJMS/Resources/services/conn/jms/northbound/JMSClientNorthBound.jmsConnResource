@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_nu5J0AWWEeitJ9BlpQjevQ" name="services.conn.jms.northbound.JMSClientNorthBound" type="jms:JMSConnectionFactory">
+  <jndi:reference xmi:id="_aTnV0DGbEei2jODleSIzKQ" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="services.conn.jms.northbound.JNDIClientNorthBound"/>
+  <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_aONRYDGbEei2jODleSIzKQ" factoryType="Queue/Topic" jndiName="QueueConnectionFactory" topicFactoryJNDIName="TopicConnectionFactory">
+    <userCredentials xmi:id="_cw53oDGbEei2jODleSIzKQ">
+      <substitutionBindings xmi:id="_dTbV4DGbEei2jODleSIzKQ" template="username" propName="/resources/services.ts.util.system.audit/Client-AUDIT/username"/>
+      <substitutionBindings xmi:id="_eFUF0DGbEei2jODleSIzKQ" template="password" propName="/resources/services.ts.util.system.audit/Client-AUDIT/password"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

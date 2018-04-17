@@ -34,7 +34,7 @@ targetNamespace="urn://co-opbank.co.ke/CommonServices/BS/Demo/GetData" xmlns:xsd
 		<wsdl:part element="fault:ValidationFault" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="Fault">
-		<wsdl:part element="fault:Fault" name="parameters"/>
+		<wsdl:part element="fault:Fault" name="parameters" />
 	</wsdl:message>
 	<wsdl:portType name="GetData">
 		<wsdl:operation name="GetData">

@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<wsdl:definitions 
-	 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-	 xmlns:tns="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" 
-	 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-	 xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-	 name="CreateExceptionEvent" targetNamespace="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" 
-	 xmlns:extns="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent">
+<wsdl:definitions xmlns:extns="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreateExceptionEvent" targetNamespace="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent">
 	 
   <wsdl:types>
-    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    	<xsd:import 
-    		schemaLocation="../../../../../Schemas/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent.xsd" 
-    		namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent">
+    <xsd:schema>
+    	<xsd:import namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" schemaLocation="../../../../../Schemas/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent.xsd">
     	</xsd:import>
     </xsd:schema>
   </wsdl:types>
 
   <wsdl:message name="CreateExceptionEventRequest">
-  	<wsdl:part name="parameters"
-  		element="extns:CreateExceptionEventRequest">
+  	<wsdl:part element="extns:CreateExceptionEventRequest" name="parameters">
   	</wsdl:part>
   </wsdl:message>
   <wsdl:message name="CreateExceptionEventResponse">
-  	<wsdl:part name="parameters"
-  		element="extns:CreateExceptionEventResponse">
+  	<wsdl:part element="extns:CreateExceptionEventResponse" name="parameters">
   	</wsdl:part>
   </wsdl:message>
   
-  <wsdl:portType name="CreateExceptionEvent">
+    <wsdl:message name="operationRequest">
+    <wsdl:part element="extns:operationRequest" name="parameters"/>
+  </wsdl:message>
+    <wsdl:portType name="CreateExceptionEvent">
     <wsdl:operation name="CreateExceptionEvent">
-    	<wsdl:input message="tns:CreateExceptionEventRequest"></wsdl:input>
-    	<wsdl:output message="tns:CreateExceptionEventResponse"></wsdl:output>
+    	<wsdl:input message="tns:CreateExceptionEventRequest"/>
+    	<wsdl:output message="tns:CreateExceptionEventResponse"/>
     </wsdl:operation>
-  </wsdl:portType>
+        <wsdl:operation name="operation">
+      <wsdl:input message="tns:operationRequest" name="operationInput"/>
+    </wsdl:operation>
+    </wsdl:portType>
 
 </wsdl:definitions>

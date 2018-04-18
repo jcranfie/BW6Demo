@@ -5,11 +5,7 @@ Bundle-SymbolicName: LIB_XML
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: TIBCO Software Inc.
-Export-Package: com,
- com.coopbank,
- com.coopbank.common,
- com.coopbank.common.xml,
- com.coopbank.common.xml.utils
+Export-Package: com.coopbank.common.xml.utils
 TIBCO-BW-JobSharedVariables: META-INF/module.jsv
 TIBCO-BW-SharedModule: META-INF/module.bwm
 TIBCO-BW-Version: 6.3.5 V17 2017-02-02

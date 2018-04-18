@@ -3,6 +3,7 @@
 	<name>LIB_TSUTIL_SystemAudit_Client</name>
 	<comment></comment>
 	<projects>
+		<project>LIB_CONNJMS_LoggerJMS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

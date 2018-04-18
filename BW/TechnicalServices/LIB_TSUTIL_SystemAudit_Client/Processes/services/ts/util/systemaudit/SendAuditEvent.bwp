@@ -1068,9 +1068,6 @@
             name="SendAuditEventIn" sca-bpel:internal="true"/>
         <bpws:variable messageType="ns2:SendAuditEventResponse"
             name="Reply-input" sca-bpel:internal="true"/>
-        <bpws:variable name="jmsConnection" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes"
-            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/jms}JMSConnectionFactory" type="xsd:string"/>
         <bpws:variable name="logger.queue" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/resources/services.ts.util.system.audit/Client-AUDIT/logger.queue" type="xsd:string"/>
@@ -1078,6 +1075,13 @@
             name="SendToRemote-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns20:aEmptyOutputClass"
             name="SendToRemote" sca-bpel:internal="true"/>
+        <bpws:variable name="Property" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/jms}JMSConnectionFactory" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>services.conn.jms.loggerbound.JMSClientLogger</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -1251,7 +1255,7 @@
                                 <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/jms#//JMSSenderActivityConfiguration"/>
                                     <value
-                                    connectionReference="jmsConnection"
+                                    connectionReference="Property"
                                     messagingStyle="Queue"
                                     priority="4" xsi:type="jms:JMSSenderActivityConfiguration"/>
                                 </properties>

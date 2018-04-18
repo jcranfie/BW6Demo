@@ -3,6 +3,7 @@
 	<name>APP.BSServiceTemplate.module</name>
 	<comment></comment>
 	<projects>
+		<project>LIB_CONNJMS_NorthJMS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

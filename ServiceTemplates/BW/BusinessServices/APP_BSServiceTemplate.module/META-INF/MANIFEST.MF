@@ -16,6 +16,7 @@ Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
  com.tibco.bw.module; filter:="(&(name=LIB_XML)(version=1.0.0))",
  com.tibco.bw.module; filter:="(&(name=LIB_TSUTIL_SystemErrorHandler_Client)(version=1.0.0))",
  com.tibco.bw.module; filter:="(&(name=LIB_TSUTIL_SystemAudit_Client)(version=1.0.0))",
+ com.tibco.bw.module; filter:="(&(name=LIB_CONNJMS_NorthJMS)(version=1.0.0))",
  com.tibco.bw.palette; filter:="(name=bw.generalactivities)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.httpconnector)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jndiconfiguration)"

@@ -959,9 +959,6 @@
         <bpws:variable messageType="ns1:onShutdownRequest"
             name="onShutdown" sca-bpel:internal="true"/>
         <bpws:variable element="ns2:ActivityInput" name="Log01-input" sca-bpel:internal="true"/>
-        <bpws:variable name="jms.queue" sca-bpel:hotUpdate="false"
-            sca-bpel:privateProperty="true" sca-bpel:property="yes"
-            tibex:propertySource="/coop.ts.connections/TSService/jms.queue" type="xsd:string"/>
         <bpws:variable name="jndi.url" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/resources/coop.ts.connections/Client-ESB01/jndi.url" type="xsd:string"/>

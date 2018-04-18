@@ -15,7 +15,6 @@
   <sca:property xmi:id="_-Br9AMp5EeW_7rgVeQxGpA" name="/coop.ts.connections/TSService/exception.audit.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_-FgtEMp5EeW_7rgVeQxGpA" name="/coop.ts.connections/TSService/exception.audit.payload.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_-JUPAMp5EeW_7rgVeQxGpA" name="/coop.ts.connections/TSService/exception.cache.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_5tm7oMscEeWh752vwu3HDA" name="/coop.ts.connections/TSService/jms.queue" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_XgcrIBWCEeie28s1fSTo7w" name="/coop.ts.connections/TSService/log.audit.remotedb.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_X0BucBWCEeie28s1fSTo7w" name="/coop.ts.connections/TSService/log.audit.remotefile.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_X4mFYBWCEeie28s1fSTo7w" name="/coop.ts.connections/TSService/log.audit.local.enable" type="XMLSchema:boolean" scaext:simpleValue="false" publicAccess="true" scalable="true"/>

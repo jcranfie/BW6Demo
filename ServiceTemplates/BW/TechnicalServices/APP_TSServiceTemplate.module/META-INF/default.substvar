@@ -122,14 +122,6 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/coop.ts.connections/TSService/jms.queue</name>
-			<value>Coop.UK.Q.RQ.TS.BackEnd.ServiceName.SOAP11.1</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
 			<name>/coop.ts.connections/TSService/log.audit.remotedb.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>

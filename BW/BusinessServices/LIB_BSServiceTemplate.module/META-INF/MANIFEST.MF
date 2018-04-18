@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LIB_TSServiceTemplate Module
-Bundle-SymbolicName: LIB_BSServiceTemplate.module
+Bundle-SymbolicName: LIB.BSServiceTemplate.module
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: TIBCO Software Inc.
 Require-Bundle: LIB_XML;bundle-version="1.0.0"
@@ -16,7 +16,7 @@ Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jmsconnection)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jndiconfiguration)"
 TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
-Provide-Capability: com.tibco.bw.module; name="LIB_BSServiceTemplate.module"; version:Version="1.0.0",
- com.tibco.bw.processes; name="services.ts.backend.servicename",
- com.tibco.bw.resources; name="services.ts.backend.servicename"
+Provide-Capability: com.tibco.bw.module; name="LIB.BSServiceTemplate.module"; version:Version="1.0.0",
+ com.tibco.bw.processes; name="coop.bs.backend.servicename",
+ com.tibco.bw.resources; name="coop.ts.connections"
 TIBCO-BW-Version: 6.2.2 HF2 V26 2015-8-27

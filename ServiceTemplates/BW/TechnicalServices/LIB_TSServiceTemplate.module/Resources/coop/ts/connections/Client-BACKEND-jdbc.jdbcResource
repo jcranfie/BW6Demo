@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_8sPAQcppEeW_7rgVeQxGpA" name="coop.ts.connections.Client-BACKEND-jdbc" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_8tHxEMppEeW_7rgVeQxGpA" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_8tHxEcppEeW_7rgVeQxGpA">
+    <substitutionBindings xmi:id="_vFJDAMpqEeW_7rgVeQxGpA" template="maxConnections" propName="/resources/coop.ts.connections/Client-BACKEND-jdbc/max.connections"/>
+    <substitutionBindings xmi:id="_yVZS0MpqEeW_7rgVeQxGpA" template="username" propName="/resources/coop.ts.connections/Client-BACKEND-jdbc/username"/>
+    <substitutionBindings xmi:id="_zJC9UMpqEeW_7rgVeQxGpA" template="password" propName="/resources/coop.ts.connections/Client-BACKEND-jdbc/password"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_8tK0YMppEeW_7rgVeQxGpA">
+      <substitutionBindings xmi:id="_-jzwcMpqEeW_7rgVeQxGpA" template="jdbcDriver" propName="/resources/coop.ts.connections/Client-BACKEND-jdbc/database.driver"/>
+      <substitutionBindings xmi:id="__ujFQMpqEeW_7rgVeQxGpA" template="dbURL" propName="/resources/coop.ts.connections/Client-BACKEND-jdbc/database.url"/>
+      <substitutionBindings xmi:id="_AhNRQMprEeW_7rgVeQxGpA" template="loginTimeout" propName="/resources/coop.ts.connections/Client-BACKEND-jdbc/login.timeout.ms"/>
+    </connectionConfig>
+  </jndi:configuration>
+</jndi:namedResource>

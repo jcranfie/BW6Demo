@@ -1,0 +1,1528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no"
+    name="coop.bs.backend.servicename.BSService"
+    suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20160106111727"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns0="http://xmlns.example.com/20150519163830PLT"
+    xmlns:ns1="http://schemas.tibco.com/bw/plugins/basic/6.0/faults"
+    xmlns:ns10="http://schemas.tibco.com/bw/plugins/basic/6.0/Exceptions"
+    xmlns:ns11="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"
+    xmlns:ns13="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent"
+    xmlns:ns14="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"
+    xmlns:ns2="urn://co-opbank.co.ke/CommonServices/Data/Internal/System"
+    xmlns:ns4="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent"
+    xmlns:ns5="urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property"
+    xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"
+    xmlns:tns1="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <!--xs:element minOccurs="0" maxOccurs="unbounded" name="TrackingInfo" form="unqualified" block="extension restriction substitution" type="xs:string"/-->
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+        </schema>
+        <wsdl:definitions
+            targetNamespace="http://xmlns.example.com/20150519163830PLT"
+            xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+            xmlns:ptyp2="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"
+            xmlns:ptyp4="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"
+            xmlns:ptyp5="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent"
+            xmlns:tns="http://xmlns.example.com/20150519163830PLT"
+            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <plnk:partnerLinkType name="partnerLinkType2">
+                <plnk:role name="use" portType="ptyp6:SendExceptionEvent"/>
+            </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType">
+                <plnk:role name="use" portType="ptyp3:SendAuditEvent"/>
+            </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType1">
+                <plnk:role name="use" portType="ptyp:CreateExceptionEvent"/>
+            </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType3">
+                <plnk:role name="use" portType="ptyp2:SendAuditEvent"/>
+            </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType4">
+                <plnk:role name="use" portType="ptyp4:SendExceptionEvent"/>
+            </plnk:partnerLinkType>
+            <plnk:partnerLinkType name="partnerLinkType5">
+                <plnk:role name="use" portType="ptyp5:CreateExceptionEvent"/>
+            </plnk:partnerLinkType>
+            <wsdl:import namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"/>
+            <wsdl:import namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"/>
+            <wsdl:import namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent"/>
+        </wsdl:definitions>
+    </tibex:Types>
+    <tibex:ProcessInfo callable="false" createdBy="BLACKK"
+        createdOn="Tue May 19 16:38:30 BST 2015" description=""
+        extraErrorVars="false" modifiers="public"
+        productVersion="6.2.1 V18 2015-03-13" scalable="true"
+        singleton="true" stateless="true" type="IT"/>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001">
+                <element href="//0/@process"/>
+            </children>
+            <children type="3001">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002 bw.generalactivities.bwassign">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="308"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <children type="4002 bw.generalactivities.bwassign">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="676"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint x="885"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <children type="4002 bw.generalactivities.bwassign">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="214"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <children type="4002 bw.generalactivities.bwassign">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="128"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <children type="4002 bw.generalactivities.bwassign">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="571"
+                                    xsi:type="notation:Bounds" y="20"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="215"
+                                    width="1091" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                                <element href="//0/@process/@activity"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="215" width="1094" xsi:type="notation:Bounds"/>
+                        </children>
+                        <children type="4022">
+                            <children type="3022">
+                                <children type="4029">
+                                    <children type="3031">
+                                    <children type="4033">
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint
+                                    height="34" width="34"
+                                    x="7"
+                                    xsi:type="notation:Bounds" y="142"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    </children>
+                                    <children type="3032">
+                                    <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    x="148"
+                                    xsi:type="notation:Bounds" y="135"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.1"/>
+                                    <layoutConstraint
+                                    x="640"
+                                    xsi:type="notation:Bounds" y="135"/>
+                                    </children>
+                                    <children type="4002">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.2"/>
+                                    <layoutConstraint
+                                    x="760"
+                                    xsi:type="notation:Bounds" y="135"/>
+                                    </children>
+                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Reply">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.3"/>
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="486"
+                                    xsi:type="notation:Bounds" y="223"/>
+                                    </children>
+                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Reply">
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.4"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.4"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.4"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.4"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.4"/>
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="486"
+                                    xsi:type="notation:Bounds" y="135"/>
+                                    </children>
+                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Reply">
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.5"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.5"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.5"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.5"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.5"/>
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="486"
+                                    xsi:type="notation:Bounds" y="377"/>
+                                    </children>
+                                    <children type="4002 com.tibco.bw.core.design.process.editor.Activity_4002_Reply">
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.6"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.6"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.6"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.6"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@activities.6"/>
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="487"
+                                    xsi:type="notation:Bounds" y="295"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
+                                    <layoutConstraint
+                                    height="529" width="993" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    </children>
+                                    <styles fontName="Segoe UI"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles restoreHeight="280"
+                                    restoreWidth="1044" xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@faultHandlers/@catchAll"/>
+                                    <layoutConstraint height="535"
+                                    width="1044" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                                <element href="//0/@process/@activity/@faultHandlers"/>
+                            </children>
+                            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity/@faultHandlers"/>
+                            <layoutConstraint height="561" width="1054"
+                                x="22" xsi:type="notation:Bounds" y="215"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="777" width="1094" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles fontName="Segoe UI" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="829" width="1436" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, 0, -104, 0]$[105, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.0"/>
+            <bendpoints points="[25, 0, -85, 0]$[86, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, 0, -61, 0]$[62, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[25, 0, -69, 0]$[70, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.3"/>
+            <bendpoints points="[25, 0, -108, 0]$[109, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.4" type="4006">
+            <children type="6002" visible="false">
+                <layoutConstraint x="17" xsi:type="notation:Location" y="59"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.1"/>
+            <bendpoints points="[25, -6, -224, 0]$[225, 0, -24, 6]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.3" type="4006">
+            <children type="6002" visible="false">
+                <layoutConstraint x="79" xsi:type="notation:Location" y="-40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.2"/>
+            <bendpoints
+                points="[25, 0, -313, -88]$[143, 0, -195, -88]$[143, 93, -195, 5]$[314, 93, -24, 5]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.3"/>
+            <bendpoints
+                points="[25, 0, -129, 88]$[80, 0, -74, 88]$[80, -88, -74, 0]$[130, -88, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.4"/>
+            <bendpoints points="[25, 6, -129, 0]$[130, 0, -24, -6]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.5" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.5"/>
+            <bendpoints
+                points="[25, 0, -314, -173]$[142, 0, -197, -173]$[142, 197, -197, 24]$[315, 197, -24, 24]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.6"/>
+            <bendpoints
+                points="[25, 0, -128, 173]$[78, 0, -75, 173]$[78, -173, -75, 0]$[129, -173, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.6" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.7"/>
+            <bendpoints
+                points="[25, 0, -314, -160]$[143, 0, -196, -160]$[143, 160, -196, 0]$[315, 160, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.6"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1/@children.0/@children.0/@children.1" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity/@links/@children.8"/>
+            <bendpoints
+                points="[23, -24, -130, 136]$[130, -135, -23, 25]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+    </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess" prefix="bwp"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" prefix="head"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Common" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" prefix="tns1"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xpath/bw-custom-functions" prefix="bw"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" prefix="tns6"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" prefix="tns3"/>
+        <tibex:namespaceItem
+            namespace="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/>
+        <tibex:namespaceItem
+            namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" prefix="tns11"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" prefix="tns4"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" prefix="tns5"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" prefix="tns9"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" prefix="tns8"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent" prefix="tns7"/>
+        <tibex:namespaceItem
+            namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent" prefix="tns12"/>
+    </tibex:NamespaceRegistry>
+    <bpws:documentation>Template LIB_BSServiceTemplate.module&#xd;
+Version 0.4.4 - 2016/03/17:&#xd;
+ - Fixed mapping of LineOfBusiness&#xd;
+ - Removed LineOfBusiness variable&#xd;
+Version 0.4.3 - 2016/02/10:&#xd;
+ - First version</bpws:documentation>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent"/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Data/Internal/System"/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"/>
+    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent"/>
+    <bpws:partnerLinks>
+        <bpws:partnerLink name="SendAuditEvent"
+            partnerLinkType="ns0:partnerLinkType3" partnerRole="use"
+            sca-bpel:ignore="true" sca-bpel:reference="SendAuditEvent" sca-bpel:wiredByImpl="false">
+            <tibex:ReferenceWire dynamic="false" inline="true"
+                processConfigurationName=""
+                processName="services.ts.util.systemaudit.sub.SendAuditEvent" serviceName="SendAuditEvent"/>
+        </bpws:partnerLink>
+        <bpws:partnerLink name="SendExceptionEvent"
+            partnerLinkType="ns0:partnerLinkType4" partnerRole="use"
+            sca-bpel:ignore="true"
+            sca-bpel:reference="SendExceptionEvent" sca-bpel:wiredByImpl="false">
+            <tibex:ReferenceWire dynamic="false" inline="true"
+                processConfigurationName=""
+                processName="services.ts.util.systemerrorhandler.sub.SendExceptionEvent" serviceName="SendExceptionEvent"/>
+        </bpws:partnerLink>
+        <bpws:partnerLink name="CreateExceptionEvent"
+            partnerLinkType="ns0:partnerLinkType5" partnerRole="use"
+            sca-bpel:ignore="true"
+            sca-bpel:reference="CreateExceptionEvent" sca-bpel:wiredByImpl="false">
+            <tibex:ReferenceWire dynamic="false" inline="true"
+                processConfigurationName=""
+                processName="services.ts.util.systemerrorhandler.sub.CreateExceptionEvent" serviceName="CreateExceptionEvent"/>
+        </bpws:partnerLink>
+    </bpws:partnerLinks>
+    <bpws:variables>
+        <bpws:variable element="ns:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable name="FaultName" sca-bpel:internal="true" type="xsd:string"/>
+        <bpws:variable element="ns:FaultDetail" name="FaultDetails" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns13:CreateExceptionEventRequest"
+            name="CreateExceptionEvent-input" sca-bpel:internal="true"/>
+        <bpws:variable name="log.audit.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.motor.generatedigitalquote/GenerateDigitalQoute/log.audit.enable" type="xsd:boolean"/>
+        <bpws:variable name="log.audit.payload.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.motor.generatedigitalquote/GenerateDigitalQoute/log.audit.payload.enable" type="xsd:boolean"/>
+        <bpws:variable name="log.cache.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.motor.generatedigitalquote/GenerateDigitalQoute/log.cache.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.audit.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.motor.generatedigitalquote/GenerateDigitalQoute/exception.audit.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.audit.payload.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.motor.generatedigitalquote/GenerateDigitalQoute/exception.audit.payload.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.cache.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/services.bs.motor.generatedigitalquote/GenerateDigitalQoute/exception.cache.enable" type="xsd:boolean"/>
+        <bpws:variable messageType="ns14:SendExceptionEventRequest"
+            name="SendExceptionEvent-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:System" name="Response"/>
+        <bpws:variable name="StartTime" type="xsd:dateTime">
+            <bpws:from>
+                <bpws:literal>1970-01-01T00:00:00</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable name="EndTime" type="xsd:dateTime">
+            <bpws:from>
+                <bpws:literal>1970-01-01T00:00:00</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable messageType="ns11:SendAuditEventRequest"
+            name="SendAuditEvent-input" sca-bpel:internal="true"/>
+        <bpws:variable messageType="ns11:SendAuditEventRequest"
+            name="SendAuditEvent_Error-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns4:AuditEvent" name="AuditStartEvent"/>
+        <bpws:variable name="SendExceptionEvent_InputError" sca-bpel:internal="true"/>
+        <bpws:variable name="header.domain.esb.out"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/data/header/domain.esb.out" type="xsd:string"/>
+        <bpws:variable element="ns5:BWProcessHeaders" name="BWProcessHeaders"/>
+        <bpws:variable name="header.channel.esb.out"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/data/header/channel.esb.out" type="xsd:string"/>
+        <bpws:variable name="header.channel.esb.in"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/data/header/channel.esb.in" type="xsd:string"/>
+        <bpws:variable name="BusinessFault-input" sca-bpel:internal="true"/>
+        <bpws:variable name="TecnicalFault-input" sca-bpel:internal="true"/>
+        <bpws:variable name="ReplyFault-input" sca-bpel:internal="true"/>
+        <bpws:variable name="log.audit.remotedb.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/coop.ts.connections/TSService/log.audit.remotedb.enable" type="xsd:boolean"/>
+        <bpws:variable name="log.audit.remotefile.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/coop.ts.connections/TSService/log.audit.remotefile.enable" type="xsd:boolean"/>
+        <bpws:variable name="log.audit.local.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/coop.ts.connections/TSService/log.audit.local.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.audit.remotedb.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/coop.ts.connections/TSService/exception.audit.remotedb.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.audit.remotefile.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/coop.ts.connections/TSService/exception.audit.remotefile.enable" type="xsd:boolean"/>
+        <bpws:variable name="exception.audit.local.enable"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            tibex:propertySource="/coop.ts.connections/TSService/exception.audit.local.enable" type="xsd:boolean"/>
+        <bpws:variable messageType="ns13:CreateExceptionEventResponse"
+            name="CreateExceptionEvent" sca-bpel:internal="true"/>
+        <bpws:variable name="Reply-input" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:faultHandlers>
+            <bpws:catchAll tibex:faultDetailsVar="FaultDetails"
+                tibex:faultNameVar="FaultName" tibex:xpdlId="43a26b3a-bb9a-4554-982a-174aa9e3d6ac">
+                <bpws:scope name="scope1">
+                    <bpws:flow name="flow1">
+                        <bpws:links>
+                            <bpws:link
+                                name="SendExceptionEventToSendAuditEvent_Error" tibex:linkType="SUCCESS"/>
+                            <bpws:link
+                                name="CreateExceptionEventToTecnicalFault"
+                                tibex:label="Timeout Fault" tibex:linkType="SUCCESSWITHCONDITION"/>
+                            <bpws:link
+                                name="CreateExceptionEventToBusinessFault"
+                                tibex:label="BackEnd Fault" tibex:linkType="SUCCESSWITHCONDITION"/>
+                            <bpws:link name="ReplyToSendExceptionEvent" tibex:linkType="SUCCESS"/>
+                            <bpws:link name="Reply3ToSendExceptionEvent" tibex:linkType="SUCCESS"/>
+                            <bpws:link
+                                name="CreateExceptionEventToReplyFault" tibex:linkType="SUCCESSWITHNOCONDITION"/>
+                            <bpws:link name="ReplyToSendExceptionEvent1" tibex:linkType="SUCCESS"/>
+                            <bpws:link
+                                name="CreateExceptionEventToReply" tibex:linkType="SUCCESSWITHCONDITION"/>
+                            <bpws:link name="ReplyToSendExceptionEvent2" tibex:linkType="SUCCESS"/>
+                        </bpws:links>
+                        <bpws:invoke
+                            inputVariable="CreateExceptionEvent-input"
+                            name="CreateExceptionEvent"
+                            operation="CreateExceptionEvent"
+                            outputVariable="CreateExceptionEvent"
+                            partnerLink="CreateExceptionEvent"
+                            portType="ns13:CreateExceptionEvent" tibex:xpdlId="e5be470a-b2a0-4630-87ae-d2d880c10fbf">
+                            <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns5="urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent" xmlns:tns8="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns9="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" version="2.0"&gt;&lt;xsl:param name="exception.audit.enable"/&gt;&lt;xsl:param name="exception.audit.payload.enable"/&gt;&lt;xsl:param name="FaultDetails"/&gt;&lt;xsl:param name="FaultName"/&gt;&lt;xsl:param name="BWProcessHeaders"/&gt;&lt;xsl:param name="log.audit.enable"/&gt;&lt;xsl:param name="log.audit.payload.enable"/&gt;&lt;xsl:param name="log.audit.remotedb.enable"/&gt;&lt;xsl:param name="log.audit.remotefile.enable"/&gt;&lt;xsl:param name="log.audit.local.enable"/&gt;&lt;xsl:param name="exception.audit.remotedb.enable"/&gt;&lt;xsl:param name="exception.audit.remotefile.enable"/&gt;&lt;xsl:param name="exception.audit.local.enable"/&gt;&lt;xsl:template name="CreateExceptionEvent-input" match="current-dateTime()"&gt;&lt;tns5:CreateExceptionEventRequest&gt;&lt;parameters&gt;&lt;tns8:CreateExceptionEventRequest&gt;&lt;tns6:AuditOptions&gt;&lt;tns6:AuditEnabled&gt;&lt;xsl:value-of select="$log.audit.enable"/&gt;&lt;/tns6:AuditEnabled&gt;&lt;tns6:AuditPayloadEnabled&gt;&lt;xsl:value-of select="$log.audit.payload.enable"/&gt;&lt;/tns6:AuditPayloadEnabled&gt;&lt;tns6:AuditRemoteDBEnabled&gt;&lt;xsl:value-of select="$log.audit.remotedb.enable"/&gt;&lt;/tns6:AuditRemoteDBEnabled&gt;&lt;tns6:AuditRemoteFileEnabled&gt;&lt;xsl:value-of select="$log.audit.remotefile.enable"/&gt;&lt;/tns6:AuditRemoteFileEnabled&gt;&lt;tns6:AuditLocalEnabled&gt;&lt;xsl:value-of select="$log.audit.local.enable"/&gt;&lt;/tns6:AuditLocalEnabled&gt;&lt;tns6:ExceptionAuditEnabled&gt;&lt;xsl:value-of select="$exception.audit.enable"/&gt;&lt;/tns6:ExceptionAuditEnabled&gt;&lt;tns6:ExceptionAuditPayloadEnabled&gt;&lt;xsl:value-of select="$exception.audit.payload.enable"/&gt;&lt;/tns6:ExceptionAuditPayloadEnabled&gt;&lt;tns6:ExceptionAuditRemoteDBEnabled&gt;&lt;xsl:value-of select="$exception.audit.remotedb.enable"/&gt;&lt;/tns6:ExceptionAuditRemoteDBEnabled&gt;&lt;tns6:ExceptionAuditRemoteFileEnabled&gt;&lt;xsl:value-of select="$exception.audit.remotefile.enable"/&gt;&lt;/tns6:ExceptionAuditRemoteFileEnabled&gt;&lt;tns6:ExceptionAuditLocalEnabled&gt;&lt;xsl:value-of select="$exception.audit.local.enable"/&gt;&lt;/tns6:ExceptionAuditLocalEnabled&gt;&lt;/tns6:AuditOptions&gt;&lt;tns:CorrelationId&gt;&lt;xsl:value-of select="$BWProcessHeaders/tns:CorrelationId"/&gt;&lt;/tns:CorrelationId&gt;&lt;tns9:ExceptionTimestamp&gt;&lt;xsl:value-of select="current-dateTime()"/&gt;&lt;/tns9:ExceptionTimestamp&gt;&lt;tns9:ExceptionName&gt;&lt;xsl:value-of select="$FaultName"/&gt;&lt;/tns9:ExceptionName&gt;&lt;tns9:FaultDetails&gt;&lt;tns9:ActivityName&gt;&lt;xsl:value-of select="$FaultDetails/ActivityName"/&gt;&lt;/tns9:ActivityName&gt;&lt;xsl:for-each select="$FaultDetails/Data"&gt;&lt;tns9:Data/&gt;&lt;/xsl:for-each&gt;&lt;tns9:Msg&gt;&lt;xsl:value-of select="$FaultDetails/Msg"/&gt;&lt;/tns9:Msg&gt;&lt;tns9:MsgCode&gt;&lt;xsl:value-of select="$FaultDetails/MsgCode"/&gt;&lt;/tns9:MsgCode&gt;&lt;tns9:ProcessStack&gt;&lt;xsl:value-of select="$FaultDetails/ProcessStack"/&gt;&lt;/tns9:ProcessStack&gt;&lt;tns9:StackTrace&gt;&lt;xsl:value-of select="$FaultDetails/StackTrace"/&gt;&lt;/tns9:StackTrace&gt;&lt;/tns9:FaultDetails&gt;&lt;xsl:copy-of select="$BWProcessHeaders"/&gt;&lt;/tns8:CreateExceptionEventRequest&gt;&lt;/parameters&gt;&lt;/tns5:CreateExceptionEventRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                            <tibex:inputBindings>
+                                <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns5=&quot;urn://co-opbank.co.ke/CommonServices/TS/Util/CreateExceptionEvent&quot; xmlns:tns8=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent&quot; xmlns:tns6=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns9=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;exception.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;FaultDetails&quot;/>&#xa;    &lt;xsl:param name=&quot;FaultName&quot;/>&#xa;    &lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.local.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.local.enable&quot;/>&#xa;    &lt;xsl:template name=&quot;CreateExceptionEvent-input&quot; match=&quot;current-dateTime()&quot;>&#xa;        &lt;tns8:CreateExceptionEventRequest>&#xa;            &lt;tns6:AuditOptions>&#xa;                &lt;tns6:AuditEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.enable&quot;/>&#xa;                &lt;/tns6:AuditEnabled>&#xa;                &lt;tns6:AuditPayloadEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.payload.enable&quot;/>&#xa;                &lt;/tns6:AuditPayloadEnabled>&#xa;                &lt;tns6:AuditRemoteDBEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.remotedb.enable&quot;/>&#xa;                &lt;/tns6:AuditRemoteDBEnabled>&#xa;                &lt;tns6:AuditRemoteFileEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.remotefile.enable&quot;/>&#xa;                &lt;/tns6:AuditRemoteFileEnabled>&#xa;                &lt;tns6:AuditLocalEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.local.enable&quot;/>&#xa;                &lt;/tns6:AuditLocalEnabled>&#xa;                &lt;tns6:ExceptionAuditEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditEnabled>&#xa;                &lt;tns6:ExceptionAuditPayloadEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.payload.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditPayloadEnabled>&#xa;                &lt;tns6:ExceptionAuditRemoteDBEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.remotedb.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditRemoteDBEnabled>&#xa;                &lt;tns6:ExceptionAuditRemoteFileEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.remotefile.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditRemoteFileEnabled>&#xa;                &lt;tns6:ExceptionAuditLocalEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.local.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditLocalEnabled>&#xa;            &lt;/tns6:AuditOptions>&#xa;            &lt;tns:CorrelationId>&#xa;                &lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&#xa;            &lt;/tns:CorrelationId>&#xa;            &lt;tns9:ExceptionTimestamp>&#xa;                &lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&#xa;            &lt;/tns9:ExceptionTimestamp>&#xa;            &lt;tns9:ExceptionName>&#xa;                &lt;xsl:value-of select=&quot;$FaultName&quot;/>&#xa;            &lt;/tns9:ExceptionName>&#xa;            &lt;tns9:FaultDetails>&#xa;                &lt;tns9:ActivityName>&#xa;                    &lt;xsl:value-of select=&quot;$FaultDetails/ActivityName&quot;/>&#xa;                &lt;/tns9:ActivityName>&#xa;                &lt;xsl:for-each select=&quot;$FaultDetails/Data&quot;>&#xa;                    &lt;tns9:Data/>&#xa;                &lt;/xsl:for-each>&#xa;                &lt;tns9:Msg>&#xa;                    &lt;xsl:value-of select=&quot;$FaultDetails/Msg&quot;/>&#xa;                &lt;/tns9:Msg>&#xa;                &lt;tns9:MsgCode>&#xa;                    &lt;xsl:value-of select=&quot;$FaultDetails/MsgCode&quot;/>&#xa;                &lt;/tns9:MsgCode>&#xa;                &lt;tns9:ProcessStack>&#xa;                    &lt;xsl:value-of select=&quot;$FaultDetails/ProcessStack&quot;/>&#xa;                &lt;/tns9:ProcessStack>&#xa;                &lt;tns9:StackTrace>&#xa;                    &lt;xsl:value-of select=&quot;$FaultDetails/StackTrace&quot;/>&#xa;                &lt;/tns9:StackTrace>&#xa;            &lt;/tns9:FaultDetails>&#xa;            &lt;xsl:copy-of select=&quot;$BWProcessHeaders&quot;/>&#xa;        &lt;/tns8:CreateExceptionEventRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            </tibex:inputBindings>
+                            <bpws:sources>
+                                <bpws:source linkName="CreateExceptionEventToBusinessFault">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="exists($CreateExceptionEvent/parameters/tns1:CreateExceptionEventResponse/tns1:ResponseFault/tns:BusinessFault)" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition><![CDATA[exists($CreateExceptionEvent.parameters/tns1:ResponseFault/tns:BusinessFault)]]></bpws:transitionCondition>
+                                </bpws:source>
+                                <bpws:source linkName="CreateExceptionEventToTecnicalFault">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="exists($CreateExceptionEvent/parameters/tns1:CreateExceptionEventResponse/tns1:ResponseFault/tns:TechnicalFault)" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition><![CDATA[exists($CreateExceptionEvent.parameters/tns1:ResponseFault/tns:TechnicalFault)]]></bpws:transitionCondition>
+                                </bpws:source>
+                                <bpws:source linkName="CreateExceptionEventToReplyFault">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="##otherwise##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition><![CDATA[##otherwise##]]></bpws:transitionCondition>
+                                </bpws:source>
+                                <bpws:source linkName="CreateExceptionEventToReply">
+                                    <tibex:DesignExpression>
+                                    <tibex:expression
+                                    expression="exists($CreateExceptionEvent/parameters/tns1:CreateExceptionEventResponse/tns1:ResponseFault/tns:ValidationFault)" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    </tibex:DesignExpression>
+                                    <bpws:transitionCondition><![CDATA[exists($CreateExceptionEvent.parameters/tns1:ResponseFault/tns:ValidationFault)]]></bpws:transitionCondition>
+                                </bpws:source>
+                            </bpws:sources>
+                        </bpws:invoke>
+                        <bpws:invoke
+                            inputVariable="SendExceptionEvent-input"
+                            name="SendExceptionEvent"
+                            operation="SendExceptionEvent"
+                            partnerLink="SendExceptionEvent"
+                            portType="ns14:SendExceptionEvent" tibex:xpdlId="3842c40e-d144-4090-9c08-9fa1e095d0f2">
+                            <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns9="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:tns8="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:tns7="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent" xmlns:tns12="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" version="2.0"&gt;&lt;xsl:param name="exception.audit.enable"/&gt;&lt;xsl:param name="exception.audit.payload.enable"/&gt;&lt;xsl:param name="CreateExceptionEvent"/&gt;&lt;xsl:param name="log.audit.enable"/&gt;&lt;xsl:param name="log.audit.payload.enable"/&gt;&lt;xsl:param name="log.audit.remotedb.enable"/&gt;&lt;xsl:param name="log.audit.remotefile.enable"/&gt;&lt;xsl:param name="log.audit.local.enable"/&gt;&lt;xsl:param name="exception.audit.remotedb.enable"/&gt;&lt;xsl:param name="exception.audit.remotefile.enable"/&gt;&lt;xsl:param name="exception.audit.local.enable"/&gt;&lt;xsl:template name="SendExceptionEvent-input" match="/"&gt;&lt;tns7:SendExceptionEventRequest&gt;&lt;parameters&gt;&lt;tns12:SendExceptionEventRequest&gt;&lt;tns6:AuditOptions&gt;&lt;tns6:AuditEnabled&gt;&lt;xsl:value-of select="$log.audit.enable"/&gt;&lt;/tns6:AuditEnabled&gt;&lt;tns6:AuditPayloadEnabled&gt;&lt;xsl:value-of select="$log.audit.payload.enable"/&gt;&lt;/tns6:AuditPayloadEnabled&gt;&lt;tns6:AuditRemoteDBEnabled&gt;&lt;xsl:value-of select="$log.audit.remotedb.enable"/&gt;&lt;/tns6:AuditRemoteDBEnabled&gt;&lt;tns6:AuditRemoteFileEnabled&gt;&lt;xsl:value-of select="$log.audit.remotefile.enable"/&gt;&lt;/tns6:AuditRemoteFileEnabled&gt;&lt;tns6:AuditLocalEnabled&gt;&lt;xsl:value-of select="$log.audit.local.enable"/&gt;&lt;/tns6:AuditLocalEnabled&gt;&lt;tns6:ExceptionAuditEnabled&gt;&lt;xsl:value-of select="$exception.audit.enable"/&gt;&lt;/tns6:ExceptionAuditEnabled&gt;&lt;tns6:ExceptionAuditPayloadEnabled&gt;&lt;xsl:value-of select="$exception.audit.payload.enable"/&gt;&lt;/tns6:ExceptionAuditPayloadEnabled&gt;&lt;tns6:ExceptionAuditRemoteDBEnabled&gt;&lt;xsl:value-of select="$exception.audit.remotedb.enable"/&gt;&lt;/tns6:ExceptionAuditRemoteDBEnabled&gt;&lt;tns6:ExceptionAuditRemoteFileEnabled&gt;&lt;xsl:value-of select="$exception.audit.remotefile.enable"/&gt;&lt;/tns6:ExceptionAuditRemoteFileEnabled&gt;&lt;tns6:ExceptionAuditLocalEnabled&gt;&lt;xsl:value-of select="$exception.audit.local.enable"/&gt;&lt;/tns6:ExceptionAuditLocalEnabled&gt;&lt;/tns6:AuditOptions&gt;&lt;xsl:copy-of select="$CreateExceptionEvent/parameters/tns8:CreateExceptionEventResponse/tns9:Fault"/&gt;&lt;/tns12:SendExceptionEventRequest&gt;&lt;/parameters&gt;&lt;/tns7:SendExceptionEventRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                            <tibex:inputBindings>
+                                <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns9=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns8=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent&quot; xmlns:tns7=&quot;urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent&quot; xmlns:tns12=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:tns6=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;CreateExceptionEvent.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.local.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.local.enable&quot;/>&#xa;    &lt;xsl:template name=&quot;SendExceptionEvent-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns12:SendExceptionEventRequest>&#xa;            &lt;tns6:AuditOptions>&#xa;                &lt;tns6:AuditEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.enable&quot;/>&#xa;                &lt;/tns6:AuditEnabled>&#xa;                &lt;tns6:AuditPayloadEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.payload.enable&quot;/>&#xa;                &lt;/tns6:AuditPayloadEnabled>&#xa;                &lt;tns6:AuditRemoteDBEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.remotedb.enable&quot;/>&#xa;                &lt;/tns6:AuditRemoteDBEnabled>&#xa;                &lt;tns6:AuditRemoteFileEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.remotefile.enable&quot;/>&#xa;                &lt;/tns6:AuditRemoteFileEnabled>&#xa;                &lt;tns6:AuditLocalEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.local.enable&quot;/>&#xa;                &lt;/tns6:AuditLocalEnabled>&#xa;                &lt;tns6:ExceptionAuditEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditEnabled>&#xa;                &lt;tns6:ExceptionAuditPayloadEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.payload.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditPayloadEnabled>&#xa;                &lt;tns6:ExceptionAuditRemoteDBEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.remotedb.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditRemoteDBEnabled>&#xa;                &lt;tns6:ExceptionAuditRemoteFileEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.remotefile.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditRemoteFileEnabled>&#xa;                &lt;tns6:ExceptionAuditLocalEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.local.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditLocalEnabled>&#xa;            &lt;/tns6:AuditOptions>&#xa;            &lt;xsl:copy-of select=&quot;$CreateExceptionEvent.parameters/tns9:Fault&quot;/>&#xa;        &lt;/tns12:SendExceptionEventRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            </tibex:inputBindings>
+                            <bpws:targets>
+                                <bpws:target linkName="ReplyToSendExceptionEvent"/>
+                                <bpws:target linkName="Reply3ToSendExceptionEvent"/>
+                                <bpws:target linkName="ReplyToSendExceptionEvent1"/>
+                                <bpws:target linkName="ReplyToSendExceptionEvent2"/>
+                            </bpws:targets>
+                            <bpws:sources>
+                                <bpws:source linkName="SendExceptionEventToSendAuditEvent_Error"/>
+                            </bpws:sources>
+                        </bpws:invoke>
+                        <bpws:invoke
+                            inputVariable="SendAuditEvent_Error-input"
+                            name="SendAuditEvent_Error"
+                            operation="SendAuditEvent"
+                            partnerLink="SendAuditEvent"
+                            portType="ns11:SendAuditEvent" tibex:xpdlId="2ccb5370-0182-4df2-8161-a4699ccb526b">
+                            <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns3="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" xmlns:tns4="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns1="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns11="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:tns9="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:tns8="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" version="2.0"&gt;&lt;xsl:param name="StartTime"/&gt;&lt;xsl:param name="AuditStartEvent"/&gt;&lt;xsl:param name="BWProcessHeaders"/&gt;&lt;xsl:param name="exception.audit.enable"/&gt;&lt;xsl:param name="exception.audit.payload.enable"/&gt;&lt;xsl:param name="Response"/&gt;&lt;xsl:param name="EndTime"/&gt;&lt;xsl:param name="CreateExceptionEvent"/&gt;&lt;xsl:param name="log.audit.enable"/&gt;&lt;xsl:param name="log.audit.payload.enable"/&gt;&lt;xsl:param name="log.audit.remotedb.enable"/&gt;&lt;xsl:param name="log.audit.remotefile.enable"/&gt;&lt;xsl:param name="log.audit.local.enable"/&gt;&lt;xsl:param name="exception.audit.remotedb.enable"/&gt;&lt;xsl:param name="exception.audit.remotefile.enable"/&gt;&lt;xsl:param name="exception.audit.local.enable"/&gt;&lt;xsl:template name="SendAuditEvent_Error-input" match="/"&gt;&lt;tns3:SendAuditEventRequest&gt;&lt;parameters&gt;&lt;tns4:SendAuditEventRequest&gt;&lt;xsl:variable name="varBackEnd" select="bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)"/&gt;&lt;tns6:AuditOptions&gt;&lt;tns6:AuditEnabled&gt;&lt;xsl:value-of select="$log.audit.enable"/&gt;&lt;/tns6:AuditEnabled&gt;&lt;tns6:AuditPayloadEnabled&gt;&lt;xsl:value-of select="$log.audit.payload.enable"/&gt;&lt;/tns6:AuditPayloadEnabled&gt;&lt;tns6:AuditRemoteDBEnabled&gt;&lt;xsl:value-of select="$log.audit.remotedb.enable"/&gt;&lt;/tns6:AuditRemoteDBEnabled&gt;&lt;tns6:AuditRemoteFileEnabled&gt;&lt;xsl:value-of select="$log.audit.remotefile.enable"/&gt;&lt;/tns6:AuditRemoteFileEnabled&gt;&lt;tns6:AuditLocalEnabled&gt;&lt;xsl:value-of select="$log.audit.local.enable"/&gt;&lt;/tns6:AuditLocalEnabled&gt;&lt;tns6:ExceptionAuditEnabled&gt;&lt;xsl:value-of select="$exception.audit.enable"/&gt;&lt;/tns6:ExceptionAuditEnabled&gt;&lt;tns6:ExceptionAuditPayloadEnabled&gt;&lt;xsl:value-of select="$exception.audit.payload.enable"/&gt;&lt;/tns6:ExceptionAuditPayloadEnabled&gt;&lt;tns6:ExceptionAuditRemoteDBEnabled&gt;&lt;xsl:value-of select="$exception.audit.remotedb.enable"/&gt;&lt;/tns6:ExceptionAuditRemoteDBEnabled&gt;&lt;tns6:ExceptionAuditRemoteFileEnabled&gt;&lt;xsl:value-of select="$exception.audit.remotefile.enable"/&gt;&lt;/tns6:ExceptionAuditRemoteFileEnabled&gt;&lt;tns6:ExceptionAuditLocalEnabled&gt;&lt;xsl:value-of select="$exception.audit.local.enable"/&gt;&lt;/tns6:ExceptionAuditLocalEnabled&gt;&lt;/tns6:AuditOptions&gt;&lt;tns11:RuntimeContext&gt;&lt;tns11:ServiceName&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)"/&gt;&lt;/tns11:ServiceName&gt;&lt;tns11:Application&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;)"/&gt;&lt;/tns11:Application&gt;&lt;tns11:ApplicationVersion&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;BW.MODULE.NAME&amp;quot;)"/&gt;&lt;/tns11:ApplicationVersion&gt;&lt;tns11:AppNode&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;BW.APPNODE.NAME&amp;quot;)"/&gt;&lt;/tns11:AppNode&gt;&lt;tns11:Hostname&gt;&lt;xsl:value-of select="bw:getHostName()"/&gt;&lt;/tns11:Hostname&gt;&lt;/tns11:RuntimeContext&gt;&lt;xsl:if test="exists($AuditStartEvent)"&gt;&lt;xsl:copy-of select="$AuditStartEvent"/&gt;&lt;/xsl:if&gt;&lt;xsl:if test="$EndTime &gt; xsd:dateTime(&amp;quot;1970-01-01T00:00:00&amp;quot;)"&gt;&lt;tns1:AuditEvent&gt;&lt;tns:CorrelationId&gt;&lt;xsl:value-of select="$BWProcessHeaders/tns:CorrelationId"/&gt;&lt;/tns:CorrelationId&gt;&lt;xsl:if test="$BWProcessHeaders/head:MessageID"&gt;&lt;tns:MessageID&gt;&lt;xsl:value-of select="$BWProcessHeaders/head:MessageID"/&gt;&lt;/tns:MessageID&gt;&lt;/xsl:if&gt;&lt;tns1:EventId&gt;&lt;xsl:value-of select="tib:uuid()"/&gt;&lt;/tns1:EventId&gt;&lt;tns1:AuditTimeStamp&gt;&lt;xsl:value-of select="current-dateTime()"/&gt;&lt;/tns1:AuditTimeStamp&gt;&lt;tns1:EventType&gt;&lt;xsl:value-of select="&amp;quot;Response&amp;quot;"/&gt;&lt;/tns1:EventType&gt;&lt;tns1:Message&gt;&lt;xsl:value-of select="concat(&amp;quot;Response from &amp;quot;,$varBackEnd)"/&gt;&lt;/tns1:Message&gt;&lt;xsl:if test="$exception.audit.payload.enable = true()"&gt;&lt;tns1:Payload&gt;&lt;xsl:copy-of select="$Response"/&gt;&lt;/tns1:Payload&gt;&lt;/xsl:if&gt;&lt;tns1:EventTimeStamp&gt;&lt;xsl:value-of select="$EndTime"/&gt;&lt;/tns1:EventTimeStamp&gt;&lt;tns1:PreviousEventTimeStamp&gt;&lt;xsl:value-of select="$StartTime"/&gt;&lt;/tns1:PreviousEventTimeStamp&gt;&lt;/tns1:AuditEvent&gt;&lt;/xsl:if&gt;&lt;tns1:AuditEvent&gt;&lt;tns:CorrelationId&gt;&lt;xsl:value-of select="$BWProcessHeaders/tns:CorrelationId"/&gt;&lt;/tns:CorrelationId&gt;&lt;tns1:EventId&gt;&lt;xsl:value-of select="$CreateExceptionEvent/parameters/tns8:CreateExceptionEventResponse/tns9:Fault/tns9:ExceptionId"/&gt;&lt;/tns1:EventId&gt;&lt;tns1:AuditTimeStamp&gt;&lt;xsl:value-of select="current-dateTime()"/&gt;&lt;/tns1:AuditTimeStamp&gt;&lt;tns1:EventType&gt;&lt;xsl:value-of select="&amp;quot;Error&amp;quot;"/&gt;&lt;/tns1:EventType&gt;&lt;tns1:Message&gt;&lt;xsl:value-of select="concat(&amp;quot;Exception:&amp;quot;,$CreateExceptionEvent/parameters/tns8:CreateExceptionEventResponse/tns9:Fault/tns9:ExceptionName)"/&gt;&lt;/tns1:Message&gt;&lt;tns1:EventTimeStamp&gt;&lt;xsl:value-of select="$CreateExceptionEvent/parameters/tns8:CreateExceptionEventResponse/tns9:Fault/tns9:ExceptionTimestamp"/&gt;&lt;/tns1:EventTimeStamp&gt;&lt;tns1:ExceptionCode&gt;&lt;xsl:value-of select="$CreateExceptionEvent/parameters/tns8:CreateExceptionEventResponse/tns9:Fault/tns9:ExceptionCode"/&gt;&lt;/tns1:ExceptionCode&gt;&lt;/tns1:AuditEvent&gt;&lt;/tns4:SendAuditEventRequest&gt;&lt;/parameters&gt;&lt;/tns3:SendAuditEventRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                            <tibex:inputBindings>
+                                <tibex:partBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent&quot; xmlns:tns4=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:tns6=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns11=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext&quot; xmlns:tns9=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns8=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/CreateExceptionEvent&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;CreateExceptionEvent.parameters&quot;/>&#xa;    &lt;xsl:param name=&quot;StartTime&quot;/>&#xa;    &lt;xsl:param name=&quot;AuditStartEvent&quot;/>&#xa;    &lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;Response&quot;/>&#xa;    &lt;xsl:param name=&quot;EndTime&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.local.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.local.enable&quot;/>&#xa;    &lt;xsl:template name=&quot;SendAuditEvent_Error-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns4:SendAuditEventRequest>&#xa;            &lt;xsl:variable name=&quot;varBackEnd&quot; select=&quot;bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)&quot;/>&#xa;            &lt;tns6:AuditOptions>&#xa;                &lt;tns6:AuditEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.enable&quot;/>&#xa;                &lt;/tns6:AuditEnabled>&#xa;                &lt;tns6:AuditPayloadEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.payload.enable&quot;/>&#xa;                &lt;/tns6:AuditPayloadEnabled>&#xa;                &lt;tns6:AuditRemoteDBEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.remotedb.enable&quot;/>&#xa;                &lt;/tns6:AuditRemoteDBEnabled>&#xa;                &lt;tns6:AuditRemoteFileEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.remotefile.enable&quot;/>&#xa;                &lt;/tns6:AuditRemoteFileEnabled>&#xa;                &lt;tns6:AuditLocalEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.local.enable&quot;/>&#xa;                &lt;/tns6:AuditLocalEnabled>&#xa;                &lt;tns6:ExceptionAuditEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditEnabled>&#xa;                &lt;tns6:ExceptionAuditPayloadEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.payload.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditPayloadEnabled>&#xa;                &lt;tns6:ExceptionAuditRemoteDBEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.remotedb.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditRemoteDBEnabled>&#xa;                &lt;tns6:ExceptionAuditRemoteFileEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.remotefile.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditRemoteFileEnabled>&#xa;                &lt;tns6:ExceptionAuditLocalEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.local.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditLocalEnabled>&#xa;            &lt;/tns6:AuditOptions>&#xa;            &lt;tns11:RuntimeContext>&#xa;                &lt;tns11:ServiceName>&#xa;                    &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)&quot;/>&#xa;                &lt;/tns11:ServiceName>&#xa;                &lt;tns11:Application>&#xa;                    &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;)&quot;/>&#xa;                &lt;/tns11:Application>&#xa;                &lt;tns11:ApplicationVersion>&#xa;                    &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;BW.MODULE.NAME&amp;quot;)&quot;/>&#xa;                &lt;/tns11:ApplicationVersion>&#xa;                &lt;tns11:AppNode>&#xa;                    &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;BW.APPNODE.NAME&amp;quot;)&quot;/>&#xa;                &lt;/tns11:AppNode>&#xa;                &lt;tns11:Hostname>&#xa;                    &lt;xsl:value-of select=&quot;bw:getHostName()&quot;/>&#xa;                &lt;/tns11:Hostname>&#xa;            &lt;/tns11:RuntimeContext>&#xa;            &lt;xsl:if test=&quot;exists($AuditStartEvent)&quot;>&#xa;                &lt;xsl:copy-of select=&quot;$AuditStartEvent&quot;/>&#xa;            &lt;/xsl:if>&#xa;            &lt;xsl:if test=&quot;$EndTime > xsd:dateTime(&amp;quot;1970-01-01T00:00:00&amp;quot;)&quot;>&#xa;                &lt;tns1:AuditEvent>&#xa;                    &lt;tns:CorrelationId>&#xa;                        &lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&#xa;                    &lt;/tns:CorrelationId>&#xa;                    &lt;xsl:if test=&quot;$BWProcessHeaders/head:MessageID&quot;>&#xa;                        &lt;tns:MessageID>&#xa;                            &lt;xsl:value-of select=&quot;$BWProcessHeaders/head:MessageID&quot;/>&#xa;                        &lt;/tns:MessageID>&#xa;                    &lt;/xsl:if>&#xa;                    &lt;tns1:EventId>&#xa;                        &lt;xsl:value-of select=&quot;tib:uuid()&quot;/>&#xa;                    &lt;/tns1:EventId>&#xa;                    &lt;tns1:AuditTimeStamp>&#xa;                        &lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&#xa;                    &lt;/tns1:AuditTimeStamp>&#xa;                    &lt;tns1:EventType>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;Response&amp;quot;&quot;/>&#xa;                    &lt;/tns1:EventType>&#xa;                    &lt;tns1:Message>&#xa;                        &lt;xsl:value-of select=&quot;concat(&amp;quot;Response from &amp;quot;,$varBackEnd)&quot;/>&#xa;                    &lt;/tns1:Message>&#xa;                    &lt;xsl:if test=&quot;$exception.audit.payload.enable = true()&quot;>&#xa;                        &lt;tns1:Payload>&#xa;                            &lt;xsl:copy-of select=&quot;$Response&quot;/>&#xa;                        &lt;/tns1:Payload>&#xa;                    &lt;/xsl:if>&#xa;                    &lt;tns1:EventTimeStamp>&#xa;                        &lt;xsl:value-of select=&quot;$EndTime&quot;/>&#xa;                    &lt;/tns1:EventTimeStamp>&#xa;                    &lt;tns1:PreviousEventTimeStamp>&#xa;                        &lt;xsl:value-of select=&quot;$StartTime&quot;/>&#xa;                    &lt;/tns1:PreviousEventTimeStamp>&#xa;                &lt;/tns1:AuditEvent>&#xa;            &lt;/xsl:if>&#xa;            &lt;tns1:AuditEvent>&#xa;                &lt;tns:CorrelationId>&#xa;                    &lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&#xa;                &lt;/tns:CorrelationId>&#xa;                &lt;tns1:EventId>&#xa;                    &lt;xsl:value-of select=&quot;$CreateExceptionEvent.parameters/tns9:Fault/tns9:ExceptionId&quot;/>&#xa;                &lt;/tns1:EventId>&#xa;                &lt;tns1:AuditTimeStamp>&#xa;                    &lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&#xa;                &lt;/tns1:AuditTimeStamp>&#xa;                &lt;tns1:EventType>&#xa;                    &lt;xsl:value-of select=&quot;&amp;quot;Error&amp;quot;&quot;/>&#xa;                &lt;/tns1:EventType>&#xa;                &lt;tns1:Message>&#xa;                    &lt;xsl:value-of select=&quot;concat(&amp;quot;Exception:&amp;quot;,$CreateExceptionEvent.parameters/tns9:Fault/tns9:ExceptionName)&quot;/>&#xa;                &lt;/tns1:Message>&#xa;                &lt;tns1:EventTimeStamp>&#xa;                    &lt;xsl:value-of select=&quot;$CreateExceptionEvent.parameters/tns9:Fault/tns9:ExceptionTimestamp&quot;/>&#xa;                &lt;/tns1:EventTimeStamp>&#xa;                &lt;tns1:ExceptionCode>&#xa;                    &lt;xsl:value-of select=&quot;$CreateExceptionEvent.parameters/tns9:Fault/tns9:ExceptionCode&quot;/>&#xa;                &lt;/tns1:ExceptionCode>&#xa;            &lt;/tns1:AuditEvent>&#xa;        &lt;/tns4:SendAuditEventRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            </tibex:inputBindings>
+                            <bpws:targets>
+                                <bpws:target linkName="SendExceptionEventToSendAuditEvent_Error"/>
+                            </bpws:targets>
+                        </bpws:invoke>
+                        <bpws:reply name="BusinessFault"
+                            tibex:xpdlId="a247b7bf-6516-45b3-b6ad-95780867a4b2" variable="BusinessFault-input">
+                            <bpws:targets>
+                                <bpws:target linkName="CreateExceptionEventToBusinessFault"/>
+                            </bpws:targets>
+                            <bpws:sources>
+                                <bpws:source linkName="ReplyToSendExceptionEvent"/>
+                            </bpws:sources>
+                        </bpws:reply>
+                        <bpws:reply name="TecnicalFault"
+                            tibex:xpdlId="f01a1c5d-c8c7-456a-a9dc-aca4c32ae333" variable="TecnicalFault-input">
+                            <bpws:targets>
+                                <bpws:target linkName="CreateExceptionEventToTecnicalFault"/>
+                            </bpws:targets>
+                            <bpws:sources>
+                                <bpws:source linkName="Reply3ToSendExceptionEvent"/>
+                            </bpws:sources>
+                        </bpws:reply>
+                        <bpws:reply name="ReplyFault"
+                            tibex:xpdlId="77635fd2-f4f7-4892-9e28-0a58eb63e67d" variable="ReplyFault-input">
+                            <bpws:targets>
+                                <bpws:target linkName="CreateExceptionEventToReplyFault"/>
+                            </bpws:targets>
+                            <bpws:sources>
+                                <bpws:source linkName="ReplyToSendExceptionEvent1"/>
+                            </bpws:sources>
+                        </bpws:reply>
+                        <bpws:reply name="Reply"
+                            tibex:xpdlId="c70d9bc7-9442-4210-b792-1c1e4c6d5537" variable="Reply-input">
+                            <bpws:targets>
+                                <bpws:target linkName="CreateExceptionEventToReply"/>
+                            </bpws:targets>
+                            <bpws:sources>
+                                <bpws:source linkName="ReplyToSendExceptionEvent2"/>
+                            </bpws:sources>
+                        </bpws:reply>
+                    </bpws:flow>
+                </bpws:scope>
+            </bpws:catchAll>
+        </bpws:faultHandlers>
+        <bpws:flow name="flow">
+            <bpws:links>
+                <bpws:link name="AssignEndTimeToSendAuditEvent" tibex:linkType="SUCCESS"/>
+                <bpws:link name="AssignStartTimeToAssignCorrID" tibex:linkType="SUCCESS"/>
+                <bpws:link name="AssignCorrIDToAssignStartEvent" tibex:linkType="SUCCESS"/>
+                <bpws:link name="AssignStartEventToAssignEndTime" tibex:linkType="SUCCESS"/>
+                <bpws:link name="AssignToAssignEndTime" tibex:linkType="SUCCESS"/>
+            </bpws:links>
+            <bpws:extensionActivity>
+                <tibex:activityExtension inputVariable="AuditStartEvent"
+                    name="AssignStartEvent"
+                    outputVariable="AuditStartEvent"
+                    tibex:xpdlId="1be59c27-48d4-439e-b0ff-3755d67a7506" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="AssignCorrIDToAssignStartEvent"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="AssignStartEventToAssignEndTime"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&lt;xsl:template name=&quot;AuditStartEvent&quot; match=&quot;/&quot;>&lt;tns1:AuditEvent>&lt;xsl:variable name=&quot;varBackEnd&quot; select=&quot;bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)&quot;/>&lt;tns:CorrelationId>&lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&lt;/tns:CorrelationId>&lt;xsl:if test=&quot;$BWProcessHeaders/head:MessageID&quot;>&lt;tns:MessageID>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:MessageID&quot;/>&lt;/tns:MessageID>&lt;/xsl:if>&lt;tns1:EventId>&lt;xsl:value-of select=&quot;tib:uuid()&quot;/>&lt;/tns1:EventId>&lt;tns1:AuditTimeStamp>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/tns1:AuditTimeStamp>&lt;tns1:EventType>&lt;xsl:value-of select=&quot;&amp;quot;Request&amp;quot;&quot;/>&lt;/tns1:EventType>&lt;tns1:Message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Request from &amp;quot;, $varBackEnd)&quot;/>&lt;/tns1:Message>&lt;tns1:EventTimeStamp>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/tns1:EventTimeStamp>&lt;/tns1:AuditEvent>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.bwassign"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value
+                                    processVariable="AuditStartEvent" xsi:type="generalactivities:BWAssign"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension inputVariable="EndTime"
+                    name="AssignEndTime" outputVariable="EndTime"
+                    tibex:xpdlId="fafd3ecf-e176-476c-91d4-cdb77d5af544" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="AssignToAssignEndTime"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="AssignEndTimeToSendAuditEvent"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="dateTime(current-date(), current-time())" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.bwassign"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value processVariable="EndTime" xsi:type="generalactivities:BWAssign"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:invoke inputVariable="SendAuditEvent-input"
+                name="SendAuditEvent" operation="SendAuditEvent"
+                partnerLink="SendAuditEvent"
+                portType="ns11:SendAuditEvent" tibex:xpdlId="40569c27-557c-4ec3-aa66-0c04dd738f81">
+                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns3="urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent" xmlns:tns4="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent" xmlns:tns6="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:tns="urn://co-opbank.co.ke/CommonServices/Data/Common" xmlns:tns1="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent" xmlns:tns11="urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext" xmlns:bw="http://www.tibco.com/bw/xpath/bw-custom-functions" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:head="urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader" version="2.0"&gt;&lt;xsl:param name="log.audit.enable"/&gt;&lt;xsl:param name="log.audit.payload.enable"/&gt;&lt;xsl:param name="EndTime"/&gt;&lt;xsl:param name="AuditStartEvent"/&gt;&lt;xsl:param name="Response"/&gt;&lt;xsl:param name="BWProcessHeaders"/&gt;&lt;xsl:param name="StartTime"/&gt;&lt;xsl:param name="exception.audit.enable"/&gt;&lt;xsl:param name="exception.audit.payload.enable"/&gt;&lt;xsl:param name="log.audit.remotedb.enable"/&gt;&lt;xsl:param name="log.audit.remotefile.enable"/&gt;&lt;xsl:param name="log.audit.local.enable"/&gt;&lt;xsl:param name="exception.audit.remotedb.enable"/&gt;&lt;xsl:param name="exception.audit.remotefile.enable"/&gt;&lt;xsl:param name="exception.audit.local.enable"/&gt;&lt;xsl:template name="SendAuditEvent-input" match="/"&gt;&lt;tns3:SendAuditEventRequest&gt;&lt;parameters&gt;&lt;tns4:SendAuditEventRequest&gt;&lt;xsl:variable name="varBackEnd" select="bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)"/&gt;&lt;tns6:AuditOptions&gt;&lt;tns6:AuditEnabled&gt;&lt;xsl:value-of select="$log.audit.enable"/&gt;&lt;/tns6:AuditEnabled&gt;&lt;tns6:AuditPayloadEnabled&gt;&lt;xsl:value-of select="$log.audit.payload.enable"/&gt;&lt;/tns6:AuditPayloadEnabled&gt;&lt;tns6:AuditRemoteDBEnabled&gt;&lt;xsl:value-of select="$log.audit.remotedb.enable"/&gt;&lt;/tns6:AuditRemoteDBEnabled&gt;&lt;tns6:AuditRemoteFileEnabled&gt;&lt;xsl:value-of select="$log.audit.remotefile.enable"/&gt;&lt;/tns6:AuditRemoteFileEnabled&gt;&lt;tns6:AuditLocalEnabled&gt;&lt;xsl:value-of select="$log.audit.local.enable"/&gt;&lt;/tns6:AuditLocalEnabled&gt;&lt;tns6:ExceptionAuditEnabled&gt;&lt;xsl:value-of select="$exception.audit.enable"/&gt;&lt;/tns6:ExceptionAuditEnabled&gt;&lt;tns6:ExceptionAuditPayloadEnabled&gt;&lt;xsl:value-of select="$exception.audit.payload.enable"/&gt;&lt;/tns6:ExceptionAuditPayloadEnabled&gt;&lt;tns6:ExceptionAuditRemoteDBEnabled&gt;&lt;xsl:value-of select="$exception.audit.remotedb.enable"/&gt;&lt;/tns6:ExceptionAuditRemoteDBEnabled&gt;&lt;tns6:ExceptionAuditRemoteFileEnabled&gt;&lt;xsl:value-of select="$exception.audit.remotefile.enable"/&gt;&lt;/tns6:ExceptionAuditRemoteFileEnabled&gt;&lt;tns6:ExceptionAuditLocalEnabled&gt;&lt;xsl:value-of select="$exception.audit.local.enable"/&gt;&lt;/tns6:ExceptionAuditLocalEnabled&gt;&lt;/tns6:AuditOptions&gt;&lt;tns11:RuntimeContext&gt;&lt;tns11:ServiceName&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)"/&gt;&lt;/tns11:ServiceName&gt;&lt;tns11:Application&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;)"/&gt;&lt;/tns11:Application&gt;&lt;tns11:ApplicationVersion&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;BW.MODULE.VERSION&amp;quot;)"/&gt;&lt;/tns11:ApplicationVersion&gt;&lt;tns11:AppNode&gt;&lt;xsl:value-of select="bw:getModuleProperty(&amp;quot;BW.APPNODE.NAME&amp;quot;)"/&gt;&lt;/tns11:AppNode&gt;&lt;tns11:Hostname&gt;&lt;xsl:value-of select="bw:getHostName()"/&gt;&lt;/tns11:Hostname&gt;&lt;/tns11:RuntimeContext&gt;&lt;tns1:AuditEvent&gt;&lt;tns:CorrelationId&gt;&lt;xsl:value-of select="$BWProcessHeaders/tns:CorrelationId"/&gt;&lt;/tns:CorrelationId&gt;&lt;xsl:if test="$BWProcessHeaders/head:MessageID"&gt;&lt;tns:MessageID&gt;&lt;xsl:value-of select="$BWProcessHeaders/head:MessageID"/&gt;&lt;/tns:MessageID&gt;&lt;/xsl:if&gt;&lt;tns1:EventId&gt;&lt;xsl:value-of select="tib:uuid()"/&gt;&lt;/tns1:EventId&gt;&lt;tns1:AuditTimeStamp&gt;&lt;xsl:value-of select="current-dateTime()"/&gt;&lt;/tns1:AuditTimeStamp&gt;&lt;tns1:EventType&gt;&lt;xsl:value-of select="&amp;quot;Response&amp;quot;"/&gt;&lt;/tns1:EventType&gt;&lt;tns1:Message&gt;&lt;xsl:value-of select="concat(&amp;quot;Response from &amp;quot;,$varBackEnd)"/&gt;&lt;/tns1:Message&gt;&lt;xsl:if test="$log.audit.payload.enable = true()"&gt;&lt;tns1:Payload&gt;&lt;xsl:copy-of select="$Response"/&gt;&lt;/tns1:Payload&gt;&lt;/xsl:if&gt;&lt;tns1:EventTimeStamp&gt;&lt;xsl:value-of select="$EndTime"/&gt;&lt;/tns1:EventTimeStamp&gt;&lt;tns1:PreviousEventTimeStamp&gt;&lt;xsl:value-of select="$StartTime"/&gt;&lt;/tns1:PreviousEventTimeStamp&gt;&lt;/tns1:AuditEvent&gt;&lt;xsl:copy-of select="$AuditStartEvent"/&gt;&lt;/tns4:SendAuditEventRequest&gt;&lt;/parameters&gt;&lt;/tns3:SendAuditEventRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+                <tibex:inputBindings>
+                    <tibex:partBinding
+                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/TS/Util/SendAuditEvent&quot; xmlns:tns4=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:tns6=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Audit&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent&quot; xmlns:tns11=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/RuntimeContext&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;log.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;EndTime&quot;/>&#xa;    &lt;xsl:param name=&quot;AuditStartEvent&quot;/>&#xa;    &lt;xsl:param name=&quot;Response&quot;/>&#xa;    &lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&#xa;    &lt;xsl:param name=&quot;StartTime&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.payload.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;log.audit.local.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotedb.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.remotefile.enable&quot;/>&#xa;    &lt;xsl:param name=&quot;exception.audit.local.enable&quot;/>&#xa;    &lt;xsl:template name=&quot;SendAuditEvent-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns4:SendAuditEventRequest>&#xa;            &lt;xsl:variable name=&quot;varBackEnd&quot; select=&quot;bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)&quot;/>&#xa;            &lt;tns6:AuditOptions>&#xa;                &lt;tns6:AuditEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.enable&quot;/>&#xa;                &lt;/tns6:AuditEnabled>&#xa;                &lt;tns6:AuditPayloadEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.payload.enable&quot;/>&#xa;                &lt;/tns6:AuditPayloadEnabled>&#xa;                &lt;tns6:AuditRemoteDBEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.remotedb.enable&quot;/>&#xa;                &lt;/tns6:AuditRemoteDBEnabled>&#xa;                &lt;tns6:AuditRemoteFileEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.remotefile.enable&quot;/>&#xa;                &lt;/tns6:AuditRemoteFileEnabled>&#xa;                &lt;tns6:AuditLocalEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$log.audit.local.enable&quot;/>&#xa;                &lt;/tns6:AuditLocalEnabled>&#xa;                &lt;tns6:ExceptionAuditEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditEnabled>&#xa;                &lt;tns6:ExceptionAuditPayloadEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.payload.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditPayloadEnabled>&#xa;                &lt;tns6:ExceptionAuditRemoteDBEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.remotedb.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditRemoteDBEnabled>&#xa;                &lt;tns6:ExceptionAuditRemoteFileEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.remotefile.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditRemoteFileEnabled>&#xa;                &lt;tns6:ExceptionAuditLocalEnabled>&#xa;                    &lt;xsl:value-of select=&quot;$exception.audit.local.enable&quot;/>&#xa;                &lt;/tns6:ExceptionAuditLocalEnabled>&#xa;            &lt;/tns6:AuditOptions>&#xa;            &lt;tns11:RuntimeContext>&#xa;                &lt;tns11:ServiceName>&#xa;                    &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)&quot;/>&#xa;                &lt;/tns11:ServiceName>&#xa;                &lt;tns11:Application>&#xa;                    &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;BW.APPLICATION.NAME&amp;quot;)&quot;/>&#xa;                &lt;/tns11:Application>&#xa;                &lt;tns11:ApplicationVersion>&#xa;                    &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;BW.MODULE.VERSION&amp;quot;)&quot;/>&#xa;                &lt;/tns11:ApplicationVersion>&#xa;                &lt;tns11:AppNode>&#xa;                    &lt;xsl:value-of select=&quot;bw:getModuleProperty(&amp;quot;BW.APPNODE.NAME&amp;quot;)&quot;/>&#xa;                &lt;/tns11:AppNode>&#xa;                &lt;tns11:Hostname>&#xa;                    &lt;xsl:value-of select=&quot;bw:getHostName()&quot;/>&#xa;                &lt;/tns11:Hostname>&#xa;            &lt;/tns11:RuntimeContext>&#xa;            &lt;tns1:AuditEvent>&#xa;                &lt;tns:CorrelationId>&#xa;                    &lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&#xa;                &lt;/tns:CorrelationId>&#xa;                &lt;xsl:if test=&quot;$BWProcessHeaders/head:MessageID&quot;>&#xa;                    &lt;tns:MessageID>&#xa;                        &lt;xsl:value-of select=&quot;$BWProcessHeaders/head:MessageID&quot;/>&#xa;                    &lt;/tns:MessageID>&#xa;                &lt;/xsl:if>&#xa;                &lt;tns1:EventId>&#xa;                    &lt;xsl:value-of select=&quot;tib:uuid()&quot;/>&#xa;                &lt;/tns1:EventId>&#xa;                &lt;tns1:AuditTimeStamp>&#xa;                    &lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&#xa;                &lt;/tns1:AuditTimeStamp>&#xa;                &lt;tns1:EventType>&#xa;                    &lt;xsl:value-of select=&quot;&amp;quot;Response&amp;quot;&quot;/>&#xa;                &lt;/tns1:EventType>&#xa;                &lt;tns1:Message>&#xa;                    &lt;xsl:value-of select=&quot;concat(&amp;quot;Response from &amp;quot;,$varBackEnd)&quot;/>&#xa;                &lt;/tns1:Message>&#xa;                &lt;xsl:if test=&quot;$log.audit.payload.enable = true()&quot;>&#xa;                    &lt;tns1:Payload>&#xa;                        &lt;xsl:copy-of select=&quot;$Response&quot;/>&#xa;                    &lt;/tns1:Payload>&#xa;                &lt;/xsl:if>&#xa;                &lt;tns1:EventTimeStamp>&#xa;                    &lt;xsl:value-of select=&quot;$EndTime&quot;/>&#xa;                &lt;/tns1:EventTimeStamp>&#xa;                &lt;tns1:PreviousEventTimeStamp>&#xa;                    &lt;xsl:value-of select=&quot;$StartTime&quot;/>&#xa;                &lt;/tns1:PreviousEventTimeStamp>&#xa;            &lt;/tns1:AuditEvent>&#xa;            &lt;xsl:copy-of select=&quot;$AuditStartEvent&quot;/>&#xa;        &lt;/tns4:SendAuditEventRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                </tibex:inputBindings>
+                <bpws:targets>
+                    <bpws:target linkName="AssignEndTimeToSendAuditEvent"/>
+                </bpws:targets>
+            </bpws:invoke>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    inputVariable="BWProcessHeaders" name="AssignRH"
+                    outputVariable="BWProcessHeaders"
+                    tibex:xpdlId="5819b5e8-468b-4104-8fff-7ee839aba83e" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="AssignStartTimeToAssignCorrID"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="AssignCorrIDToAssignStartEvent"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:bwp=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;BWProcessHeaders&quot;/>&lt;xsl:template name=&quot;BWProcessHeaders&quot; match=&quot;/&quot;>&lt;bwp:BWProcessHeaders>&lt;tns:CorrelationId>&lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CorrelationId&quot;/>&lt;/tns:CorrelationId>&lt;xsl:if test=&quot;$BWProcessHeaders/tns:CreationTimestamp&quot;>&lt;tns:CreationTimestamp>&lt;xsl:value-of select=&quot;$BWProcessHeaders/tns:CreationTimestamp&quot;/>&lt;/tns:CreationTimestamp>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:FaultTO&quot;>&lt;head:FaultTO>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:FaultTO&quot;/>&lt;/head:FaultTO>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:MessageID&quot;>&lt;head:MessageID>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:MessageID&quot;/>&lt;/head:MessageID>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:ReplyTO&quot;>&lt;head:ReplyTO>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:ReplyTO&quot;/>&lt;/head:ReplyTO>&lt;/xsl:if>&lt;head:Credentials>&lt;xsl:if test=&quot;$BWProcessHeaders/head:Credentials/head:Username&quot;>&lt;head:Username>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:Credentials/head:Username&quot;/>&lt;/head:Username>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:Credentials/head:Password&quot;>&lt;head:Password>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:Credentials/head:Password&quot;/>&lt;/head:Password>&lt;/xsl:if>&lt;xsl:if test=&quot;$BWProcessHeaders/head:Credentials/head:Realm&quot;>&lt;head:Realm>&lt;xsl:value-of select=&quot;$BWProcessHeaders/head:Credentials/head:Realm&quot;/>&lt;/head:Realm>&lt;/xsl:if>&lt;/head:Credentials>&lt;/bwp:BWProcessHeaders>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.bwassign"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value
+                                    processVariable="BWProcessHeaders" xsi:type="generalactivities:BWAssign"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension inputVariable="StartTime"
+                    name="AssignStartTime" outputVariable="StartTime"
+                    tibex:xpdlId="37216ebc-6373-4b89-a4ba-1745e9a4515e" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:sources>
+                        <bpws:source linkName="AssignStartTimeToAssignCorrID"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="dateTime(current-date(), current-time())" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.bwassign"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value processVariable="StartTime" xsi:type="generalactivities:BWAssign"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;Response&quot; match=&quot;/&quot;/>&#xa;&lt;/xsl:stylesheet>"
+                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
+                    inputVariable="Response" name="AssignResponse"
+                    outputVariable="Response"
+                    tibex:xpdlId="71ad4520-0be4-46ae-95b7-43591c23addc" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:targets>
+                        <bpws:target linkName="AssignStartEventToAssignEndTime"/>
+                    </bpws:targets>
+                    <bpws:sources>
+                        <bpws:source linkName="AssignToAssignEndTime"/>
+                    </bpws:sources>
+                    <tibex:inputBindings>
+                        <tibex:inputBinding expression="" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.generalactivities.bwassign"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//BWAssign"/>
+                                    <value processVariable="Response" xsi:type="generalactivities:BWAssign"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

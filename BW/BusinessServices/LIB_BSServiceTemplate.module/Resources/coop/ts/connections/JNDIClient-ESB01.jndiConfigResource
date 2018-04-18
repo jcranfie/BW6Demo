@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://xsd.tns.tibco.com/bw/models/sharedresource/jms" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_lvMy0dAGEeWSeOSBnzoY0g" name="coop.ts.connections.JNDIClient-ESB01" type="jms:JNDIConnection">
+  <jndi:configuration xsi:type="jms:JNDIConnectionConfiguration" xmi:id="_lvMy0tAGEeWSeOSBnzoY0g">
+    <substitutionBindings xmi:id="_9X7-sNAGEeWSeOSBnzoY0g" template="initialContextFactory" propName="/resources/services.ts.backend.servicename/Client-ESB01/jndi.context.factory"/>
+    <substitutionBindings xmi:id="_DTZ3kNAHEeWSeOSBnzoY0g" template="providerUrl" propName="/resources/services.ts.backend.servicename/Client-ESB01/jndi.url"/>
+    <userCredentials xmi:id="_EULYENAHEeWSeOSBnzoY0g">
+      <substitutionBindings xmi:id="_Eo2nkNAHEeWSeOSBnzoY0g" template="username" propName="/resources/services.ts.backend.servicename/Client-ESB01/jndi.username"/>
+      <substitutionBindings xmi:id="_FVzNINAHEeWSeOSBnzoY0g" template="password" propName="/resources/services.ts.backend.servicename/Client-ESB01/jndi.password"/>
+    </userCredentials>
+  </jndi:configuration>
+</jndi:namedResource>

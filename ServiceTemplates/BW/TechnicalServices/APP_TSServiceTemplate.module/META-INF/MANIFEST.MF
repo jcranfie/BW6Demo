@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: APP_TSServiceTemplate Module
-Bundle-SymbolicName: APP_TSServiceTemplate.module
+Bundle-SymbolicName: APP.TSServiceTemplate.module
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: TIBCO Software Inc.
 Require-Bundle: LIB_XML;bundle-version="1.0.0"

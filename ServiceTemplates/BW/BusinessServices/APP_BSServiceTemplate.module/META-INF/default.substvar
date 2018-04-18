@@ -74,7 +74,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/log.audit.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -82,7 +82,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.payload.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/log.audit.payload.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -90,7 +90,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotefile.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotefile.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -98,7 +98,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotedb.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/log.audit.remotedb.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -106,7 +106,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/log.audit.local.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/log.audit.local.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -114,7 +114,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -122,7 +122,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.payload.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.payload.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -130,7 +130,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotedb.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotedb.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -138,7 +138,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.local.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.local.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -146,7 +146,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotefile.enable</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/exception.audit.remotefile.enable</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -154,7 +154,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.bs.BACKEND.SERVICENAME/OPERATION/jms.queue</name>
+			<name>/coop.bs.BACKEND.SERVICENAME/OPERATION/jms.queue</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -162,39 +162,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/service.ts.util.flushexceptionevents/FlushExceptionEvents/max.size</name>
-			<value>120</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/service.ts.util.flushexceptionevents/FlushExceptionEvents/time.interval</name>
-			<value>600</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.ts.util.flushlogevents/FlushLogEvents/max.size</name>
-			<value>960</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.ts.util.flushlogevents/FlushLogEvents/time.interval</name>
-			<value>600</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/hostname</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/hostname</name>
 			<value>0.0.0.0</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -202,7 +170,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/port</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/port</name>
 			<value>18002</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -210,7 +178,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/accept.queue.size</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/accept.queue.size</name>
 			<value>-1</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -218,7 +186,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/acceptor.threads</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/acceptor.threads</name>
 			<value>1</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -226,7 +194,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/header.buffer.size</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/header.buffer.size</name>
 			<value>4096</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -234,7 +202,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/request.buffer.size</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/request.buffer.size</name>
 			<value>8192</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -242,7 +210,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/response.buffer.size</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/response.buffer.size</name>
 			<value>24576</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -250,7 +218,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.idle.time.ms</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.idle.time.ms</name>
 			<value>200000</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -258,7 +226,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/low.resource.max.idle.time.ms</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/low.resource.max.idle.time.ms</name>
 			<value>0</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -266,7 +234,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/linger.time.ms</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/linger.time.ms</name>
 			<value>0</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -274,7 +242,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.post.size</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.post.size</name>
 			<value>2097152</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -282,7 +250,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.save.post.size</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.save.post.size</name>
 			<value>4096</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -290,7 +258,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/min.qtp.threads</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/min.qtp.threads</name>
 			<value>10</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -298,7 +266,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/use.non.blocking.io.sockets</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/use.non.blocking.io.sockets</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -306,7 +274,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/use.direct.buffers</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/use.direct.buffers</name>
 			<value>true</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -314,7 +282,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/uri.encoding</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/uri.encoding</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -322,7 +290,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/enable.dns.lookups</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/enable.dns.lookups</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -330,7 +298,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/compression</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/compression</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -338,7 +306,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/compressible.mime.types</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/compressible.mime.types</name>
 			<value>text/html,text/xml,text/plain</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -346,7 +314,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/reverse.proxy.host</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/reverse.proxy.host</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -354,7 +322,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/reverse.proxy.port</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/reverse.proxy.port</name>
 			<value>0</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -362,7 +330,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.qtp.threads</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.qtp.threads</name>
 			<value>75</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -370,7 +338,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.context.factory</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.context.factory</name>
 			<value>com.tibco.tibjms.naming.TibjmsInitialContextFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -378,7 +346,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.url</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.url</name>
 			<value>tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -386,7 +354,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.username</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.username</name>
 			<value>bw</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -394,7 +362,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.password</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Client-ESB01/jndi.password</name>
 			<value>#!5z/33+2VlX5VWxDecv0Wtw==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -402,7 +370,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/queue.connection.factory</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Client-ESB01/queue.connection.factory</name>
 			<value>QueueConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -410,7 +378,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/topic.connection.factory</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Client-ESB01/topic.connection.factory</name>
 			<value>TopicConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -418,7 +386,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/username</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Client-ESB01/username</name>
 			<value>bw</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -426,7 +394,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.bs.BACKEND.SERVICENAME/Client-ESB01/password</name>
+			<name>/resources/coop.bs.BACKEND.SERVICENAME/Client-ESB01/password</name>
 			<value>#!8IBGQ5doYGq6PlbasTXFVA==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>

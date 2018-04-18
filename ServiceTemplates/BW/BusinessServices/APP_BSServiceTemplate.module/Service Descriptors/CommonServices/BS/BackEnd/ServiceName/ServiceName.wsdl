@@ -8,7 +8,7 @@
 		<xsd:schema xmlns:svr1="urn://co-opbank.co.ke/CommonServices/TS/CI/Data/Message/AdapterPlan">
 			<xsd:import namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" schemaLocation="../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Fault.xsd">
 			</xsd:import>
-			<xsd:import namespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName" schemaLocation="../../../../../Schemas/CommonServices/Message/BS/BackEnd/ServiceName/ServiceName.xsd">
+			<xsd:import namespace="urn://co-opbank.co.ke/CommonServices/BS/BackEnd/Data/Message/ServiceName" schemaLocation="../../../../../Schemas/CommonServices/Message/BS/BackEnd/ServiceName/ServiceName.1.0.xsd">
 			</xsd:import>
 		</xsd:schema>
 	</wsdl:types>
@@ -24,7 +24,7 @@
 		<wsdl:part element="fault:BusinessFault" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="TechnicalFault">
-		<wsdl:part element="fault:TechnicalFault" name="parameters" />
+		<wsdl:part element="fault:TechnicalFault" name="parameters"/>
 	</wsdl:message>
 	<wsdl:message name="ValidationFault">
 		<wsdl:part element="fault:ValidationFault" name="parameters"/>

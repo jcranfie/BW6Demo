@@ -74,7 +74,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/log.audit.enable</name>
+			<name>/coop.ts.connections/TSService/log.audit.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -82,7 +82,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/log.audit.payload.enable</name>
+			<name>/coop.ts.connections/TSService/log.audit.payload.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -90,7 +90,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/log.cache.enable</name>
+			<name>/coop.ts.connections/TSService/log.cache.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -98,7 +98,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/exception.audit.enable</name>
+			<name>/coop.ts.connections/TSService/exception.audit.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -106,7 +106,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/exception.audit.payload.enable</name>
+			<name>/coop.ts.connections/TSService/exception.audit.payload.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -114,7 +114,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/exception.cache.enable</name>
+			<name>/coop.ts.connections/TSService/exception.cache.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -122,7 +122,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/jms.queue</name>
+			<name>/coop.ts.connections/TSService/jms.queue</name>
 			<value>Coop.UK.Q.RQ.TS.BackEnd.ServiceName.SOAP11.1</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -130,7 +130,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/log.audit.remotedb.enable</name>
+			<name>/coop.ts.connections/TSService/log.audit.remotedb.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -138,7 +138,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/log.audit.remotefile.enable</name>
+			<name>/coop.ts.connections/TSService/log.audit.remotefile.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -146,7 +146,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/log.audit.local.enable</name>
+			<name>/coop.ts.connections/TSService/log.audit.local.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -154,7 +154,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/exception.audit.remotedb.enable</name>
+			<name>/coop.ts.connections/TSService/exception.audit.remotedb.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -162,7 +162,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/exception.audit.remotefile.enable</name>
+			<name>/coop.ts.connections/TSService/exception.audit.remotefile.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -170,7 +170,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/exception.audit.local.enable</name>
+			<name>/coop.ts.connections/TSService/exception.audit.local.enable</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -178,7 +178,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/backend/BACKEND/timeout</name>
+			<name>/coop.ts.connections/TSService/backend/BACKEND/timeout</name>
 			<value>30</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -186,7 +186,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.backend.servicename/TSService/backend/BACKEND/endpoint.uri</name>
+			<name>/coop.ts.connections/TSService/backend/BACKEND/endpoint.uri</name>
 			<value>/backend/uri</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -194,39 +194,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/services.ts.util.flushexceptionevents/FlushExceptionEvents/max.size</name>
-			<value>120</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.ts.util.flushexceptionevents/FlushExceptionEvents/time.interval</name>
-			<value>36000</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.ts.util.flushlogevents/FlushLogEvents/max.size</name>
-			<value>120</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/services.ts.util.flushlogevents/FlushLogEvents/time.interval</name>
-			<value>36000</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>Integer</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/hostname</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/hostname</name>
 			<value>backend.local</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -234,7 +202,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/port</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/port</name>
 			<value>1234</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -242,7 +210,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/client/disable.connection.pooling</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/client/disable.connection.pooling</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -250,7 +218,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/client/max.total.connections</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/client/max.total.connections</name>
 			<value>200</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -258,7 +226,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/client/max.total.connections.perhost</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/client/max.total.connections.perhost</name>
 			<value>20</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -266,7 +234,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/client/idle.connection.timeout.ms</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/client/idle.connection.timeout.ms</name>
 			<value>3000</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -274,7 +242,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/client/slate.check</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/client/slate.check</name>
 			<value>false</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -282,7 +250,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/advanced/socket.timeout.ms</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/advanced/socket.timeout.ms</name>
 			<value>0</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -290,7 +258,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/advanced/connection.timeout.ms</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/advanced/connection.timeout.ms</name>
 			<value>0</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -298,7 +266,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-http/advanced/retry.count</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-http/advanced/retry.count</name>
 			<value>3</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -306,7 +274,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-jdbc/max.connections</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-jdbc/max.connections</name>
 			<value>10</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -314,7 +282,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-jdbc/username</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-jdbc/username</name>
 			<value>username</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -322,7 +290,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-jdbc/password</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-jdbc/password</name>
 			<value>#!k6xgPQi4aHTkRaza23nNjeWSS/vIwle3GdHLiuobEGQ=</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -330,7 +298,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-jdbc/database.driver</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-jdbc/database.driver</name>
 			<value>org.hsqldb.jdbc.JDBCDriver</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -338,7 +306,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-jdbc/database.url</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-jdbc/database.url</name>
 			<value>jdbc:hsqldb:file:&lt;path&gt;</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -346,7 +314,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-BACKEND-jdbc/login.timeout.ms</name>
+			<name>/resources/coop.ts.connections/Client-BACKEND-jdbc/login.timeout.ms</name>
 			<value>30000</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -354,7 +322,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-ESB01/jndi.context.factory</name>
+			<name>/resources/coop.ts.connections/Client-ESB01/jndi.context.factory</name>
 			<value>com.tibco.tibjms.naming.TibjmsInitialContextFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -362,7 +330,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-ESB01/jndi.url</name>
+			<name>/resources/coop.ts.connections/Client-ESB01/jndi.url</name>
 			<value>tibjmsnaming://localhost:7222,tibjmsnaming://localhost:7222</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -370,7 +338,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-ESB01/jndi.username</name>
+			<name>/resources/coop.ts.connections/Client-ESB01/jndi.username</name>
 			<value>bw</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -378,7 +346,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-ESB01/jndi.password</name>
+			<name>/resources/coop.ts.connections/Client-ESB01/jndi.password</name>
 			<value>#!Ci5vmIGoPwaw4hGBQj8m/A==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -386,7 +354,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-ESB01/queue.connection.factory</name>
+			<name>/resources/coop.ts.connections/Client-ESB01/queue.connection.factory</name>
 			<value>QueueConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -394,7 +362,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-ESB01/topic.connection.factory</name>
+			<name>/resources/coop.ts.connections/Client-ESB01/topic.connection.factory</name>
 			<value>TopicConnectionFactory</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -402,7 +370,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-ESB01/username</name>
+			<name>/resources/coop.ts.connections/Client-ESB01/username</name>
 			<value>bw</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -410,7 +378,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/resources/services.ts.backend.servicename/Client-ESB01/password</name>
+			<name>/resources/coop.ts.connections/Client-ESB01/password</name>
 			<value>#!pqKJMNSgjBkitDQsAi4TEw==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>

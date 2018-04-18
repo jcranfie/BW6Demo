@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:httpconnector="http://xsd.tns.tibco.com/bw/models/sharedresource/httpconnector" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_r-dD0QU2EeWT35mZsJfd6g" name="coop.bs.BACKEND.SERVICENAME.Server-BW01" type="httpconnector:HttpConnectorConfiguration">
+  <jndi:configuration xsi:type="httpconnector:HttpConnectorConfiguration" xmi:id="_r-dD0gU2EeWT35mZsJfd6g">
+    <substitutionBindings xmi:id="_r-dD0wU2EeWT35mZsJfd6g" template="host" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/hostname"/>
+    <substitutionBindings xmi:id="_RzNxAEWXEeWZhZLJ8bezlQ" template="port" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/port"/>
+    <substitutionBindings xmi:id="_TDGEgEWXEeWZhZLJ8bezlQ" template="acceptQueueSize" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/accept.queue.size"/>
+    <substitutionBindings xmi:id="_Tr5w8EWXEeWZhZLJ8bezlQ" template="acceptors" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/acceptor.threads"/>
+    <substitutionBindings xmi:id="_UbbJYEWXEeWZhZLJ8bezlQ" template="headerBufferSize" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/header.buffer.size"/>
+    <substitutionBindings xmi:id="_Veo54EWXEeWZhZLJ8bezlQ" template="requestBufferSize" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/request.buffer.size"/>
+    <substitutionBindings xmi:id="_WML8YEWXEeWZhZLJ8bezlQ" template="responseBufferSize" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/response.buffer.size"/>
+    <substitutionBindings xmi:id="_XDk3YEWXEeWZhZLJ8bezlQ" template="maxIdleTime" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.idle.time.ms"/>
+    <substitutionBindings xmi:id="_XxgUYEWXEeWZhZLJ8bezlQ" template="lowResourceMaxIdleTime" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/low.resource.max.idle.time.ms"/>
+    <substitutionBindings xmi:id="_YeEfcEWXEeWZhZLJ8bezlQ" template="lingerTime" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/linger.time.ms"/>
+    <substitutionBindings xmi:id="_Zbyr8EWXEeWZhZLJ8bezlQ" template="maxPostSize" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.post.size"/>
+    <substitutionBindings xmi:id="_aXSD0EWXEeWZhZLJ8bezlQ" template="maxSavePostSize" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.save.post.size"/>
+    <substitutionBindings xmi:id="_botPcEWXEeWZhZLJ8bezlQ" template="minThreads" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/min.qtp.threads"/>
+    <substitutionBindings xmi:id="_dNKr0EWXEeWZhZLJ8bezlQ" template="useNonBlockingIOSockets" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/use.non.blocking.io.sockets"/>
+    <substitutionBindings xmi:id="_eKIqYEWXEeWZhZLJ8bezlQ" template="useDirectBuffers" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/use.direct.buffers"/>
+    <substitutionBindings xmi:id="_fDpsUEWXEeWZhZLJ8bezlQ" template="uriEncoding" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/uri.encoding"/>
+    <substitutionBindings xmi:id="_gBhCwEWXEeWZhZLJ8bezlQ" template="enableDNSLookup" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/enable.dns.lookups"/>
+    <substitutionBindings xmi:id="_g5Ot4EWXEeWZhZLJ8bezlQ" template="compression" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/compression"/>
+    <substitutionBindings xmi:id="_htKsQEWXEeWZhZLJ8bezlQ" template="compressableMimeTypes" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/compressible.mime.types"/>
+    <substitutionBindings xmi:id="_ijB9QEWXEeWZhZLJ8bezlQ" template="reverseProxyHost" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/reverse.proxy.host"/>
+    <substitutionBindings xmi:id="_jMOrQEWXEeWZhZLJ8bezlQ" template="reverseProxyPort" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/reverse.proxy.port"/>
+    <substitutionBindings xmi:id="_kDoNUEWXEeWZhZLJ8bezlQ" template="maxThreads" propName="/resources/coop.bs.BACKEND.SERVICENAME/Server-BW01/advanced/max.qtp.threads"/>
+  </jndi:configuration>
+</jndi:namedResource>

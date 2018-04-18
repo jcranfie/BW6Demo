@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: APP_BSBK_ServiceName Module
-Bundle-SymbolicName: APP_BSServiceTemplate.module
+Bundle-SymbolicName: APP.BSServiceTemplate.module
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: TIBCO Software Inc.

@@ -26,13 +26,13 @@
 
 		<!-- Find EAR file -->
 		<first id="ear.path">
-			<fileset dir="../../../jobs/${application.name}/builds/${application.version}" includes="**/${application.name}*_1.0.${application.version}.ear" />
+			<fileset dir="../../../jobs/" includes="**/${application.name}*_1.0.${application.version}.ear" />
 		</first>
 		<echo message="EAR File: ${toString:ear.path}"/>
 		
 		<!-- Find Profile file -->
 		<first id="profile.path">
-			<fileset dir="../../../jobs/${application.name}/builds/${application.version}" includes="**/${application.name}-${env.name}.xml" />
+			<fileset dir="../../../jobs/" includes="**/${application.name}-${env.name}.xml" />
 		</first>
 		<echo message="Profile File: ${toString:profile.path}"/>
 

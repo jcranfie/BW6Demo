@@ -4,11 +4,12 @@
 	elementFormDefault="qualified"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:tns="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent"
-	xmlns:audit="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" xmlns:fault="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault">
+	xmlns:audit="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit" 
+	xmlns:fault="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault">
 	
 	<!-- Imports -->
-	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/Audit.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit"></xs:import>
-	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/Fault.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"></xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Audit.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Audit"></xs:import>
+	<xs:import schemaLocation="../../../../../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Fault.xsd" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"></xs:import>
 
 	<!-- Elements -->
 	<xs:element name="SendExceptionEventRequest" type="tns:SendExceptionEventRequestType"/>

@@ -1142,7 +1142,7 @@ Version 0.4.2 - 2016/02/09:&#xd;
             sca-bpel:reference="CreateExceptionEvent" sca-bpel:wiredByImpl="false">
             <tibex:ReferenceWire dynamic="false" inline="true"
                 processConfigurationName=""
-                processName="services.ts.util.systemerrorhandler.sub.CreateExceptionEvent" serviceName="CreateExceptionEvent"/>
+                processName="services.ts.util.systemerrorhandler.CreateExceptionEvent" serviceName="CreateExceptionEvent"/>
         </bpws:partnerLink>
         <bpws:partnerLink name="SendExceptionEvent"
             partnerLinkType="ns1:partnerLinkType1" partnerRole="use"
@@ -1150,14 +1150,14 @@ Version 0.4.2 - 2016/02/09:&#xd;
             sca-bpel:reference="SendExceptionEvent" sca-bpel:wiredByImpl="false">
             <tibex:ReferenceWire dynamic="false" inline="true"
                 processConfigurationName=""
-                processName="services.ts.util.systemerrorhandler.sub.SendExceptionEvent" serviceName="SendExceptionEvent"/>
+                processName="services.ts.util.systemerrorhandler.SendExceptionEvent" serviceName="SendExceptionEvent"/>
         </bpws:partnerLink>
         <bpws:partnerLink name="SendAuditEvent"
             partnerLinkType="ns1:partnerLinkType2" partnerRole="use"
             sca-bpel:ignore="true" sca-bpel:reference="SendAuditEvent" sca-bpel:wiredByImpl="false">
             <tibex:ReferenceWire dynamic="false" inline="true"
                 processConfigurationName=""
-                processName="services.ts.util.systemaudit.sub.SendAuditEvent" serviceName="SendAuditEvent"/>
+                processName="services.ts.util.systemaudit.SendAuditEvent" serviceName="SendAuditEvent"/>
         </bpws:partnerLink>
         <bpws:partnerLink myRole="use" name="DemoGetData"
             partnerLinkType="ns1:partnerLinkType4"
@@ -1466,7 +1466,9 @@ Version 0.4.2 - 2016/02/09:&#xd;
                 <tibex:activityExtension
                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:bwp=&quot;urn://co-opbank.co.ke/CommonServices/Data/Internal/BWProcess&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/demo/getdata&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;GetAccountDataIn&quot;/>&lt;xsl:template name=&quot;BWProcessHeaders&quot; match=&quot;/&quot;>&lt;bwp:BWProcessHeaders>&lt;tns:CorrelationId>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CorrelationID&quot;/>&lt;/tns:CorrelationId>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CreationTimestamp&quot;>&lt;tns:CreationTimestamp>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CreationTimestamp&quot;/>&lt;/tns:CreationTimestamp>&lt;/xsl:if>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:FaultTO&quot;>&lt;head:FaultTO>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:FaultTO&quot;/>&lt;/head:FaultTO>&lt;/xsl:if>&lt;head:MessageID>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:MessageID&quot;/>&lt;/head:MessageID>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:ReplyTO&quot;>&lt;head:ReplyTO>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:ReplyTO&quot;/>&lt;/head:ReplyTO>&lt;/xsl:if>&lt;head:Credentials>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Username&quot;>&lt;head:Username>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Username&quot;/>&lt;/head:Username>&lt;/xsl:if>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Password&quot;>&lt;head:Password>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Password&quot;/>&lt;/head:Password>&lt;/xsl:if>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Realm&quot;>&lt;head:Realm>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:Credentials/head:Realm&quot;/>&lt;/head:Realm>&lt;/xsl:if>&lt;/head:Credentials>&lt;/bwp:BWProcessHeaders>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="BWProcessHeaders" name="AssignRH" outputVariable="BWProcessHeaders">
+                    inputVariable="BWProcessHeaders" name="AssignRH"
+                    outputVariable="BWProcessHeaders"
+                    tibex:xpdlId="02f9ef2a-d829-470f-a131-9bac0aed229c" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="GetAccountDataInToAssignRH"/>
                     </bpws:targets>
@@ -1499,7 +1501,9 @@ Version 0.4.2 - 2016/02/09:&#xd;
                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns9=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:bw=&quot;http://www.tibco.com/bw/xpath/bw-custom-functions&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/demo/getdata&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;log.audit.payload.enable&quot;/>&lt;xsl:param name=&quot;StartTime&quot;/>&lt;xsl:param name=&quot;GetAccountDataIn&quot;/>&lt;xsl:template name=&quot;StartAuditEvent&quot; match=&quot;/&quot;>&lt;tns9:AuditEvent>&lt;xsl:variable name=&quot;varBackEnd&quot; select=&quot;bw:getModuleProperty(&amp;quot;BW.PROCESS.NAME&amp;quot;)&quot;/>&lt;tns:CorrelationId>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CorrelationID&quot;/>&lt;/tns:CorrelationId>&lt;tns:MessageID>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:MessageID&quot;/>&lt;/tns:MessageID>&lt;tns9:EventId>&lt;xsl:value-of select=&quot;tib:uuid()&quot;/>&lt;/tns9:EventId>&lt;tns9:AuditTimeStamp>&lt;xsl:value-of select=&quot;current-dateTime()&quot;/>&lt;/tns9:AuditTimeStamp>&lt;tns9:EventType>&lt;xsl:value-of select=&quot;&amp;quot;Request&amp;quot;&quot;/>&lt;/tns9:EventType>&lt;tns9:Message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Request to: &amp;quot;, $varBackEnd)&quot;/>&lt;/tns9:Message>&lt;xsl:if test=&quot;$log.audit.payload.enable = true()&quot;>&lt;tns9:Payload/>&lt;/xsl:if>&lt;tns9:EventTimeStamp>&lt;xsl:value-of select=&quot;$StartTime&quot;/>&lt;/tns9:EventTimeStamp>&lt;/tns9:AuditEvent>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="StartAuditEvent"
-                    name="AssignStartEvent" outputVariable="StartAuditEvent">
+                    name="AssignStartEvent"
+                    outputVariable="StartAuditEvent"
+                    tibex:xpdlId="bedaacad-1695-46b4-9707-7273c84d267e" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="AssignToGetVehicleDetailsOut"/>
                     </bpws:targets>
@@ -1529,7 +1533,8 @@ Version 0.4.2 - 2016/02/09:&#xd;
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="StartTime"
-                    name="AssignStartTime" outputVariable="StartTime">
+                    name="AssignStartTime" outputVariable="StartTime"
+                    tibex:xpdlId="f93577f1-1327-400c-89f3-ce69a9f8b7fc" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="Assign1ToGetVehicleDetailsOut"/>
                     </bpws:targets>
@@ -1558,7 +1563,8 @@ Version 0.4.2 - 2016/02/09:&#xd;
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="EndTime"
-                    name="AssignEndTime" outputVariable="EndTime">
+                    name="AssignEndTime" outputVariable="EndTime"
+                    tibex:xpdlId="ec8a7871-5657-4f39-aa25-3de0295b8211" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="MapperToAssignEndTime"/>
                     </bpws:targets>
@@ -1663,7 +1669,9 @@ Version 0.4.2 - 2016/02/09:&#xd;
                 <tibex:activityExtension
                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/demo/getdata&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;GetAccountDataIn&quot;/>&lt;xsl:template name=&quot;GetData-input&quot; match=&quot;/&quot;>&lt;xsl:choose>&lt;xsl:when test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/request/AccountNumber/tns2:AccountNumber = &amp;quot;123456789&amp;quot;&quot;>&lt;tns2:Account>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/request/AccountNumber/tns2:AccountNumber&quot;>&lt;tns2:AccountNumber>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/request/AccountNumber/tns2:AccountNumber&quot;/>&lt;/tns2:AccountNumber>&lt;/xsl:if>&lt;tns2:AccountName>&lt;xsl:value-of select=&quot;&amp;quot;John Doe&amp;quot;&quot;/>&lt;/tns2:AccountName>&lt;tns2:AccountDescription>&lt;xsl:value-of select=&quot;&amp;quot;Current Account&amp;quot;&quot;/>&lt;/tns2:AccountDescription>&lt;tns2:Currency>&lt;xsl:value-of select=&quot;&amp;quot;KES&amp;quot;&quot;/>&lt;/tns2:Currency>&lt;tns2:Status>&lt;xsl:value-of select=&quot;0&quot;/>&lt;/tns2:Status>&lt;tns2:AccountId>&lt;xsl:value-of select=&quot;&amp;quot;ACB5656&amp;quot;&quot;/>&lt;/tns2:AccountId>&lt;tns2:Type>&lt;xsl:value-of select=&quot;&amp;quot;Current&amp;quot;&quot;/>&lt;/tns2:Type>&lt;tns2:ProductId>&lt;xsl:value-of select=&quot;&amp;quot;PROD1323&amp;quot;&quot;/>&lt;/tns2:ProductId>&lt;tns2:ProductCode>&lt;xsl:value-of select=&quot;&amp;quot;PDC878&amp;quot;&quot;/>&lt;/tns2:ProductCode>&lt;tns2:ProductName>&lt;xsl:value-of select=&quot;&amp;quot;CURRENTACC&amp;quot;&quot;/>&lt;/tns2:ProductName>&lt;tns2:ClearedBalance>&lt;xsl:value-of select=&quot;567565.98&quot;/>&lt;/tns2:ClearedBalance>&lt;tns2:BookedBalance>&lt;xsl:value-of select=&quot;876767.99&quot;/>&lt;/tns2:BookedBalance>&lt;tns2:BlockedBalance>&lt;xsl:value-of select=&quot;676&quot;/>&lt;/tns2:BlockedBalance>&lt;tns2:AvailableBalance>&lt;xsl:value-of select=&quot;10000&quot;/>&lt;/tns2:AvailableBalance>&lt;tns2:ArrearsAmount>&lt;xsl:value-of select=&quot;200.98&quot;/>&lt;/tns2:ArrearsAmount>&lt;tns2:BranchName>&lt;xsl:value-of select=&quot;&amp;quot;Nairobi&amp;quot;&quot;/>&lt;/tns2:BranchName>&lt;tns2:BranchSortCode>&lt;xsl:value-of select=&quot;&amp;quot;60-65-11&amp;quot;&quot;/>&lt;/tns2:BranchSortCode>&lt;/tns2:Account>&lt;/xsl:when>&lt;xsl:otherwise>&lt;tns2:Account>&lt;tns2:AccountNumber>&lt;xsl:value-of select=&quot;&amp;quot;000000000&amp;quot;&quot;/>&lt;/tns2:AccountNumber>&lt;tns2:Status>&lt;xsl:value-of select=&quot;-1&quot;/>&lt;/tns2:Status>&lt;/tns2:Account>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="GetData-input" name="GetData" outputVariable="GetData">
+                    inputVariable="GetData-input" name="GetData"
+                    outputVariable="GetData"
+                    tibex:xpdlId="9d8fb0b1-addf-4101-b5f6-3b05fd85f0da" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="AssignStartTimeToAssignEndTime"/>
                     </bpws:targets>
@@ -1698,7 +1706,9 @@ Version 0.4.2 - 2016/02/09:&#xd;
                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;urn://co-opbank.co.ke/demo/getdata&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/Banking/CanonicalDataModel/Account/1.0&quot; xmlns:head=&quot;urn://co-opbank.co.ke/CommonServices/Data/Message/MessageHeader&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns=&quot;urn://co-opbank.co.ke/CommonServices/Data/Common&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;GetAccountDataIn&quot;/>&lt;xsl:param name=&quot;GetData&quot;/>&lt;xsl:template name=&quot;BackEndResponse&quot; match=&quot;/&quot;>&lt;tns1:GetDataResponse>&lt;ResponseHeader>&lt;xsl:if test=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CorrelationID&quot;>&lt;tns:CorrelationID>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/tns:CorrelationID&quot;/>&lt;/tns:CorrelationID>&lt;/xsl:if>&lt;head:MessageID>&lt;xsl:value-of select=&quot;$GetAccountDataIn/parameters/tns1:GetDataRequest/RequestHeader/head:MessageID&quot;/>&lt;/head:MessageID>&lt;head:StatusCode>&lt;xsl:value-of select=&quot;xsd:long($GetData/tns2:Status)&quot;/>&lt;/head:StatusCode>&lt;/ResponseHeader>&lt;response>&lt;AccountNumber>&lt;xsl:if test=&quot;$GetData/tns2:AccountNumber&quot;>&lt;tns2:AccountNumber>&lt;xsl:value-of select=&quot;$GetData/tns2:AccountNumber&quot;/>&lt;/tns2:AccountNumber>&lt;/xsl:if>&lt;/AccountNumber>&lt;AccountType>&lt;xsl:copy-of select=&quot;$GetData/ancestor-or-self::*/namespace::node()&quot;/>&lt;xsl:copy-of select=&quot;$GetData/@*&quot;/>&lt;xsl:copy-of select=&quot;$GetData/node()&quot;/>&lt;/AccountType>&lt;/response>&lt;/tns1:GetDataResponse>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="BackEndResponse"
-                    name="AssignResponse" outputVariable="BackEndResponse">
+                    name="AssignResponse"
+                    outputVariable="BackEndResponse"
+                    tibex:xpdlId="5193174b-c857-4642-9836-45eaad0f2c36" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="AssignEndTimeToGetAccountDataOut"/>
                     </bpws:targets>

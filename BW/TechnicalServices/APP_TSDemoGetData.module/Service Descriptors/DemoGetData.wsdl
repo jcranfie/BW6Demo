@@ -2,15 +2,15 @@
 <wsdl:definitions name="TSService" targetNamespace="http://www.co-op.co.ke/demo/getdata" 
 xmlns:tns="http://www.co-op.co.ke/demo/getdata" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
 xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-xmlns:xsd1="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault" xmlns:xsd2="urn://co-opbank.co.ke/demo/getdata">
+xmlns:xsd2="urn://co-opbank.co.ke/demo/getdata" xmlns:xsd1="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault">
   <wsdl:types>
   	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  		<xsd:import
-  			namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"
-  			schemaLocation="../../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Fault.xsd">
-  		</xsd:import>
   		<xsd:import namespace="urn://co-opbank.co.ke/demo/getdata"
   			schemaLocation="../Schemas/TSDemoGetData.xsd">
+  		</xsd:import>
+  		<xsd:import
+  			namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/Fault"
+  			schemaLocation="../../../../XML/LIB_XML/Schemas/CommonServices/Data/Event/1.0/Fault.xsd">
   		</xsd:import></xsd:schema>
   </wsdl:types>
   

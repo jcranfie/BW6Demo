@@ -3,8 +3,8 @@
   <jndi:reference xmi:id="_aTnV0DGbEei2jODleSIzKQ" key="jndiConnectionJNDIName" type="jms:JNDIConnection" value="services.conn.jms.southbound.JNDIClientSouthBound"/>
   <jndi:configuration xsi:type="jms:JNDIConnectionFactory" xmi:id="_aONRYDGbEei2jODleSIzKQ" factoryType="Queue/Topic" jndiName="QueueConnectionFactory" topicFactoryJNDIName="TopicConnectionFactory">
     <userCredentials xmi:id="_cw53oDGbEei2jODleSIzKQ">
-      <substitutionBindings xmi:id="_dTbV4DGbEei2jODleSIzKQ" template="username" propName="/resources/services.ts.util.system.audit/Client-AUDIT/username"/>
-      <substitutionBindings xmi:id="_eFUF0DGbEei2jODleSIzKQ" template="password" propName="/resources/services.ts.util.system.audit/Client-AUDIT/password"/>
+      <substitutionBindings xmi:id="_dTbV4DGbEei2jODleSIzKQ" template="username" propName="/resources/services.conn.jms.southbound/client.southbound/username"/>
+      <substitutionBindings xmi:id="_eFUF0DGbEei2jODleSIzKQ" template="password" propName="/resources/services.conn.jms.southbound/client.southbound/password"/>
     </userCredentials>
   </jndi:configuration>
 </jndi:namedResource>

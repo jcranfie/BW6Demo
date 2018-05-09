@@ -12,7 +12,6 @@ Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
  com.tibco.bw.module; filter:="(&(name=LIB_XML)(version=1.0.0))",
  com.tibco.bw.palette; filter:="(name=bw.generalactivities)",
  com.tibco.bw.palette; filter:="(name=bw.jms)",
- com.tibco.bw.sharedresource.model; filter:="(name=bw.jdbc)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jndiconfiguration)"
 TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
 Provide-Capability: com.tibco.bw.module; name="LIB_TSUTIL_SystemErrorHandler_Client"; version:Version="1.0.0",
@@ -24,6 +23,5 @@ Provide-Capability: com.tibco.bw.module; name="LIB_TSUTIL_SystemErrorHandler_Cli
  com.tibco.bw.resources; name="services",
  com.tibco.bw.resources; name="services.ts",
  com.tibco.bw.resources; name="services.ts.util",
- com.tibco.bw.resources; name="services.ts.util.systemerrorhandler",
- com.tibco.bw.resources; name="services.ts.util.canonicalerrorhandler"
+ com.tibco.bw.resources; name="services.ts.util.systemerrorhandler"
 TIBCO-BW-Version: 6.3.5 V17 2017-02-02

@@ -449,7 +449,7 @@
             <bpws:extensionActivity>
                 <tibex:receiveEvent createInstance="yes"
                     eventTimeout="0" name="Start"
-                    tibex:xpdlId="957cf146-620b-4ad0-8ba6-807c3f36e1ba"
+                    tibex:xpdlId="49873d45-c7f2-45ca-850c-b049d326c94e"
                     variable="Start" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:sources>
                         <bpws:source linkName="StartToInvoke"/>
@@ -461,7 +461,7 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension name="End"
-                    tibex:xpdlId="33dea5b2-c77b-4d51-84ab-c70328f31592" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="a4016fd8-1e67-4737-a3c6-d4eb58420b44" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="InvokeToEnd"/>
                     </bpws:targets>

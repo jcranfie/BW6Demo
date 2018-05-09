@@ -1049,7 +1049,7 @@
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="Fault" name="AssignGenericFault"
                     outputVariable="Fault"
-                    tibex:xpdlId="d5cf5c5d-43d1-4f07-83f3-d8ab99f4e9b2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="c58e885e-bd2a-44d5-82c9-b23596271234" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="EmptyToAssignFault"/>
                     </bpws:targets>
@@ -1083,7 +1083,7 @@
                     inputVariable="DataFault"
                     name="AssignTechnicalFault"
                     outputVariable="DataFault"
-                    tibex:xpdlId="d47eb010-461d-4d64-bab6-85910a6e8792" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="456689f1-6c7a-46bb-9b8c-2670ad2fa8f4" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="EmptyToAssignTechnicalFault_TechnicalFault"/>
                     </bpws:targets>
@@ -1148,7 +1148,7 @@
                 <tibex:activityExtension inputVariable="ExceptionId"
                     name="AssignExceptionId"
                     outputVariable="ExceptionId"
-                    tibex:xpdlId="68248115-98c4-4f8b-80e0-b4964e2a8caa" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="78764dc0-34ab-4858-990e-e556ee8fe769" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="CreateExceptionEventInToCreateExceptionEventOut"/>
                     </bpws:targets>
@@ -1177,7 +1177,7 @@
             <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="Fault"
                     name="AssignFaultTech" outputVariable="Fault"
-                    tibex:xpdlId="f7c12bbd-114d-4e69-9072-8c437b2f8fa7" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="b617dfc0-2cd4-4d23-bce9-93b939a0ed28" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="AssignTechnicalFaultToCreateExceptionEventOut"/>
                     </bpws:targets>
@@ -1210,7 +1210,7 @@
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="DataFault" name="AssignBusinessFault"
                     outputVariable="DataFault"
-                    tibex:xpdlId="ef29c6c4-2458-4d7e-9bab-29c46fcff561" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="b3d72a57-14c5-43b4-bddd-f19f2ecb05e2" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="EmptyToAssignBusinessFault_BusinessFault"/>
                     </bpws:targets>
@@ -1244,7 +1244,7 @@
                     inputVariable="DataFault"
                     name="AssignValidationFault"
                     outputVariable="DataFault"
-                    tibex:xpdlId="e7db35b1-cac4-4c00-8c3c-0a7acf733442" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="c2647912-73ce-469e-ba1b-f04586fcd1fb" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="EmptyToAssignValidationFault_ValidationFault"/>
                     </bpws:targets>
@@ -1274,7 +1274,7 @@
             <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="Fault"
                     name="AssignFaultBusiness" outputVariable="Fault"
-                    tibex:xpdlId="25a79ccf-0924-4f7e-b654-0dfc56feb365" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="af834508-a84a-4da8-96d2-604c4ef6c747" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="AssignBusinessFaultToAssignFaultBusiness"/>
                     </bpws:targets>
@@ -1304,7 +1304,7 @@
             <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="Fault"
                     name="AssignFaultValidation" outputVariable="Fault"
-                    tibex:xpdlId="192ab746-4738-49f8-a2e4-b3844013117f" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    tibex:xpdlId="4d90b296-b5c2-4cdf-83f2-83a87761c365" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="AssignValidationFaultToAssignFaultValidation"/>
                     </bpws:targets>

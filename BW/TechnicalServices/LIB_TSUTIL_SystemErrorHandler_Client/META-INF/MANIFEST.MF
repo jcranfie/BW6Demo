@@ -11,7 +11,6 @@ TIBCO-BW-JobSharedVariables: META-INF/module.jsv
 Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",
  com.tibco.bw.module; filter:="(&(name=LIB_XML)(version=1.0.0))",
  com.tibco.bw.palette; filter:="(name=bw.generalactivities)",
- com.tibco.bw.palette; filter:="(name=bw.jdbc)",
  com.tibco.bw.palette; filter:="(name=bw.jms)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jdbc)",
  com.tibco.bw.sharedresource.model; filter:="(name=bw.jndiconfiguration)"
@@ -26,6 +25,5 @@ Provide-Capability: com.tibco.bw.module; name="LIB_TSUTIL_SystemErrorHandler_Cli
  com.tibco.bw.resources; name="services.ts",
  com.tibco.bw.resources; name="services.ts.util",
  com.tibco.bw.resources; name="services.ts.util.systemerrorhandler",
- com.tibco.bw.processes; name="services.ts.util.canonicalerrorhandler",
  com.tibco.bw.resources; name="services.ts.util.canonicalerrorhandler"
 TIBCO-BW-Version: 6.3.5 V17 2017-02-02

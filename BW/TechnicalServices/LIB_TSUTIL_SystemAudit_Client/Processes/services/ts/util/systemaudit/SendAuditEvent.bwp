@@ -22,6 +22,7 @@
     xmlns:ns20="http://www.tibco.com/namespaces/tnt/plugins/jms"
     xmlns:ns21="http://www.tibco.com/namespaces/tnt/plugins/jms+114ba4c1-f59b-4914-8c0d-e2d99c9ea807+input"
     xmlns:ns22="http://www.tibco.com/namespaces/tnt/plugins/jms+ea18eead-befe-4789-9d0d-479f73a16911+input"
+    xmlns:ns23="http://www.tibco.com/namespaces/tnt/plugins/jms+input"
     xmlns:ns3="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+b98df0a2-52b0-4cfc-bf18-9565362a8a8b+RestInvokeOutput"
     xmlns:ns4="http://tns.tibco.com/bw/activity/sendhttprequest/input+e9cbfc2d-ac67-43e3-ba1a-271d2afd0b3b+RequestActivityInput"
     xmlns:ns5="http://tns.tibco.com/bw/activity/sendhttprequest/output+e9cbfc2d-ac67-43e3-ba1a-271d2afd0b3b+RequestActivityOutput"
@@ -385,9 +386,9 @@
         </xsd:schema>
         <xsd:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
-            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jms+ea18eead-befe-4789-9d0d-479f73a16911+input"
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jms+input"
             version="0.1"
-            xmlns="http://www.tibco.com/namespaces/tnt/plugins/jms+ea18eead-befe-4789-9d0d-479f73a16911+input" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            xmlns="http://www.tibco.com/namespaces/tnt/plugins/jms+input" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:complexType name="ActivityOutput">
                 <xsd:sequence>
                     <xsd:element name="MessageID" type="xsd:string"/>
@@ -1051,6 +1052,8 @@
             namespace="http://www.w3.org/2001/XMLSchema" prefix="xsd"/>
         <tibex:namespaceItem
             namespace="urn://co-opbank.co.ke/CommonServices/Data/Common" prefix="tns5"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/jms+input" prefix="ns"/>
     </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Data/Event/AuditEvent"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent"/>
@@ -1070,11 +1073,15 @@
             name="Reply-input" sca-bpel:internal="true"/>
         <bpws:variable name="jmsConnection" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
-            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/jms}JMSConnectionFactory" type="xsd:string"/>
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/jms}JMSConnectionFactory" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>services.conn.jms.southbound.JMSClientSouthBound</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
         <bpws:variable name="logger.queue" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/resources/services.ts.util.system.audit/Client-AUDIT/logger.queue" type="xsd:string"/>
-        <bpws:variable element="ns22:ActivityInput"
+        <bpws:variable element="ns23:ActivityInput"
             name="SendToRemote-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns20:aEmptyOutputClass"
             name="SendToRemote" sca-bpel:internal="true"/>
@@ -1143,9 +1150,7 @@
                                     tibex:group="groupEnd" tibex:xpdlId="a78df672-2ad7-468c-a206-7ee63a5a524e"/>
                                 <bpws:extensionActivity>
                                     <tibex:activityExtension
-                                    inputVariable="LogBasicInfo-input"
-                                    name="LogBasicInfo"
-                                    tibex:xpdlId="5e0b8cf6-2db3-4634-b125-f36278d49144" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    inputVariable="LogBasicInfo-input" name="LogBasicInfo">
                                     <bpws:targets>
                                     <bpws:target linkName="GroupStartToLog_LogtoFile"/>
                                     </bpws:targets>
@@ -1226,17 +1231,16 @@
             </bpws:reply>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+ea18eead-befe-4789-9d0d-479f73a16911+input&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendAuditEventIn&quot;/>&lt;xsl:template name=&quot;SendToRemote-input&quot; match=&quot;/&quot;>&lt;tns4:ActivityInput>&lt;Body>&lt;xsl:value-of select=&quot;tib:render-xml($SendAuditEventIn/parameters/tns2:SendAuditEventRequest, true(), false())&quot;/>&lt;/Body>&lt;/tns4:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+ea18eead-befe-4789-9d0d-479f73a16911+input&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:ns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendAuditEventIn&quot;/>&lt;xsl:template name=&quot;SendToRemote-input&quot; match=&quot;/&quot;>&lt;ns:ActivityInput>&lt;Body>&lt;xsl:value-of select=&quot;tib:render-xml($SendAuditEventIn/parameters/tns2:SendAuditEventRequest, true(), false())&quot;/>&lt;/Body>&lt;/ns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="SendToRemote-input"
-                    name="SendToRemote" outputVariable="SendToRemote"
-                    tibex:xpdlId="ea18eead-befe-4789-9d0d-479f73a16911" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    name="SendToRemote" outputVariable="SendToRemote">
                     <bpws:targets>
                         <bpws:target linkName="SendAuditEventInToJMSSendMessage1"/>
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+ea18eead-befe-4789-9d0d-479f73a16911+input&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SendAuditEventIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;SendToRemote-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns4:ActivityInput>&#xa;            &lt;Body>&#xa;                &lt;xsl:value-of select=&quot;tib:render-xml($SendAuditEventIn.parameters, true(), false())&quot;/>&#xa;            &lt;/Body>&#xa;        &lt;/tns4:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+ea18eead-befe-4789-9d0d-479f73a16911+input&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendAuditEvent&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:ns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+input&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SendAuditEventIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;SendToRemote-input&quot; match=&quot;/&quot;>&#xa;        &lt;ns:ActivityInput>&#xa;            &lt;Body>&#xa;                &lt;xsl:value-of select=&quot;tib:render-xml($SendAuditEventIn.parameters, true(), false())&quot;/>&#xa;            &lt;/Body>&#xa;        &lt;/ns:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity activityTypeID="bw.jms.send"

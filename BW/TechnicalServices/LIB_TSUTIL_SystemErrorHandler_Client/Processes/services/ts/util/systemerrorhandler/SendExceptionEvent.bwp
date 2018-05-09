@@ -8,6 +8,7 @@
     xmlns:ns="http://xmlns.example.com/20170523143834PLT"
     xmlns:ns0="http://www.tibco.com/pe/EngineTypes"
     xmlns:ns1="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"
+    xmlns:ns10="http://www.tibco.com/namespaces/tnt/plugins/jms+input"
     xmlns:ns2="urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Splunk/SplunkException"
     xmlns:ns3="activity.jsonRender.output+0d9f12e9-75f4-4006-83f3-7c9334ed6c7a+ActivityOutputType"
     xmlns:ns4="http://tns.tibco.com/bw/activity/sendhttprequest/input+248309c1-b17f-4033-acd7-716f1f627529+RequestActivityInput"
@@ -188,9 +189,9 @@
         </xs:schema>
         <xsd:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
-            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jms+087ee257-d898-4037-87dc-e44c87edaba7+input"
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jms"
             version="0.1"
-            xmlns="http://www.tibco.com/namespaces/tnt/plugins/jms+087ee257-d898-4037-87dc-e44c87edaba7+input" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            xmlns="http://www.tibco.com/namespaces/tnt/plugins/jms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:complexType name="ActivityOutput">
                 <xsd:sequence>
                     <xsd:element name="MessageID" type="xsd:string"/>
@@ -372,9 +373,9 @@
         </xsd:schema>
         <xsd:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
-            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jms"
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jms+input"
             version="0.1"
-            xmlns="http://www.tibco.com/namespaces/tnt/plugins/jms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            xmlns="http://www.tibco.com/namespaces/tnt/plugins/jms+input" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:complexType name="ActivityOutput">
                 <xsd:sequence>
                     <xsd:element name="MessageID" type="xsd:string"/>
@@ -903,6 +904,8 @@
             namespace="urn://co-opbank.co.ke/CommonServices/Data/Common" prefix="tns1"/>
         <tibex:namespaceItem
             namespace="http://www.tibco.com/namespaces/tnt/plugins/jms+087ee257-d898-4037-87dc-e44c87edaba7+input" prefix="tns4"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/jms+input" prefix="ns"/>
     </tibex:NamespaceRegistry>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="urn://co-opbank.co.ke/CommonServices/TS/Util/Sub/SendExceptionEvent"/>
     <bpws:partnerLinks>
@@ -917,13 +920,17 @@
         <bpws:variable messageType="ns1:SendExceptionEventRequest"
             name="SendExceptionEventIn" sca-bpel:internal="true"/>
         <bpws:variable element="ns6:ActivityInput" name="LogError-input" sca-bpel:internal="true"/>
-        <bpws:variable element="ns8:ActivityInput"
+        <bpws:variable element="ns10:ActivityInput"
             name="JMSSendMessage-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns9:aEmptyOutputClass"
             name="JMSSendMessage" sca-bpel:internal="true"/>
         <bpws:variable name="jmsConnection" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
-            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/jms}JMSConnectionFactory" type="xsd:string"/>
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/jms}JMSConnectionFactory" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>services.conn.jms.southbound.JMSClientSouthBound</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
         <bpws:variable name="logger.queue" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/resources/services.ts.util.system.audit/client-ERROR/logger.queue" type="xsd:string"/>
@@ -979,8 +986,7 @@
                 <tibex:activityExtension
                     expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns2=&quot;urn://co-opbank.co.ke/CommonServices/Data/Event/Fault&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendExceptionEventIn&quot;/>&lt;xsl:template name=&quot;LogError-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to log to database : &amp;quot;, $SendExceptionEventIn/parameters/tns3:SendExceptionEventRequest/tns2:Fault/tns2:ExceptionName)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="LogError-input" name="LogError"
-                    tibex:xpdlId="83f5d768-f464-4493-9076-3111196013c6" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    inputVariable="LogError-input" name="LogError">
                     <bpws:targets>
                         <bpws:target linkName="EmptyToLogError"/>
                     </bpws:targets>
@@ -1008,18 +1014,16 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+087ee257-d898-4037-87dc-e44c87edaba7+input&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendExceptionEventIn&quot;/>&lt;xsl:template name=&quot;JMSSendMessage-input&quot; match=&quot;/&quot;>&lt;tns4:ActivityInput>&lt;Body>&lt;xsl:value-of select=&quot;tib:render-xml($SendExceptionEventIn/parameters/tns3:SendExceptionEventRequest, false(), false())&quot;/>&lt;/Body>&lt;/tns4:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+087ee257-d898-4037-87dc-e44c87edaba7+input&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:ns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;SendExceptionEventIn&quot;/>&lt;xsl:template name=&quot;JMSSendMessage-input&quot; match=&quot;/&quot;>&lt;ns:ActivityInput>&lt;Body>&lt;xsl:value-of select=&quot;tib:render-xml($SendExceptionEventIn/parameters/tns3:SendExceptionEventRequest, false(), false())&quot;/>&lt;/Body>&lt;/ns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="JMSSendMessage-input"
-                    name="JMSSendMessage"
-                    outputVariable="JMSSendMessage"
-                    tibex:xpdlId="087ee257-d898-4037-87dc-e44c87edaba7" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    name="JMSSendMessage" outputVariable="JMSSendMessage">
                     <bpws:targets>
                         <bpws:target linkName="EmptyToLog"/>
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+087ee257-d898-4037-87dc-e44c87edaba7+input&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SendExceptionEventIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;JMSSendMessage-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns4:ActivityInput>&#xa;            &lt;Body>&#xa;                &lt;xsl:value-of select=&quot;tib:render-xml($SendExceptionEventIn.parameters, false(), false())&quot;/>&#xa;            &lt;/Body>&#xa;        &lt;/tns4:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns4=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+087ee257-d898-4037-87dc-e44c87edaba7+input&quot; xmlns:tns3=&quot;urn://co-opbank.co.ke/CommonServices/Message/TS/Util/Sub/SendExceptionEvent&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:ns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+input&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SendExceptionEventIn.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;JMSSendMessage-input&quot; match=&quot;/&quot;>&#xa;        &lt;ns:ActivityInput>&#xa;            &lt;Body>&#xa;                &lt;xsl:value-of select=&quot;tib:render-xml($SendExceptionEventIn.parameters, false(), false())&quot;/>&#xa;            &lt;/Body>&#xa;        &lt;/ns:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity activityTypeID="bw.jms.send"

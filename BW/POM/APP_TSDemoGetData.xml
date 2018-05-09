@@ -10,6 +10,7 @@
     <module>../../XML/LIB_XML</module>
     <module>../TechnicalServices/LIB_TSUTIL_SystemAudit_Client</module>
     <module>../TechnicalServices/LIB_TSUTIL_SystemErrorHandler_Client</module>
+    <module>../Resources/LIB_CONNJMS_SouthJMS</module>
     <module>../TechnicalServices/APP_TSDemoGetData.module</module>
     <module>../TechnicalServices/APP_TSDemoGetData.module.application</module>
   </modules>

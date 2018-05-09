@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tibco.bw</groupId>
 	<version>1.0.0-SNAPSHOT</version>
-	<artifactId>LIB_CONNJMS_SouthJMS</artifactId>
+	<artifactId>LIB_TSUTIL_SystemErrorHandler_Client</artifactId>
 	<packaging>bwmodule</packaging>
 	<build>
 		<sourceDirectory>src</sourceDirectory>

@@ -31,10 +31,10 @@
 		<echo message="EAR File: ${toString:ear.path}"/>
 		
 		<!-- Find Profile file -->
-		<dirname property="folder_path" file="${ear.path}" />
+		<dirname property="folder_path" file="${toString:ear.path}" />
 		<echo message="Folder Path: ${folder_path}"/>
 		<first id="profile.path">
-			<fileset dir="${folder_name}" includes="**/${application.name}-${env.name}.xml" />
+			<fileset dir="${folder_path}" includes="**/${application.name}-${env.name}.xml" />
 		</first>
 		<echo message="Profile File: ${toString:profile.path}"/>
 

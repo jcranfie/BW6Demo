@@ -32,7 +32,7 @@
 		
 		<!-- Find Profile file -->
 		<pathconvert property="folder_path" pathsep=",">
-			<dirset dir="../../../jobs/" includes"builds/${application.version}" />
+			<dirset dir="../../../jobs/" includes="builds/${application.version}" />
 		</pathconvert>
 		<!-- <dirname property="folder_path" file="${toString:ear.path}" /> -->
 		<echo message="Folder Path: ${toString:folder_path}"/>

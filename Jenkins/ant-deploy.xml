@@ -32,7 +32,7 @@
 		
 		<!-- Find Profile file -->
 		<dirname property="folder_path" file="${toString:ear.path}" />
-		<echo message="Folder Path: ${folder_path}"/>
+		<echo message="Folder Path2: ${folder_path}"/>
 		<first id="profile.path">
 			<fileset dir="${folder_path}" includes="**/${application.name}-${env.name}.xml" />
 		</first>

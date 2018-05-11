@@ -35,11 +35,9 @@
 	    <pathconvert pathsep="${line.separator}" property="dir.name" refid="folder.path"> 
 			<mapper type="identity" />
 	    </pathconvert>	
-		<!-- <dirname property="folder_path" file="${toString:ear.path}" /> -->
-		<echo message="Folder Directory: ${folder.path}"/>
 		<echo message="Folder Directory: ${dir.name}"/>
 		<first id="profile.path">
-			<fileset dir="${dir.name}/../../../../Jenkins/ServiceProfiles/" includes="**/${application.name}-${env.name}.xml" />
+			<fileset dir="${dir.name}" includes="**/${application.name}-${env.name}.xml" />
 		</first>
 		<echo message="Profile File: ${toString:profile.path}"/>
 

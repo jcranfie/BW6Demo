@@ -36,7 +36,8 @@
 			<mapper type="identity" />
 	    </pathconvert>	
 		<!-- <dirname property="folder_path" file="${toString:ear.path}" /> -->
-		<echo message="Folder Dir: ${dir.name}"/>
+		<echo message="Folder Directory: ${folder.path}"/>
+		<echo message="Folder Directory: ${dir.name}"/>
 		<first id="profile.path">
 			<fileset dir="${dir.name}/../../../../Jenkins/ServiceProfiles/" includes="**/${application.name}-${env.name}.xml" />
 		</first>

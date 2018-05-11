@@ -31,9 +31,8 @@
 		<echo message="EAR File: ${toString:ear.path}"/>
 		
 		<!-- Find Profile file -->
-		<pathconvert property="folder_path" pathsep=",">
-			<dirset dir="../../../jobs/" includes="builds/${application.version}" />
-		</pathconvert>
+
+		<dirset id="folder_path" dir="../../../jobs/" includes="builds/${application.version}" />
 		<!-- <dirname property="folder_path" file="${toString:ear.path}" /> -->
 		<echo message="Folder Path: ${folder_path}"/>
 		<first id="profile.path">

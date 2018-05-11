@@ -31,8 +31,8 @@
 		<echo message="EAR File: ${toString:ear.path}"/>
 		
 		<!-- Find Profile file -->
-		<dirname property="folder_name" file="${ear.path}" />
-		<echo message="Folder Path: ${folder_name}"/>
+		<dirname property="folder_path" file="${ear.path}" />
+		<echo message="Folder Path: ${folder_path}"/>
 		<first id="profile.path">
 			<fileset dir="${folder_name}" includes="**/${application.name}-${env.name}.xml" />
 		</first>

@@ -31,7 +31,7 @@
 		<echo message="EAR File: ${toString:ear.path}"/>
 		
 		<!-- Find Profile file -->
-		<dirset id="folder.path" dir="../../../jobs/" includes="**/${application.version}" />
+		<dirset id="folder.path" dir="../../../jobs/" includes="**/${application.name}/builds/${application.version}" />
 	    <pathconvert pathsep="${line.separator}" property="dir.name" refid="folder.path"> 
 			<mapper type="identity" />
 	    </pathconvert>	

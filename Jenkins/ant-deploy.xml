@@ -35,9 +35,9 @@
 			<dirset dir="../../../jobs/" includes="builds/${application.version}" />
 		</first>	
 		<!-- <dirname property="folder_path" file="${toString:ear.path}" /> -->
-		<echo message="Folder Path: ${toString:folder_path}"/>
+		<echo message="Folder Path: ${folder_path}"/>
 		<first id="profile.path">
-			<fileset dir="${toString:folder_path}/../../../../Jenkins/ServiceProfiles/" includes="**/${application.name}-${env.name}.xml" />
+			<fileset dir="${folder_path}/../../../../Jenkins/ServiceProfiles/" includes="**/${application.name}-${env.name}.xml" />
 		</first>
 		<echo message="Profile File: ${toString:profile.path}"/>
 

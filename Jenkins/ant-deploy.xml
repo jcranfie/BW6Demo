@@ -31,14 +31,12 @@
 		<echo message="EAR File: ${toString:ear.path}"/>
 		
 		<!-- Find Profile file -->
-		<dirset id="folder.path" dir="../../../jobs/" includes="builds/${application.version}" />
-	    <pathconvert pathsep="${line.separator}"
-	             property="dir.name" 
-	             refid="folder.path">
-	        <mapper type="identity" />
+		<dirset id="folder.path" dir="../../../jobs/" includes="${application.version}" />
+	    <pathconvert pathsep="${line.separator}" property="dir.name" refid="folder.path"> 
+			<mapper type="identity" />
 	    </pathconvert>	
 		<!-- <dirname property="folder_path" file="${toString:ear.path}" /> -->
-		<echo message="Folder Path: ${dir.name}"/>
+		<echo message="Folder Dir: ${dir.name}"/>
 		<first id="profile.path">
 			<fileset dir="${dir.name}/../../../../Jenkins/ServiceProfiles/" includes="**/${application.name}-${env.name}.xml" />
 		</first>

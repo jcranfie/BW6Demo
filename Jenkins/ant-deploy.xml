@@ -24,18 +24,20 @@
 		<echo message="Uploads, Deploys and Starts one BW application..."/>
 		<echo message=""/>
 
-		<!-- Find EAR file -->
-		<first id="ear.path">
-			<fileset dir="../../../jobs/" includes="**/${application.name}*_1.0.${application.version}.ear" />
-		</first>
-		<echo message="EAR File: ${toString:ear.path}"/>
-		
-		<!-- Find Profile file -->
+		<!-- Find the archieve root -->
 		<dirset id="folder.path" dir="../../../jobs/" includes="**/${application.name}/builds/${application.version}" />
 	    <pathconvert pathsep="${line.separator}" property="dir.name" refid="folder.path"> 
 			<mapper type="identity" />
 	    </pathconvert>	
-		<echo message="Folder Directory: ${dir.name}"/>
+		<echo message="Archieve Root Directory: ${dir.name}"/>
+
+		<!-- Find EAR file -->
+		<first id="ear.path">
+			<fileset dir="${dir.name}" includes="**/${application.name}*_1.0.${application.version}.ear" />
+		</first>
+		<echo message="EAR File: ${toString:ear.path}"/>
+		
+		<!-- Find Profile file -->
 		<first id="profile.path">
 			<fileset dir="${dir.name}" includes="**/${application.name}-${env.name}.xml" />
 		</first>
